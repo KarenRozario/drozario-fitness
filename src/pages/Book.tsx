@@ -1,19 +1,18 @@
 import React from 'react';
 import { siteConfig, BOOKING_URL } from '../config/site';
 import { SEO } from '../components/shared/SEO';
-import { Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Book: React.FC = () => {
   return (
-    <div className="bg-white text-zinc-900">
+    <div className="bg-[#FAF7F2] text-[#1A1714]">
       <SEO
         title="Book a Session | Stoney Creek Women's Fitness Coaching"
         description="Book your 1-on-1 women's fitness consultation or training session with Rachel D'Rozario in Stoney Creek, Ontario."
       />
 
-      {/* Hero Banner - Covers 70vh */}
-      <section className="relative min-h-[70vh] flex items-center bg-black overflow-hidden">
+      {/* Hero Banner - Editorial Magazine Header */}
+      <section className="relative min-h-[65vh] flex items-end pb-20 bg-[#1A1714] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-women-fitness.jpg"
@@ -21,18 +20,18 @@ export const Book: React.FC = () => {
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-          <div className="max-w-3xl text-left">
-            <span className="text-xs uppercase tracking-[0.25em] text-zinc-300 font-mono block mb-3">
-              Direct Scheduling
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-3xl">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#FAF7F2]/90 block mb-3">
+              DIRECT SCHEDULING · STONEY CREEK
             </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white mb-4">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-[#FAF7F2] tracking-tight leading-[1.05] mb-4">
               Book a Session
             </h1>
-            <p className="text-lg sm:text-2xl text-zinc-200 font-light max-w-2xl leading-relaxed">
+            <p className="text-lg sm:text-xl text-[#FAF7F2]/90 font-light max-w-[65ch] leading-[1.7]">
               1-on-1 private coaching and small group women's fitness with Rachel D'Rozario in Stoney Creek.
             </p>
           </div>
@@ -40,71 +39,71 @@ export const Book: React.FC = () => {
       </section>
 
       {/* Booking Box */}
-      <section className="py-24 bg-white">
+      <section className="py-28 lg:py-36 bg-[#FAF7F2]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-zinc-50 p-8 sm:p-14 rounded-3xl border border-zinc-200 text-center space-y-8 shadow-sm">
-            <div className="w-16 h-16 rounded-full bg-black text-white flex items-center justify-center mx-auto">
-              <Calendar className="w-8 h-8" />
-            </div>
+          <div className="bg-[#F2ECE3] p-8 sm:p-16 border border-[#1A1714]/15 text-center space-y-8 shadow-sm">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#B4532A] block font-medium">
+              RESERVE YOUR APPOINTMENT
+            </span>
 
-            <div className="space-y-3">
-              <h2 className="text-3xl sm:text-4xl font-light text-zinc-900 tracking-tight">
-                Schedule Your Consultation or Session
+            <div className="space-y-4">
+              <h2 className="text-3xl sm:text-5xl font-serif text-[#1A1714] tracking-tight">
+                Schedule Your Session
               </h2>
-              <p className="text-base text-zinc-600 max-w-md mx-auto leading-relaxed font-light">
+              <p className="text-[17px] text-[#1A1714]/75 max-w-md mx-auto leading-[1.7] font-light">
                 Connect directly to our scheduling calendar to pick a time slot that matches your routine.
               </p>
             </div>
 
-            <div>
+            <div className="pt-2">
               <a
                 href={BOOKING_URL}
-                className="inline-block bg-black hover:bg-zinc-800 text-white px-10 py-4 rounded-lg text-base font-semibold transition-colors shadow-lg"
+                className="btn-editorial-primary text-xs py-4 px-10"
               >
                 Launch Scheduling Calendar Now
               </a>
             </div>
 
-            <p className="text-xs text-zinc-400 font-mono">
-              Target Booking Destination: <code className="text-black font-semibold">{BOOKING_URL}</code>
+            <p className="text-xs text-[#1A1714]/60 font-mono">
+              Target Booking Destination: <code className="text-[#1A1714] font-semibold">{BOOKING_URL}</code>
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-zinc-200 text-left">
-              <div className="p-5 bg-white rounded-xl border border-zinc-200 space-y-1">
-                <span className="text-xs font-semibold text-black block uppercase tracking-wider font-mono">
-                  1. Choose Date & Time
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-10 border-t border-[#1A1714]/15 text-left">
+              <div className="p-6 bg-[#FAF7F2] border border-[#1A1714]/15 space-y-2">
+                <span className="text-xs font-serif text-[#1A1714] block">
+                  01. Choose Date & Time
                 </span>
-                <p className="text-xs text-zinc-600">
+                <p className="text-xs text-[#1A1714]/70 font-light leading-relaxed">
                   Select available morning, afternoon, or evening appointment slots.
                 </p>
               </div>
 
-              <div className="p-5 bg-white rounded-xl border border-zinc-200 space-y-1">
-                <span className="text-xs font-semibold text-black block uppercase tracking-wider font-mono">
-                  2. Intake Form
+              <div className="p-6 bg-[#FAF7F2] border border-[#1A1714]/15 space-y-2">
+                <span className="text-xs font-serif text-[#1A1714] block">
+                  02. Confidential Intake
                 </span>
-                <p className="text-xs text-zinc-600">
+                <p className="text-xs text-[#1A1714]/70 font-light leading-relaxed">
                   Share your life stage, birth or health background, and personal strength goals.
                 </p>
               </div>
 
-              <div className="p-5 bg-white rounded-xl border border-zinc-200 space-y-1">
-                <span className="text-xs font-semibold text-black block uppercase tracking-wider font-mono">
-                  3. Meet Rachel 1-on-1
+              <div className="p-6 bg-[#FAF7F2] border border-[#1A1714]/15 space-y-2">
+                <span className="text-xs font-serif text-[#1A1714] block">
+                  03. Meet Rachel 1-on-1
                 </span>
-                <p className="text-xs text-zinc-600">
+                <p className="text-xs text-[#1A1714]/70 font-light leading-relaxed">
                   Personal consultation and movement blueprint tailored to your life stage in Stoney Creek.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="mt-12 text-center text-xs text-zinc-500 space-y-2">
+          <div className="mt-14 text-center text-xs text-[#1A1714]/70 space-y-2 font-mono">
             <p>
               Prefer to book via phone or email? Call {siteConfig.phone} or email {siteConfig.email}.
             </p>
             <p>
-              <Link to="/contact" className="text-black hover:underline font-semibold">
+              <Link to="/contact" className="text-[#B4532A] hover:underline uppercase tracking-wider font-semibold">
                 Visit our Contact page →
               </Link>
             </p>

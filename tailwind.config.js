@@ -7,45 +7,31 @@ export default {
   theme: {
     extend: {
       colors: {
-        espresso: {
-          DEFAULT: '#140D0B',
-          surface: '#1A1412',
-          card: '#221B18',
-          border: '#3D2F2A',
+        ivory: {
+          DEFAULT: '#FAF7F2',
+          light: '#FFFDF9',
         },
-        slateHeader: {
-          DEFAULT: '#1E242B',
-          dark: '#161B20',
-          border: '#2E3742',
+        sand: {
+          DEFAULT: '#F2ECE3',
+          dark: '#E7DFD4',
         },
-        inspoBlue: {
-          DEFAULT: '#3B6B96',
-          dark: '#2A4E70',
-          light: '#5B8AB8',
-          subtle: '#EBF2F7',
+        ink: {
+          DEFAULT: '#1A1714',
+          muted: '#4A4540',
+          subtle: '#78716A',
+          faint: 'rgba(26, 23, 20, 0.15)',
         },
-        burntOrange: {
-          DEFAULT: '#E07A2E',
-          hover: '#EE883D',
-          active: '#C7631E',
-          subtle: 'rgba(224, 122, 46, 0.12)',
-          border: 'rgba(224, 122, 46, 0.35)',
-        },
-        cream: {
-          DEFAULT: '#F5EDE3',
-          muted: '#D6C8B8',
-          dark: '#8C7E72',
-        },
-        neutralText: {
-          heading: '#1E293B',
-          body: '#475569',
-          muted: '#64748B',
-          light: '#94A3B8',
+        terracotta: {
+          DEFAULT: '#B4532A',
+          hover: '#9A421D',
+          light: '#F8EFEA',
+          subtle: 'rgba(180, 83, 42, 0.12)',
         },
       },
       fontFamily: {
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'monospace'],
       },
     },
   },

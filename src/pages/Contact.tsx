@@ -33,14 +33,14 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="bg-white text-zinc-900">
+    <div className="bg-[#FAF7F2] text-[#1A1714]">
       <SEO
         title="Contact Us | D'Rozario Fitness Stoney Creek"
         description="Contact Rachel D'Rozario at D'Rozario Fitness in Stoney Creek, Ontario. Let us help you get started with women's fitness coaching today."
       />
 
-      {/* Hero Banner - Covers 70vh */}
-      <section className="relative min-h-[70vh] flex items-center bg-black overflow-hidden">
+      {/* Hero Banner - Editorial Magazine Header */}
+      <section className="relative min-h-[65vh] flex items-end pb-20 bg-[#1A1714] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/contact-hero.jpg"
@@ -48,18 +48,18 @@ export const Contact: React.FC = () => {
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-          <div className="max-w-3xl text-left">
-            <span className="text-xs uppercase tracking-[0.25em] text-zinc-300 font-mono block mb-3">
-              Get In Touch
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-3xl">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#FAF7F2]/90 block mb-3">
+              GET IN TOUCH · STONEY CREEK
             </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white mb-4">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-[#FAF7F2] tracking-tight leading-[1.05] mb-4">
               Contact Us
             </h1>
-            <p className="text-lg sm:text-2xl text-zinc-200 font-light max-w-2xl leading-relaxed">
+            <p className="text-lg sm:text-xl text-[#FAF7F2]/90 font-light max-w-[65ch] leading-[1.7]">
               Let us help you get started with your life-stage movement and fitness goals in Stoney Creek today.
             </p>
           </div>
@@ -67,33 +67,33 @@ export const Contact: React.FC = () => {
       </section>
 
       {/* Contact Form & Studio Info */}
-      <section className="py-24 bg-white">
+      <section className="py-28 lg:py-36 bg-[#FAF7F2]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2 font-mono">
-              Direct Inquiries
+          <div className="text-center mb-16">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#B4532A] block mb-2 font-medium">
+              DIRECT INQUIRIES
             </span>
-            <h2 className="text-3xl sm:text-5xl font-light text-zinc-900 tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif text-[#1A1714] tracking-tight">
               Send Rachel A Message
             </h2>
           </div>
 
           {submitted ? (
-            <div className="bg-zinc-50 border border-zinc-200 p-10 rounded-3xl text-center space-y-4 max-w-2xl mx-auto">
-              <CheckCircle2 className="w-12 h-12 text-black mx-auto" />
-              <h3 className="text-2xl font-light text-zinc-900">
+            <div className="bg-[#F2ECE3] border border-[#1A1714]/15 p-12 text-center space-y-4 max-w-2xl mx-auto">
+              <CheckCircle2 className="w-12 h-12 text-[#B4532A] mx-auto" />
+              <h3 className="text-3xl font-serif text-[#1A1714]">
                 Message Sent Successfully
               </h3>
-              <p className="text-sm text-zinc-600 max-w-md mx-auto leading-relaxed">
+              <p className="text-[15px] text-[#1A1714]/80 max-w-md mx-auto leading-relaxed font-light">
                 Thank you, {formData.firstName}. Rachel has received your message and will be in touch directly within one business day.
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6 max-w-3xl mx-auto bg-zinc-50 p-8 sm:p-12 rounded-3xl border border-zinc-200">
+            <form onSubmit={handleSubmit} className="space-y-6 max-w-3xl mx-auto bg-[#F2ECE3] p-8 sm:p-14 border border-[#1A1714]/15">
               {/* First Name & Last Name */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="contact-first-name" className="block text-xs font-semibold uppercase tracking-wider text-zinc-700 mb-2 font-mono">
+                  <label htmlFor="contact-first-name" className="block text-[11px] font-mono uppercase tracking-[0.15em] text-[#1A1714]/70 mb-2 font-medium">
                     First Name*
                   </label>
                   <input
@@ -102,11 +102,11 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    className="w-full bg-white border border-zinc-300 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:border-black transition-colors"
+                    className="w-full bg-[#FAF7F2] border border-[#1A1714]/20 px-4 py-3 text-sm text-[#1A1714] focus:outline-none focus:border-[#1A1714] transition-colors"
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-last-name" className="block text-xs font-semibold uppercase tracking-wider text-zinc-700 mb-2 font-mono">
+                  <label htmlFor="contact-last-name" className="block text-[11px] font-mono uppercase tracking-[0.15em] text-[#1A1714]/70 mb-2 font-medium">
                     Last Name*
                   </label>
                   <input
@@ -115,7 +115,7 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    className="w-full bg-white border border-zinc-300 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:border-black transition-colors"
+                    className="w-full bg-[#FAF7F2] border border-[#1A1714]/20 px-4 py-3 text-sm text-[#1A1714] focus:outline-none focus:border-[#1A1714] transition-colors"
                   />
                 </div>
               </div>
@@ -123,8 +123,8 @@ export const Contact: React.FC = () => {
               {/* Email & Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="contact-email-input" className="block text-xs font-semibold uppercase tracking-wider text-zinc-700 mb-2 font-mono">
-                    Email*
+                  <label htmlFor="contact-email-input" className="block text-[11px] font-mono uppercase tracking-[0.15em] text-[#1A1714]/70 mb-2 font-medium">
+                    Email Address*
                   </label>
                   <input
                     id="contact-email-input"
@@ -132,12 +132,12 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-white border border-zinc-300 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:border-black transition-colors"
+                    className="w-full bg-[#FAF7F2] border border-[#1A1714]/20 px-4 py-3 text-sm text-[#1A1714] focus:outline-none focus:border-[#1A1714] transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="contact-phone-input" className="block text-xs font-semibold uppercase tracking-wider text-zinc-700 mb-2 font-mono">
+                  <label htmlFor="contact-phone-input" className="block text-[11px] font-mono uppercase tracking-[0.15em] text-[#1A1714]/70 mb-2 font-medium">
                     Phone Number*
                   </label>
                   <input
@@ -146,21 +146,21 @@ export const Contact: React.FC = () => {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-white border border-zinc-300 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:border-black transition-colors"
+                    className="w-full bg-[#FAF7F2] border border-[#1A1714]/20 px-4 py-3 text-sm text-[#1A1714] focus:outline-none focus:border-[#1A1714] transition-colors"
                   />
                 </div>
               </div>
 
               {/* Location Select */}
               <div>
-                <label htmlFor="contact-location-select" className="block text-xs font-semibold uppercase tracking-wider text-zinc-700 mb-2 font-mono">
-                  Location*
+                <label htmlFor="contact-location-select" className="block text-[11px] font-mono uppercase tracking-[0.15em] text-[#1A1714]/70 mb-2 font-medium">
+                  Studio Location*
                 </label>
                 <select
                   id="contact-location-select"
                   value={formData.location}
                   onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                  className="w-full bg-white border border-zinc-300 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:border-black transition-colors"
+                  className="w-full bg-[#FAF7F2] border border-[#1A1714]/20 px-4 py-3 text-sm text-[#1A1714] focus:outline-none focus:border-[#1A1714] transition-colors"
                 >
                   <option value="Stoney Creek Studio">Stoney Creek Studio ({siteConfig.address})</option>
                 </select>
@@ -168,10 +168,10 @@ export const Contact: React.FC = () => {
 
               {/* "I am interested in*" Checkboxes */}
               <div>
-                <span className="block text-xs font-semibold uppercase tracking-wider text-zinc-700 mb-2 font-mono">
+                <span className="block text-[11px] font-mono uppercase tracking-[0.15em] text-[#1A1714]/70 mb-2 font-medium">
                   I am interested in*
                 </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-zinc-700 pt-1">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-[#1A1714]/80 pt-1">
                   {[
                     "Prenatal Fitness Coaching",
                     "Postnatal Fitness & Core Reconnection",
@@ -180,14 +180,14 @@ export const Contact: React.FC = () => {
                     "Mom Group & Community Classes",
                     "General Life Stage Consultation",
                   ].map((item) => (
-                    <label key={item} className="flex items-center gap-2.5 cursor-pointer p-2 rounded hover:bg-white transition-colors">
+                    <label key={item} className="flex items-center gap-3 cursor-pointer p-2 hover:bg-[#FAF7F2] transition-colors">
                       <input
                         type="checkbox"
                         checked={formData.interest.includes(item)}
                         onChange={() => toggleInterest(item)}
-                        className="rounded border-zinc-300 text-black focus:ring-black w-4 h-4"
+                        className="rounded-none border-[#1A1714]/30 text-[#1A1714] focus:ring-[#B4532A] w-4 h-4"
                       />
-                      <span className="text-xs sm:text-sm">{item}</span>
+                      <span className="text-xs sm:text-sm font-light">{item}</span>
                     </label>
                   ))}
                 </div>
@@ -195,8 +195,8 @@ export const Contact: React.FC = () => {
 
               {/* Message */}
               <div>
-                <label htmlFor="contact-msg-input" className="block text-xs font-semibold uppercase tracking-wider text-zinc-700 mb-2 font-mono">
-                  Message*
+                <label htmlFor="contact-msg-input" className="block text-[11px] font-mono uppercase tracking-[0.15em] text-[#1A1714]/70 mb-2 font-medium">
+                  Message / Movement Goals*
                 </label>
                 <textarea
                   id="contact-msg-input"
@@ -205,16 +205,16 @@ export const Contact: React.FC = () => {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell Rachel about your fitness goals, your life stage, or any questions..."
-                  className="w-full bg-white border border-zinc-300 rounded-lg px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:border-black transition-colors"
+                  className="w-full bg-[#FAF7F2] border border-[#1A1714]/20 px-4 py-3 text-sm text-[#1A1714] focus:outline-none focus:border-[#1A1714] transition-colors"
                 />
               </div>
 
               {/* Consent Radios */}
               <div>
-                <span className="block text-xs font-semibold uppercase tracking-wider text-zinc-700 mb-2 font-mono">
-                  Consent*
+                <span className="block text-[11px] font-mono uppercase tracking-[0.15em] text-[#1A1714]/70 mb-2 font-medium">
+                  Communication Consent*
                 </span>
-                <div className="space-y-2 text-xs text-zinc-600">
+                <div className="space-y-2 text-xs text-[#1A1714]/75 font-light">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
                       type="radio"
@@ -222,9 +222,9 @@ export const Contact: React.FC = () => {
                       value="yes"
                       checked={formData.consent === 'yes'}
                       onChange={(e) => setFormData({ ...formData, consent: e.target.value })}
-                      className="text-black focus:ring-black"
+                      className="text-[#1A1714] focus:ring-[#B4532A]"
                     />
-                    <span>I want to receive emails about gym news, promotions, and health living tips.</span>
+                    <span>I want to receive emails about studio news, workshops, and movement guides.</span>
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
@@ -233,9 +233,9 @@ export const Contact: React.FC = () => {
                       value="no"
                       checked={formData.consent === 'no'}
                       onChange={(e) => setFormData({ ...formData, consent: e.target.value })}
-                      className="text-black focus:ring-black"
+                      className="text-[#1A1714] focus:ring-[#B4532A]"
                     />
-                    <span>I do not wish to receive information other than a response to my request above.</span>
+                    <span>I only wish to receive a direct response regarding this inquiry.</span>
                   </label>
                 </div>
               </div>
@@ -244,7 +244,7 @@ export const Contact: React.FC = () => {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="bg-black hover:bg-zinc-800 text-white px-9 py-3.5 rounded-lg text-sm font-semibold transition-colors shadow-md w-full sm:w-auto"
+                  className="btn-editorial-primary w-full sm:w-auto"
                 >
                   Submit Inquiry
                 </button>
@@ -253,21 +253,24 @@ export const Contact: React.FC = () => {
           )}
 
           {/* Location Block at bottom */}
-          <div className="mt-20 pt-12 border-t border-zinc-200">
-            <h3 className="text-2xl font-light text-zinc-900 mb-4 tracking-tight">
+          <div className="mt-24 pt-12 border-t border-[#1A1714]/15">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#B4532A] block mb-2 font-medium">
+              HEADQUARTERS
+            </span>
+            <h3 className="text-2xl font-serif text-[#1A1714] mb-6 tracking-tight">
               Stoney Creek Studio
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-zinc-600">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-black shrink-0 mt-0.5" />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm text-[#1A1714]/75 font-light">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-[#B4532A] shrink-0 mt-0.5" />
                 <span>{siteConfig.address}, {siteConfig.city}, {siteConfig.province} {siteConfig.postalCode}</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-black shrink-0" />
+              <div className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-[#B4532A] shrink-0" />
                 <span>{siteConfig.phone}</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-black shrink-0" />
+              <div className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-[#B4532A] shrink-0" />
                 <span>{siteConfig.email}</span>
               </div>
             </div>

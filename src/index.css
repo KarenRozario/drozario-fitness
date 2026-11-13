@@ -1,4 +1,10 @@
 @import "@fontsource/inter/index.css";
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/400-italic.css";
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/playfair-display/500-italic.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
 
 @tailwind base;
 @tailwind components;
@@ -6,9 +12,11 @@
 
 @layer base {
   body {
-    background-color: #FFFFFF;
-    color: #334155;
+    background-color: #FAF7F2;
+    color: #1A1714;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -20,21 +28,125 @@
   select:focus-visible,
   [tabindex]:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #E07A2E;
+    box-shadow: 0 0 0 2px #FAF7F2, 0 0 0 4px #B4532A;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.02em;
+    color: #1A1714;
+  }
+}
+
+/* Editorial Drop Cap */
+.drop-cap::first-letter {
+  float: left;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 4.75rem;
+  line-height: 0.82;
+  padding-top: 0.2rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.15rem;
+  color: #1A1714;
+  font-weight: 500;
+}
+
+/* Editorial Buttons with square corners & small-caps */
+.btn-editorial-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #1A1714;
+  color: #FAF7F2;
+  border: 1px solid #1A1714;
+  border-radius: 0px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.875rem 1.75rem;
+  transition: all 0.25s ease;
+}
+
+.btn-editorial-primary:hover {
+  background-color: #B4532A;
+  border-color: #B4532A;
+  color: #FAF7F2;
+}
+
+.btn-editorial-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: #1A1714;
+  border: 1px solid #1A1714;
+  border-radius: 0px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.875rem 1.75rem;
+  transition: all 0.25s ease;
+}
+
+.btn-editorial-outline:hover {
+  background-color: #1A1714;
+  color: #FAF7F2;
+}
+
+.btn-editorial-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: #FAF7F2;
+  border: 1px solid rgba(250, 247, 242, 0.85);
+  border-radius: 0px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.875rem 1.75rem;
+  transition: all 0.25s ease;
+}
+
+.btn-editorial-outline-white:hover {
+  background-color: #FAF7F2;
+  color: #1A1714;
+}
+
+/* Hairline border helper */
+.hairline-rule {
+  border-color: rgba(26, 23, 20, 0.15);
+}
+
+/* Kicker label */
+.kicker-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #FAF7F2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #94A3B8;
-  border-radius: 4px;
+  background: #D5CEBE;
+  border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E07A2E;
+  background: #B4532A;
 }

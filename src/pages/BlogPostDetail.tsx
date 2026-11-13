@@ -13,25 +13,25 @@ export const BlogPostDetail: React.FC = () => {
   }
 
   return (
-    <div className="bg-white text-zinc-900">
+    <div className="bg-[#FAF7F2] text-[#1A1714]">
       <SEO
         title={`${post.title}`}
         description={post.excerpt}
       />
 
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="mb-8">
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+        <div className="mb-10">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-zinc-600 hover:text-black transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-[#1A1714]/60 hover:text-[#B4532A] transition-colors border-b border-[#1A1714]/20 pb-1"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Learn Library</span>
           </Link>
         </div>
 
-        <div className="space-y-4 mb-10">
-          <div className="flex items-center gap-2 text-xs text-zinc-400 font-mono uppercase">
+        <div className="space-y-4 mb-12">
+          <div className="flex items-center gap-3 text-xs text-[#B4532A] font-mono uppercase tracking-[0.2em]">
             <span>{post.category}</span>
             <span>·</span>
             <span className="flex items-center gap-1">
@@ -39,41 +39,47 @@ export const BlogPostDetail: React.FC = () => {
               {post.readTime}
             </span>
             <span>·</span>
-            <span className="text-black font-semibold">{post.status}</span>
+            <span className="text-[#1A1714]/60 font-medium">{post.status}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-light text-zinc-900 leading-tight tracking-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif text-[#1A1714] leading-tight tracking-tight">
             {post.title}
           </h1>
 
-          <p className="text-sm text-zinc-500 font-light">
+          <p className="text-xs font-mono uppercase tracking-[0.15em] text-[#1A1714]/60 pt-2">
             By {post.author} · Women's Fitness Coach & Founder, D'Rozario Fitness
           </p>
         </div>
 
         {/* Featured Image */}
-        <div className="rounded-3xl overflow-hidden shadow-2xl mb-12 border border-zinc-200 bg-zinc-950">
+        <div className="aspect-[16/9] w-full overflow-hidden border border-[#1A1714]/15 mb-14 bg-[#F2ECE3]">
           <img
             src={post.image}
             alt={post.title}
-            className="w-full h-96 sm:h-[460px] object-cover object-center"
+            className="w-full h-full object-cover object-center"
             loading="eager"
           />
         </div>
 
-        {/* Post Content */}
-        <div className="prose max-w-none text-zinc-600 text-base sm:text-lg leading-relaxed space-y-6">
-          <p className="text-xl text-zinc-900 font-normal leading-relaxed border-l-4 border-black pl-5 italic">
+        {/* Editorial Pull Excerpt */}
+        <div className="p-8 sm:p-10 bg-[#F2ECE3] border-l-2 border-[#1A1714] mb-12">
+          <p className="font-serif italic text-xl sm:text-2xl text-[#1A1714] leading-relaxed font-normal">
             {post.excerpt}
           </p>
+        </div>
 
+        {/* Post Content With Drop Cap On First Paragraph */}
+        <div className="text-[#1A1714]/85 text-[17px] leading-[1.7] space-y-8">
           {post.sections.map((sec, idx) => (
-            <div key={idx} className="space-y-3 pt-6">
-              <h2 className="text-2xl sm:text-3xl font-light text-zinc-900">
+            <div key={idx} className="space-y-4 pt-4">
+              <h2 className="text-2xl sm:text-3xl font-serif text-[#1A1714] pt-4">
                 {sec.heading}
               </h2>
               {sec.body.map((p, pIdx) => (
-                <p key={pIdx} className="text-base text-zinc-600 leading-relaxed font-light">
+                <p
+                  key={pIdx}
+                  className={`${idx === 0 && pIdx === 0 ? 'drop-cap' : ''} text-[#1A1714]/80 leading-[1.7] font-light max-w-[65ch]`}
+                >
                   {p}
                 </p>
               ))}
@@ -81,18 +87,21 @@ export const BlogPostDetail: React.FC = () => {
           ))}
         </div>
 
-        {/* CTA Box */}
-        <div className="mt-16 p-10 rounded-3xl bg-zinc-950 text-white border border-zinc-800 text-center space-y-4">
-          <h3 className="text-2xl sm:text-3xl font-light tracking-tight">
-            Ready to Build Strength in Stoney Creek?
+        {/* Editorial CTA Box */}
+        <div className="mt-20 p-10 sm:p-14 bg-[#1A1714] text-[#FAF7F2] border border-[#1A1714] text-center space-y-4 shadow-xl">
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#FAF7F2]/60 block">
+            PERSONAL TRAINING IN STONEY CREEK
+          </span>
+          <h3 className="text-2xl sm:text-4xl font-serif text-[#FAF7F2] tracking-tight">
+            Ready to Build Strength Through Every Stage?
           </h3>
-          <p className="text-sm text-zinc-300 max-w-md mx-auto font-light">
+          <p className="text-[15px] text-[#FAF7F2]/75 max-w-md mx-auto font-light leading-relaxed">
             Book your 1-on-1 consultation or small group session directly with Rachel D'Rozario.
           </p>
-          <div className="pt-2">
+          <div className="pt-4">
             <a
               href={BOOKING_URL}
-              className="inline-block bg-white hover:bg-zinc-200 text-black px-8 py-3.5 rounded text-sm font-semibold transition-colors shadow-md"
+              className="inline-block bg-[#FAF7F2] hover:bg-[#B4532A] hover:text-[#FAF7F2] text-[#1A1714] px-8 py-3.5 text-xs uppercase tracking-[0.2em] font-medium transition-colors"
             >
               Book a Session
             </a>

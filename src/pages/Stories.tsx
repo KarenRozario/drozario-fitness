@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { siteConfig, BOOKING_URL } from '../config/site';
 import { SEO } from '../components/shared/SEO';
-import { Shield, Activity } from 'lucide-react';
+import { Shield } from 'lucide-react';
 
 export const Stories: React.FC = () => {
   const { clientStoriesPlaceholder } = siteConfig;
@@ -9,14 +9,14 @@ export const Stories: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div className="bg-white text-zinc-900">
+    <div className="bg-[#FAF7F2] text-[#1A1714]">
       <SEO
         title="Client Stories | Women's Fitness Journeys Stoney Creek"
         description="Structured movement case studies and client journeys at D'Rozario Fitness in Stoney Creek. Documenting objective functional outcomes and maternal strength."
       />
 
-      {/* Hero Banner - Covers 70vh */}
-      <section className="relative min-h-[70vh] flex items-center bg-black overflow-hidden">
+      {/* Hero Banner - Editorial Magazine Header */}
+      <section className="relative min-h-[65vh] flex items-end pb-20 bg-[#1A1714] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/stories-hero.jpg"
@@ -24,75 +24,75 @@ export const Stories: React.FC = () => {
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-          <div className="max-w-3xl text-left">
-            <span className="text-xs uppercase tracking-[0.25em] text-zinc-300 font-mono block mb-3">
-              Verified Progress
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-3xl">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#FAF7F2]/90 block mb-3">
+              VERIFIED OUTCOMES · STONEY CREEK
             </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white mb-4">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-[#FAF7F2] tracking-tight leading-[1.05] mb-4">
               Client Stories
             </h1>
-            <p className="text-lg sm:text-2xl text-zinc-200 font-light max-w-2xl leading-relaxed">
+            <p className="text-lg sm:text-xl text-[#FAF7F2]/90 font-light max-w-[65ch] leading-[1.7]">
               Every day, Rachel helps our Stoney Creek women feel stronger, more confident, and energised through every season of life.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Transparency Banner */}
-      <section className="py-4 bg-zinc-950 text-xs text-zinc-400 border-b border-zinc-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2">
-          <Shield className="w-4 h-4 text-white shrink-0" />
+      {/* Transparency Banner Between Hairline Rules */}
+      <section className="py-4 bg-[#F2ECE3] text-xs text-[#1A1714]/80 border-b border-[#1A1714]/15">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2.5 font-mono">
+          <Shield className="w-4 h-4 text-[#B4532A] shrink-0" />
           <span>
-            <strong className="text-white">Verification Standard:</strong> D'Rozario Fitness documents verified functional outcomes (strength progress, core connection, daily stamina). We do not invent reviews or ratings.
+            <strong className="text-[#1A1714]">Verification Standard:</strong> D'Rozario Fitness documents verified functional outcomes (strength progress, core connection, daily stamina). We do not invent reviews or ratings.
           </span>
         </div>
       </section>
 
-      {/* Case Studies */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      {/* Case Studies - Editorial Grid */}
+      <section className="py-28 lg:py-36 bg-[#FAF7F2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2 font-mono">
-              Empowerment Framework
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#B4532A] block mb-2 font-medium">
+              METHODICAL TRACKING
             </span>
-            <h2 className="text-3xl sm:text-5xl font-light text-zinc-900 mb-3 tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif text-[#1A1714] mb-4 tracking-tight">
               How We Document & Support Progress
             </h2>
-            <p className="text-zinc-600 text-sm sm:text-base leading-relaxed font-light">
+            <p className="text-[#1A1714]/75 text-[17px] leading-[1.7] font-light">
               Every woman follows a thoughtful, personalised trajectory from baseline consultation through progressive functional strength.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {clientStoriesPlaceholder.placeholderCards.map((card) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {clientStoriesPlaceholder.placeholderCards.map((card, idx) => (
               <div
                 key={card.id}
-                className="bg-zinc-50 rounded-2xl border border-zinc-200 p-8 shadow-sm hover:shadow-xl transition-all duration-300 space-y-5 flex flex-col justify-between"
+                className="bg-[#F2ECE3] border border-[#1A1714]/15 p-8 space-y-5 flex flex-col justify-between"
               >
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between text-xs text-zinc-400 font-mono">
-                    <span className="text-black font-semibold uppercase">{card.label}</span>
-                    <Activity className="w-4 h-4 text-zinc-700" />
+                  <div className="flex items-center justify-between text-xs text-[#1A1714]/60 font-mono">
+                    <span className="text-[#B4532A] font-semibold uppercase">{card.label}</span>
+                    <span>0{idx + 1}</span>
                   </div>
 
-                  <h3 className="text-xl font-light text-zinc-900">
+                  <h3 className="text-2xl font-serif text-[#1A1714]">
                     {card.category}
                   </h3>
 
-                  <div className="text-xs text-zinc-500 font-mono">
+                  <div className="text-xs text-[#1A1714]/60 font-mono">
                     {card.demographic} · {card.timeline}
                   </div>
 
-                  <p className="text-xs text-zinc-700 bg-white p-4 rounded-xl border border-zinc-200 font-mono">
+                  <div className="text-xs text-[#1A1714]/85 bg-[#FAF7F2] p-4 border border-[#1A1714]/15 font-mono">
                     <strong>Milestone:</strong> {card.metricsPlaceholder}
-                  </p>
+                  </div>
                 </div>
 
-                <p className="text-xs text-zinc-400 italic pt-3 border-t border-zinc-200">
+                <p className="text-[11px] font-mono text-[#1A1714]/50 italic pt-4 border-t border-[#1A1714]/15">
                   [Verified case study in progress. Full milestone summary will be published upon client consent.]
                 </p>
               </div>
@@ -102,7 +102,7 @@ export const Stories: React.FC = () => {
           <div className="pt-8 text-center">
             <a
               href={BOOKING_URL}
-              className="inline-block bg-black hover:bg-zinc-800 text-white px-8 py-3.5 rounded text-sm font-semibold transition-colors shadow-md"
+              className="btn-editorial-primary"
             >
               Start Your Own Movement Journey
             </a>
@@ -110,34 +110,34 @@ export const Stories: React.FC = () => {
         </div>
       </section>
 
-      {/* Community Newsletter Strip - 50/50 Split */}
-      <section className="py-24 bg-zinc-950 text-white border-t border-zinc-800">
+      {/* Community Newsletter Strip */}
+      <section className="py-24 sm:py-32 bg-[#F2ECE3] border-t border-[#1A1714]/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 relative">
-              <div className="w-full rounded-2xl overflow-hidden shadow-2xl bg-zinc-900 min-h-[400px]">
+              <div className="aspect-[4/3] w-full overflow-hidden border border-[#1A1714]/15 bg-[#FAF7F2]">
                 <img
                   src="/images/community-jump.jpg"
                   alt="Women's fitness community"
-                  className="w-full h-full object-cover object-center absolute inset-0"
+                  className="w-full h-full object-cover object-center"
                   loading="lazy"
                 />
               </div>
             </div>
 
             <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-semibold text-zinc-400 uppercase tracking-widest block font-mono">
-                Stay Informed
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#B4532A] block font-medium">
+                COMMUNITY UPDATES
               </span>
-              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight">
+              <h2 className="text-3xl sm:text-5xl font-serif text-[#1A1714] tracking-tight">
                 Join The Community
               </h2>
-              <p className="text-base text-zinc-300 leading-relaxed font-light">
+              <p className="text-[17px] text-[#1A1714]/75 leading-[1.7] font-light max-w-[65ch]">
                 Sign up for our Movement bulletin to receive women's fitness tips, mom group news, and life-stage updates in Stoney Creek.
               </p>
 
               {submitted ? (
-                <div className="p-4 bg-zinc-900 border border-white/20 rounded-xl text-white text-xs font-medium">
+                <div className="p-5 bg-[#FAF7F2] border border-[#1A1714]/20 text-[#1A1714] text-xs font-mono">
                   Thank you! You're subscribed to Rachel's community updates.
                 </div>
               ) : (
@@ -146,21 +146,21 @@ export const Stories: React.FC = () => {
                     e.preventDefault();
                     if (email) setSubmitted(true);
                   }}
-                  className="flex flex-col sm:flex-row gap-3 max-w-md"
+                  className="flex flex-col sm:flex-row gap-3 max-w-md pt-2"
                 >
                   <input
                     type="email"
                     required
-                    placeholder="Email address"
+                    placeholder="name@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 bg-zinc-900 border border-zinc-800 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-white transition-colors"
+                    className="flex-1 bg-[#FAF7F2] border border-[#1A1714]/20 px-4 py-3 text-sm text-[#1A1714] focus:outline-none focus:border-[#1A1714] transition-colors"
                   />
                   <button
                     type="submit"
-                    className="bg-white hover:bg-zinc-200 text-black px-6 py-3 rounded text-sm font-semibold transition-colors shrink-0"
+                    className="btn-editorial-primary shrink-0"
                   >
-                    Sign me up
+                    Subscribe
                   </button>
                 </form>
               )}

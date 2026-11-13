@@ -1,20 +1,19 @@
 import React from 'react';
 import { siteConfig, BOOKING_URL } from '../config/site';
 import { SEO } from '../components/shared/SEO';
-import { Users, Heart, Calendar } from 'lucide-react';
 
 export const Community: React.FC = () => {
   const { community } = siteConfig;
 
   return (
-    <div className="bg-white text-zinc-900">
+    <div className="bg-[#FAF7F2] text-[#1A1714]">
       <SEO
         title="Community & Mom Groups | D'Rozario Fitness Stoney Creek"
         description="Rachel D'Rozario works closely with Stoney Creek mommy networks and mom groups, hosting group fitness classes, stroller strength meetups, and workshops."
       />
 
-      {/* Hero Banner - Covers 70vh */}
-      <section className="relative min-h-[70vh] flex items-center bg-black overflow-hidden">
+      {/* Hero Banner - Editorial Header */}
+      <section className="relative min-h-[65vh] flex items-end pb-20 bg-[#1A1714] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/community-moms.jpg"
@@ -22,133 +21,136 @@ export const Community: React.FC = () => {
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-          <div className="max-w-3xl text-left">
-            <span className="text-xs uppercase tracking-[0.25em] text-zinc-300 font-mono block mb-3">
-              Stoney Creek Networks & Events
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-3xl">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#FAF7F2]/90 block mb-3">
+              MOMMY NETWORKS & WORKSHOPS · STONEY CREEK
             </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white mb-4">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-[#FAF7F2] tracking-tight leading-[1.05] mb-4">
               Community & Mom Groups
             </h1>
-            <p className="text-lg sm:text-2xl text-zinc-200 font-light max-w-2xl leading-relaxed">
+            <p className="text-lg sm:text-xl text-[#FAF7F2]/90 font-light max-w-[65ch] leading-[1.7]">
               Bringing women together through movement, postpartum support, and life-stage strength in Stoney Creek.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Intro Section - 50/50 Split Screen With Large Image */}
-      <section className="py-24 bg-white border-b border-zinc-200">
+      {/* Intro Section - Two-Image Asymmetric Photo Feature */}
+      <section className="py-28 lg:py-36 bg-[#FAF7F2] border-b border-[#1A1714]/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="space-y-6">
-              <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest block font-mono">
-                Our Movement Community
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left: Editorial Content */}
+            <div className="lg:col-span-6 space-y-6">
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#B4532A] block font-medium">
+                THE SISTERHOOD
               </span>
-              <h2 className="text-3xl sm:text-5xl font-light text-zinc-900 tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-5xl font-serif text-[#1A1714] tracking-tight leading-tight">
                 {community.title}
               </h2>
-              <p className="text-base text-zinc-600 leading-relaxed font-normal">
+              <p className="text-[17px] text-[#1A1714]/80 leading-[1.7] font-light max-w-[65ch]">
                 {community.description}
               </p>
               <div className="pt-2">
                 <a
                   href={BOOKING_URL}
-                  className="inline-block bg-black hover:bg-zinc-800 text-white px-7 py-3.5 rounded text-sm font-semibold transition-colors shadow-md"
+                  className="btn-editorial-primary"
                 >
                   Join a Community Session
                 </a>
               </div>
             </div>
 
-            {/* Right: Large Editorial Image (Covers Half The Screen) */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 min-h-[460px] sm:min-h-[540px] group">
-              <img
-                src="/images/community-moms.jpg"
-                alt="Mothers exercising together in community class"
-                className="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-105 transition-transform duration-700"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
-                <span className="text-xs uppercase tracking-widest text-zinc-300 font-mono mb-1">
-                  Mothers & Families First
-                </span>
-                <p className="text-base font-light text-white">
-                  Safe, progressive, community-driven strength training in Stoney Creek.
-                </p>
+            {/* Right: Asymmetric Two-Image Spread */}
+            <div className="lg:col-span-6 relative">
+              <div className="aspect-[4/3] w-full overflow-hidden border border-[#1A1714]/15 bg-[#F2ECE3] shadow-sm group">
+                <img
+                  src="/images/community-moms.jpg"
+                  alt="Mothers exercising together in community class"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+              </div>
+              <div className="hidden sm:block absolute -bottom-8 -left-6 w-1/2 aspect-[4/3] overflow-hidden border-4 border-[#FAF7F2] shadow-xl bg-[#F2ECE3]">
+                <img
+                  src="/images/studio-stoney-creek.jpg"
+                  alt="Stoney Creek studio"
+                  className="w-full h-full object-cover object-center"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-24 bg-zinc-50">
+      {/* Features Grid - Editorial Magazine Columns */}
+      <section className="py-28 lg:py-36 bg-[#F2ECE3] border-b border-[#1A1714]/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-24">
             {community.features.map((feature, idx) => (
               <div
                 key={idx}
-                className="bg-white p-8 rounded-2xl border border-zinc-200 shadow-sm space-y-4 hover:border-black transition-colors"
+                className="bg-[#FAF7F2] p-8 border border-[#1A1714]/15 space-y-3 flex flex-col justify-between"
               >
-                <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center">
-                  {idx === 0 && <Heart className="w-6 h-6 text-white" />}
-                  {idx === 1 && <Users className="w-6 h-6 text-white" />}
-                  {idx === 2 && <Calendar className="w-6 h-6 text-white" />}
+                <div>
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#B4532A] block mb-2 font-medium">
+                    0{idx + 1}
+                  </span>
+                  <h3 className="text-2xl font-serif text-[#1A1714] mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-[15px] text-[#1A1714]/75 leading-relaxed font-light">
+                    {feature.desc}
+                  </p>
                 </div>
-                <h3 className="text-xl font-medium text-zinc-900">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-zinc-600 leading-relaxed">
-                  {feature.desc}
-                </p>
               </div>
             ))}
           </div>
 
           {/* Collaborative Mom Groups & Partners */}
-          <div className="bg-white rounded-3xl p-8 sm:p-14 border border-zinc-200 shadow-md space-y-8">
+          <div className="bg-[#FAF7F2] p-10 sm:p-14 border border-[#1A1714]/15 space-y-10">
             <div className="max-w-2xl">
-              <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2 font-mono">
-                Local Collaborations
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#B4532A] block mb-2 font-medium">
+                COMMUNITY ALLIANCES
               </span>
-              <h3 className="text-2xl sm:text-4xl font-light text-zinc-900 tracking-tight">
+              <h3 className="text-3xl sm:text-4xl font-serif text-[#1A1714] tracking-tight">
                 Working with Mommy Networks
               </h3>
-              <p className="text-sm sm:text-base text-zinc-600 mt-2 font-light">
+              <p className="text-[17px] text-[#1A1714]/75 mt-3 leading-relaxed font-light">
                 Rachel hosts specialised workshops and partner classes with local community networks across Stoney Creek and Hamilton.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {community.partners.map((partner, pIdx) => (
                 <div
                   key={pIdx}
-                  className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 space-y-2 hover:border-black transition-colors"
+                  className="p-6 bg-[#F2ECE3] border-l-2 border-[#1A1714] space-y-2"
                 >
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 block">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#1A1714]/50 block">
                     {partner.role}
                   </span>
-                  <h4 className="text-base font-semibold text-zinc-900">
+                  <h4 className="text-lg font-serif text-[#1A1714]">
                     {partner.name}
                   </h4>
-                  <p className="text-xs text-zinc-600 leading-relaxed">
+                  <p className="text-xs text-[#1A1714]/70 leading-relaxed font-light">
                     {partner.focus}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div className="pt-6 border-t border-zinc-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <p className="text-xs text-zinc-500 max-w-xl">
-                Are you part of a local mom group, midwifery collective, or women's organization? Rachel welcomes community partnerships.
+            <div className="pt-8 border-t border-[#1A1714]/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <p className="text-xs text-[#1A1714]/65 max-w-xl font-light leading-relaxed">
+                Are you part of a local mom group, midwifery collective, or women's organization? Rachel welcomes collaborative community partnerships.
               </p>
               <a
                 href={BOOKING_URL}
-                className="bg-black hover:bg-zinc-800 text-white px-7 py-3 rounded text-sm font-semibold transition-colors shadow-md shrink-0"
+                className="btn-editorial-primary shrink-0"
               >
                 Inquire About Group Classes
               </a>

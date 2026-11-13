@@ -2,17 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../config/site';
 import { SEO } from '../components/shared/SEO';
+import { ArrowRight } from 'lucide-react';
 
 export const Programs: React.FC = () => {
   return (
-    <div className="bg-white text-zinc-900">
+    <div className="bg-[#FAF7F2] text-[#1A1714]">
       <SEO
         title="Women's Fitness Programs | Prenatal, Postnatal, Menopause & 50+"
         description="Explore specialised women's fitness coaching programs in Stoney Creek, Ontario: Prenatal Fitness, Postnatal Fitness, Perimenopause & Menopause, and Strong After 50."
       />
 
-      {/* Hero Banner - Covers 70vh */}
-      <section className="relative min-h-[70vh] flex items-center bg-black overflow-hidden">
+      {/* Hero Banner - Editorial Header */}
+      <section className="relative min-h-[65vh] flex items-end pb-20 bg-[#1A1714] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-women-fitness.jpg"
@@ -20,118 +21,116 @@ export const Programs: React.FC = () => {
             className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-3xl">
-            <span className="inline-block text-xs uppercase tracking-[0.25em] text-zinc-300 font-mono mb-3 bg-white/10 px-3.5 py-1 rounded-full border border-white/20">
-              Life-Stage Movement
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#FAF7F2]/90 block mb-3">
+              LIFE-STAGE MOVEMENT · STONEY CREEK
             </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white mb-4">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-[#FAF7F2] tracking-tight leading-[1.05] mb-4">
               Our Programs
             </h1>
-            <p className="text-lg sm:text-2xl text-zinc-200 font-light max-w-2xl leading-relaxed">
+            <p className="text-lg sm:text-xl text-[#FAF7F2]/90 font-light max-w-[65ch] leading-[1.7]">
               Coaching designed for women through pregnancy, motherhood, perimenopause, menopause, and lifelong strength.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Programs List - 50/50 Split Screen Sections (Images Cover Half The Page) */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28">
-          {siteConfig.programs.map((program, index) => (
-            <div
-              key={program.slug}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
-            >
-              {/* Image side - Covers 50% of the screen */}
+      {/* Programs List - Asymmetric 12-Column Magazine Spreads */}
+      <section className="py-28 lg:py-36 bg-[#FAF7F2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
+          {siteConfig.programs.map((program, index) => {
+            const isEven = index % 2 === 1;
+            return (
               <div
-                className={`lg:col-span-6 relative ${
-                  index % 2 === 1 ? 'lg:order-2' : ''
-                }`}
+                key={program.slug}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
               >
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 min-h-[440px] sm:min-h-[540px] lg:min-h-[620px] group">
-                  <img
-                    src={program.image}
-                    alt={program.title}
-                    className="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-105 transition-transform duration-700"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
-                    <span className="text-xs uppercase tracking-widest text-zinc-300 font-mono mb-1">
-                      {program.stageName}
-                    </span>
-                    <h3 className="text-xl font-light text-white">{program.title}</h3>
+                {/* Image side - Tall Portrait Crop (4:5) */}
+                <div
+                  className={`lg:col-span-5 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}
+                >
+                  <div className="aspect-[4/5] w-full overflow-hidden border border-[#1A1714]/15 shadow-sm group bg-[#F2ECE3]">
+                    <img
+                      src={program.image}
+                      alt={program.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="mt-3 flex justify-between text-[11px] font-mono text-[#1A1714]/50 uppercase tracking-wider">
+                    <span>{program.stageName}</span>
+                    <span>No. 0{index + 1}</span>
                   </div>
                 </div>
-              </div>
 
-              {/* Text side */}
-              <div
-                className={`lg:col-span-6 space-y-6 ${
-                  index % 2 === 1 ? 'lg:order-1' : ''
-                }`}
-              >
-                <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest block font-mono">
-                  Life Stage Program 0{index + 1}
-                </span>
-
-                <h2 className="text-3xl sm:text-5xl font-light text-zinc-900 tracking-tight leading-tight">
-                  {program.title}
-                </h2>
-
-                <p className="text-base text-zinc-600 leading-relaxed font-normal">
-                  {program.fullDescription}
-                </p>
-
-                <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-200 space-y-2">
-                  <span className="text-xs font-semibold text-zinc-900 uppercase tracking-wider block">
-                    Who It's For:
+                {/* Text side */}
+                <div
+                  className={`lg:col-span-7 space-y-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}
+                >
+                  <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#B4532A] block font-medium">
+                    NO. 0{index + 1} — {program.stageName.toUpperCase()}
                   </span>
-                  <p className="text-sm text-zinc-600 leading-relaxed">
-                    {program.whoItsFor}
+
+                  <h2 className="text-3xl sm:text-5xl font-serif text-[#1A1714] tracking-tight leading-tight">
+                    {program.title}
+                  </h2>
+
+                  <p className="text-[17px] text-[#1A1714]/80 leading-[1.7] max-w-[65ch] font-light">
+                    {program.fullDescription}
                   </p>
-                </div>
 
-                <div className="space-y-2">
-                  <span className="text-xs font-semibold text-zinc-900 uppercase tracking-wider block">
-                    Key Adaptations:
-                  </span>
-                  <ul className="space-y-2 text-sm text-zinc-600">
-                    {program.benefits.map((b, bIdx) => (
-                      <li key={bIdx} className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full bg-black text-white flex items-center justify-center text-xs shrink-0">✓</div>
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {program.medicalNotice && (
-                  <div className="p-4 rounded-xl bg-zinc-100 border border-zinc-200 text-xs text-zinc-800 leading-relaxed italic">
-                    <strong>Medical Note:</strong> {program.medicalNotice}
+                  <div className="p-6 bg-[#F2ECE3] border-l-2 border-[#1A1714] space-y-2">
+                    <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#1A1714]/70 block font-medium">
+                      Who It's For:
+                    </span>
+                    <p className="text-sm text-[#1A1714]/80 leading-relaxed font-light">
+                      {program.whoItsFor}
+                    </p>
                   </div>
-                )}
 
-                <div className="pt-2 flex flex-wrap items-center gap-4">
-                  <Link
-                    to={`/programs/${program.slug}`}
-                    className="bg-black hover:bg-zinc-800 text-white px-7 py-3.5 rounded text-sm font-medium transition-colors shadow-md"
-                  >
-                    View Program Details
-                  </Link>
-                  <a
-                    href={BOOKING_URL}
-                    className="border border-black text-black hover:bg-black hover:text-white px-7 py-3.5 rounded text-sm font-medium transition-colors"
-                  >
-                    Book a Session
-                  </a>
+                  <div className="space-y-3 pt-2">
+                    <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#1A1714]/60 block font-medium">
+                      Key Movement Adaptations:
+                    </span>
+                    <div className="space-y-2">
+                      {program.benefits.map((b, bIdx) => (
+                        <div key={bIdx} className="flex items-start gap-3 text-xs sm:text-sm text-[#1A1714]/75">
+                          <span className="font-mono text-[#B4532A] font-medium">—</span>
+                          <span>{b}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {program.medicalNotice && (
+                    <div className="p-4 bg-[#F2ECE3] border-l-2 border-[#B4532A] text-xs text-[#1A1714]/80 leading-relaxed italic">
+                      <strong>Medical Note:</strong> {program.medicalNotice}
+                    </div>
+                  )}
+
+                  <div className="pt-4 flex flex-wrap items-center gap-4">
+                    <Link
+                      to={`/programs/${program.slug}`}
+                      className="btn-editorial-primary"
+                    >
+                      <span>Program Details</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                    <a
+                      href={BOOKING_URL}
+                      className="btn-editorial-outline"
+                    >
+                      Book a Session
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </div>
