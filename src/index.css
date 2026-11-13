@@ -1,0 +1,51 @@
+@import "@fontsource/bebas-neue/index.css";
+@import "@fontsource/inter/index.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-espresso: #140D0B;
+    --text-cream: #F5EDE3;
+    --accent-orange: #E07A2E;
+  }
+
+  body {
+    background-color: #140D0B;
+    color: #F5EDE3;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    letter-spacing: 0.04em;
+  }
+
+  /* Accessible focus indicators across interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [tabindex]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #140D0B, 0 0 0 4px #E07A2E;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #140D0B;
+}
+::-webkit-scrollbar-thumb {
+  background: #3D2A24;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E07A2E;
+}
