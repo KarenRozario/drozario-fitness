@@ -26,7 +26,7 @@ export const BlogPostDetail: React.FC = () => {
             className="inline-flex items-center gap-1.5 text-xs text-[#3B6B96] hover:text-burntOrange font-medium transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to Healthy Living Library</span>
+            <span>Back to Learn Library</span>
           </Link>
         </div>
 
@@ -47,7 +47,7 @@ export const BlogPostDetail: React.FC = () => {
           </h1>
 
           <p className="text-sm text-slate-500">
-            By {post.author} · Founder & Head Coach, D'Rozario Muscle Release
+            By {post.author} · Women's Fitness Coach & Founder, D'Rozario Fitness
           </p>
         </div>
 
@@ -84,17 +84,17 @@ export const BlogPostDetail: React.FC = () => {
         {/* CTA Box */}
         <div className="mt-16 p-8 rounded-2xl bg-[#F8F9FA] border border-slate-200 text-center space-y-4">
           <h3 className="text-2xl font-light text-[#3B6B96]">
-            Ready to Move Pain-Free in Stoney Creek?
+            Ready to Build Strength in Stoney Creek?
           </h3>
           <p className="text-sm text-slate-600 max-w-md mx-auto">
-            Book your 1-on-1 movement and recovery assessment directly with Rachel D'Rozario.
+            Book your 1-on-1 consultation or session directly with Rachel D'Rozario.
           </p>
           <div className="pt-2">
             <a
               href={BOOKING_URL}
               className="inline-block bg-[#507C9E] hover:bg-[#416885] text-white px-8 py-3.5 rounded text-sm font-medium transition-colors shadow-sm"
             >
-              Book an Assessment Session
+              Book a Session
             </a>
           </div>
         </div>

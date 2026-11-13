@@ -24,31 +24,31 @@ export const Newsletter: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-espresso-surface border border-espresso-border rounded-lg p-8 sm:p-12 relative overflow-hidden">
-      {/* Decorative accent background lines */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-burntOrange/5 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+    <div className="w-full bg-[#1A222C] border border-slate-700/60 rounded-2xl p-8 sm:p-12 relative overflow-hidden text-white">
+      {/* Decorative accent background blur */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-burntOrange/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
 
       <div className="max-w-2xl mx-auto text-center relative z-10">
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-espresso-card border border-espresso-border text-burntOrange mb-4">
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#232D3A] border border-slate-700 text-burntOrange mb-4">
           <Mail className="w-6 h-6" />
         </div>
 
-        <h2 className="text-3xl sm:text-4xl font-display text-cream tracking-wide uppercase mb-3">
-          Join the Stoney Creek Movement Collective
+        <h2 className="text-3xl sm:text-4xl font-light text-white tracking-tight mb-3">
+          Join the D'Rozario Fitness Community
         </h2>
 
-        <p className="text-sm sm:text-base text-cream-muted leading-relaxed mb-8 max-w-xl mx-auto">
-          Get practical athletic recovery insights, joint mobility routines, and training frameworks straight from Rachel D'Rozario. No spam, just actionable movement science.
+        <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-xl mx-auto font-light">
+          Get practical guidance on life-stage fitness, core and pelvic floor awareness, and women's strength training straight from Rachel D'Rozario. No spam, just encouraging, science-backed guidance.
         </p>
 
         {submitted ? (
-          <div className="bg-espresso-card border border-burntOrange/40 rounded-md p-6 animate-fade-in flex flex-col items-center">
+          <div className="bg-[#232D3A] border border-burntOrange/40 rounded-xl p-6 animate-fade-in flex flex-col items-center">
             <CheckCircle2 className="w-10 h-10 text-burntOrange mb-3" />
-            <h3 className="text-xl font-display text-cream uppercase mb-1">
+            <h3 className="text-xl font-light text-white mb-1">
               Thank You for Subscribing!
             </h3>
-            <p className="text-sm text-cream-muted max-w-md">
-              We've noted your email ({email}). You'll receive our next monthly breakdown on training longevity and soft-tissue recovery.
+            <p className="text-sm text-slate-300 max-w-md">
+              We've noted your email ({email}). You'll receive our next monthly update on women's fitness, maternal health, and lifelong strength.
             </p>
             <button
               onClick={() => {
@@ -73,7 +73,7 @@ export const Newsletter: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 required
-                className="w-full bg-espresso-card text-cream placeholder-cream-dark px-4 py-3.5 rounded-sm border border-espresso-border focus:border-burntOrange focus:outline-none focus:ring-1 focus:ring-burntOrange text-sm transition-colors"
+                className="w-full bg-[#232D3A] text-white placeholder-slate-400 px-4 py-3.5 rounded-lg border border-slate-700 focus:border-burntOrange focus:outline-none focus:ring-1 focus:ring-burntOrange text-sm transition-colors"
               />
             </div>
             <Button type="submit" variant="primary" size="md">
@@ -88,7 +88,7 @@ export const Newsletter: React.FC = () => {
           </p>
         )}
 
-        <div className="mt-4 flex items-center justify-center gap-2 text-xs text-cream-dark">
+        <div className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-400">
           <Shield className="w-3.5 h-3.5 text-burntOrange/70" />
           <span>Zero spam. Unsubscribe at any time. We respect your privacy.</span>
         </div>
@@ -96,4 +96,3 @@ export const Newsletter: React.FC = () => {
     </div>
   );
 };
-

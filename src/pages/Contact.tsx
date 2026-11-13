@@ -35,16 +35,16 @@ export const Contact: React.FC = () => {
   return (
     <div className="bg-white text-slate-800">
       <SEO
-        title="Contact Us | Stoney Creek Personal Training & Recovery"
-        description="Contact Rachel D'Rozario at D'Rozario Muscle Release in Stoney Creek, Ontario. Let us help you get started with your health and fitness goals today."
+        title="Contact Us | D'Rozario Fitness Stoney Creek"
+        description="Contact Rachel D'Rozario at D'Rozario Fitness in Stoney Creek, Ontario. Let us help you get started with women's fitness coaching today."
       />
 
-      {/* Hero Banner - Modeled on Screenshot 1.01.41 PM */}
+      {/* Hero Banner */}
       <section className="relative min-h-[45vh] flex items-center bg-[#151A20] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/contact-hero.jpg"
-            alt="Contact D'Rozario Muscle Release"
+            alt="Contact D'Rozario Fitness"
             className="w-full h-full object-cover object-center opacity-35"
             loading="eager"
           />
@@ -63,7 +63,7 @@ export const Contact: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Form - Modeled directly on Screenshot 1.01.43 PM and 1.01.45 PM */}
+      {/* Contact Form */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -73,7 +73,7 @@ export const Contact: React.FC = () => {
           </div>
 
           {submitted ? (
-            <div className="bg-[#EBF2F7] border border-[#3B6B96]/30 p-8 rounded-xl text-center space-y-4">
+            <div className="bg-[#EBF2F7] border border-[#3B6B96]/30 p-8 rounded-2xl text-center space-y-4">
               <CheckCircle2 className="w-10 h-10 text-[#3B6B96] mx-auto" />
               <h3 className="text-2xl font-light text-[#3B6B96]">
                 Message Sent Successfully
@@ -166,12 +166,12 @@ export const Contact: React.FC = () => {
                 </span>
                 <div className="space-y-2 text-sm text-slate-700">
                   {[
-                    "1-on-1 Personal Training",
-                    "Targeted Muscle Release / Fascial Stretch Therapy",
-                    "Sports Performance & Conditioning",
-                    "Mobility & Injury Rehabilitation",
-                    "General Movement Assessment",
-                    "Other",
+                    "Prenatal Fitness Coaching",
+                    "Postnatal Fitness & Core Reconnection",
+                    "Perimenopause & Menopause Strength",
+                    "Strong After 50 Coaching",
+                    "Mom Group & Community Classes",
+                    "General Life Stage Consultation",
                   ].map((item) => (
                     <label key={item} className="flex items-center gap-2.5 cursor-pointer">
                       <input
@@ -197,7 +197,7 @@ export const Contact: React.FC = () => {
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Tell Rachel about your fitness history, pain points, or questions..."
+                  placeholder="Tell Rachel about your fitness goals, your life stage, or any questions..."
                   className="w-full border border-slate-300 rounded px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-[#3B6B96]"
                 />
               </div>
@@ -245,7 +245,7 @@ export const Contact: React.FC = () => {
             </form>
           )}
 
-          {/* Location Block at bottom - Modeled on Screenshot 1.01.45 PM */}
+          {/* Location Block at bottom */}
           <div className="mt-20 pt-10 border-t border-slate-200">
             <h3 className="text-xl font-light text-[#3B6B96] mb-3">
               Stoney Creek Studio

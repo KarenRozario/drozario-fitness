@@ -9,16 +9,16 @@ export const Team: React.FC = () => {
   return (
     <div className="bg-white text-slate-800">
       <SEO
-        title="Meet Rachel D'Rozario | Personal Training & Recovery"
-        description="Meet Rachel D'Rozario, Founder & Head Coach at D'Rozario Muscle Release in Stoney Creek, Ontario. Dedicated 1-on-1 personal training and targeted recovery."
+        title="Meet Rachel D'Rozario | Women's Fitness Coach Stoney Creek"
+        description="Meet Rachel D'Rozario, Founder & Women's Fitness Coach at D'Rozario Fitness in Stoney Creek, Ontario. Dedicated to prenatal, postnatal, and menopause fitness."
       />
 
-      {/* Hero Banner - Modeled on Screenshot 1.00.37 PM */}
+      {/* Hero Banner */}
       <section className="relative min-h-[50vh] flex items-center bg-[#151A20] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/team-hero.jpg"
-            alt="Rachel D'Rozario discussing training plan with client in Stoney Creek studio"
+            alt="Rachel D'Rozario coaching a client in Stoney Creek"
             className="w-full h-full object-cover object-center opacity-40"
             loading="eager"
           />
@@ -31,33 +31,33 @@ export const Team: React.FC = () => {
               Meet Rachel D'Rozario
             </h1>
             <p className="text-lg sm:text-xl text-slate-200 font-light max-w-xl">
-              Founder, Head Personal Trainer & Muscle Release Specialist
+              Founder & Women's Fitness Coach
             </p>
           </div>
         </div>
       </section>
 
-      {/* Intro Statement - Modeled on Screenshot 1.00.40 PM */}
+      {/* Intro Statement */}
       <section className="py-16 sm:py-20 bg-white border-b border-slate-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <h2 className="text-3xl sm:text-4xl font-light text-[#3B6B96] tracking-tight">
-            Personalized Coaching for Lasting Results
+            Coaching Built Around Your Life Stage
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            We believe the key to getting results is working hard while having fun and staying pain-free. At D'Rozario Muscle Release, you work directly with Rachel D'Rozario. Rachel is passionate about helping you move better, overcome old injuries, and build strength you can rely on every single day.
+            We believe the key to getting results is working hard while feeling encouraged and supported. At D'Rozario Fitness, you work directly with Rachel D'Rozario. Rachel is passionate about helping women navigate pregnancy, postpartum recovery, and menopause through safe, progressive strength.
           </p>
 
           <div className="pt-2 flex items-center justify-center gap-2 text-sm font-medium text-[#3B6B96]">
             <MapPin className="w-4 h-4 text-burntOrange" />
-            <span>Stoney Creek Studio · 1-on-1 Private Facility</span>
+            <span>Stoney Creek Studio · 1-on-1 & Small Group Coaching</span>
           </div>
         </div>
       </section>
 
-      {/* Rachel D'Rozario Single Profile Card - Modeled directly on Screenshot 1.00.42 PM */}
+      {/* Rachel D'Rozario Single Profile Card */}
       <section className="py-16 sm:py-20 bg-[#F9FAFB]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 p-8 sm:p-12">
+          <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 p-8 sm:p-12">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
               {/* Photo on left */}
               <div className="md:col-span-5 flex justify-center">
@@ -71,11 +71,11 @@ export const Team: React.FC = () => {
                 </div>
               </div>
 
-              {/* Bio & Details on right */}
+              {/* Bio on right */}
               <div className="md:col-span-7 space-y-5">
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-light text-[#3B6B96]">
-                    {rachel.name} | <span className="font-normal text-slate-800 text-xl sm:text-2xl">Founder & Head Coach</span>
+                    {rachel.name} | <span className="font-normal text-slate-800 text-xl sm:text-2xl">Founder & Coach</span>
                   </h3>
                   <p className="text-xs text-slate-400 mt-1 uppercase font-mono tracking-wider">
                     {rachel.certifications}
@@ -83,17 +83,15 @@ export const Team: React.FC = () => {
                 </div>
 
                 <div className="space-y-3 text-sm text-slate-600 leading-relaxed">
+                  <p>{rachel.bio}</p>
                   <p>
-                    {rachel.bio}
-                  </p>
-                  <p>
-                    Rather than relying on cookie-cutter gym routines, Rachel evaluates your individual kinetic chain, identifies compensatory muscle recruitment, and uses targeted manual therapy to release stubborn spasms before loading strength exercises.
+                    Rather than relying on one-size-fits-all workouts, Rachel tailors every movement session to your individual life stage, honoring your energy, pelvic floor health, and personal goals.
                   </p>
                 </div>
 
                 <div className="pt-2">
                   <span className="text-xs font-semibold text-slate-700 uppercase tracking-wider block mb-2">
-                    Areas of Expertise
+                    Specialized Coaching Disciplines:
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {rachel.specialities.map((spec, idx) => (
@@ -116,7 +114,7 @@ export const Team: React.FC = () => {
                     Book a Session with Rachel
                   </a>
                   <span className="text-xs text-slate-500">
-                    Direct 1-on-1 private studio booking
+                    Stoney Creek private studio & small groups
                   </span>
                 </div>
               </div>

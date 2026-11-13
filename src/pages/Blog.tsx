@@ -5,7 +5,7 @@ import { SEO } from '../components/shared/SEO';
 
 export const Blog: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const categories = ['All', 'Recovery & Biomechanics', 'Sports Performance', 'Muscle Release & Therapy'];
+  const categories = ['All', 'Prenatal & Postnatal', 'Postnatal Fitness', 'Menopause & Beyond'];
 
   const filteredPosts = selectedCategory === 'All'
     ? siteConfig.blogPosts
@@ -14,16 +14,16 @@ export const Blog: React.FC = () => {
   return (
     <div className="bg-white text-slate-800">
       <SEO
-        title="Movement & Recovery Blog | Healthy Living Library"
-        description="Evidence-based articles on personal training, myofascial release, joint mobility, and athletic longevity from Rachel D'Rozario in Stoney Creek."
+        title="Women's Fitness & Life Stages Blog | Learn Library"
+        description="Evidence-based articles on prenatal movement, postnatal core reconnection, and strength training through menopause from Rachel D'Rozario in Stoney Creek."
       />
 
-      {/* Hero Banner - Modeled on Screenshot 1.00.58 PM */}
+      {/* Hero Banner */}
       <section className="relative min-h-[45vh] flex items-center bg-[#151A20] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/blog-1.jpg"
-            alt="Healthy Living Library at D'Rozario Muscle Release"
+            src="/images/blog-core-pelvic-floor.jpg"
+            alt="Learn Library at D'Rozario Fitness"
             className="w-full h-full object-cover object-center opacity-30"
             loading="eager"
           />
@@ -33,21 +33,21 @@ export const Blog: React.FC = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full text-center sm:text-left">
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-6xl font-light tracking-tight text-white mb-4">
-              Welcome to the Movement Library
+              Welcome to the Learn Library
             </h1>
             <p className="text-base sm:text-lg text-slate-200 font-light leading-relaxed">
-              With a focus on education, our library is designed to show you that health and fitness are about more than just moving well. From tips on recovery and joint stability to follow-along mobility routines, we teach you how to take care of your body.
+              With a focus on education, our library is designed to show you that health and fitness are about more than just exercising. From breathwork and pelvic floor coordination to progressive strength loading in midlife, we support your body through every stage.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Category Filter & Blog Cards - Modeled on Screenshot 1.01.01 PM */}
+      {/* Category Filter & Blog Cards */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-light text-[#3B6B96] mb-8">
-              Explore Our Blog
+              Explore Our Articles
             </h2>
 
             {/* Category Filter Pills */}

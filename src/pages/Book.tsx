@@ -8,16 +8,16 @@ export const Book: React.FC = () => {
   return (
     <div className="bg-white text-slate-800">
       <SEO
-        title="Book a Session | Stoney Creek Personal Training & Recovery"
-        description="Book your 1-on-1 personal training or muscle release assessment with Rachel D'Rozario in Stoney Creek, Ontario."
+        title="Book a Session | Stoney Creek Women's Fitness Coaching"
+        description="Book your 1-on-1 women's fitness consultation or training session with Rachel D'Rozario in Stoney Creek, Ontario."
       />
 
       {/* Hero Banner */}
       <section className="relative min-h-[45vh] flex items-center bg-[#151A20] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/hero-training.jpg"
-            alt="Book a session at D'Rozario Muscle Release"
+            src="/images/hero-women-fitness.jpg"
+            alt="Book a session at D'Rozario Fitness"
             className="w-full h-full object-cover object-center opacity-30"
             loading="eager"
           />
@@ -30,7 +30,7 @@ export const Book: React.FC = () => {
               Book a Session
             </h1>
             <p className="text-base sm:text-lg text-slate-200 font-light leading-relaxed max-w-xl">
-              1-on-1 private personal training and muscle release with Rachel D'Rozario in Stoney Creek.
+              1-on-1 private coaching and small group women's fitness with Rachel D'Rozario in Stoney Creek.
             </p>
           </div>
         </div>
@@ -46,7 +46,7 @@ export const Book: React.FC = () => {
 
             <div className="space-y-3">
               <h2 className="text-3xl sm:text-4xl font-light text-[#3B6B96] tracking-tight">
-                Schedule Your Initial Assessment
+                Schedule Your Consultation or Session
               </h2>
               <p className="text-base text-slate-600 max-w-md mx-auto leading-relaxed">
                 Connect directly to our scheduling calendar to pick a time slot that matches your routine.
@@ -81,7 +81,7 @@ export const Book: React.FC = () => {
                   2. Intake Form
                 </span>
                 <p className="text-xs text-slate-500">
-                  Provide details about your pain points, injuries, and athletic goals.
+                  Share your life stage, birth or health background, and personal strength goals.
                 </p>
               </div>
 
@@ -90,7 +90,7 @@ export const Book: React.FC = () => {
                   3. Meet Rachel 1-on-1
                 </span>
                 <p className="text-xs text-slate-500">
-                  Private assessment, manual release, and training blueprint in Stoney Creek.
+                  Personal consultation and movement blueprint tailored to your life stage in Stoney Creek.
                 </p>
               </div>
             </div>

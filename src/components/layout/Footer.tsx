@@ -10,17 +10,19 @@ export const Footer: React.FC = () => {
         {/* Top Info Bar */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-[#3D4C5C]/60 text-sm">
           <div className="space-y-2">
-            <div className="flex items-baseline gap-1">
-              <span className="text-white text-lg font-bold uppercase font-sans">
+            <div className="flex flex-col">
+              <span className="text-white text-lg font-bold tracking-wider uppercase font-sans">
                 D'ROZARIO
               </span>
-              <span className="text-burntOrange font-black">+</span>
+              <span className="text-[10px] tracking-[0.3em] text-slate-400 font-medium uppercase -mt-0.5">
+                FITNESS
+              </span>
             </div>
             <p className="text-xs text-slate-400">
-              Stoney Creek Personal Training & Recovery
+              Stoney Creek Women's Fitness Coaching
             </p>
             <p className="text-xs text-slate-400">
-              Owner & Head Coach: Rachel D'Rozario
+              Founder & Coach: Rachel D'Rozario
             </p>
           </div>
 
@@ -72,23 +74,26 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Links Navigation Row - exact layout from Screenshot 12.58.22 PM */}
+        {/* Links Navigation Row */}
         <div className="pt-8 flex flex-wrap items-center justify-between gap-4 text-xs font-normal">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-slate-300">
             <Link to="/team" className="hover:text-white transition-colors">
               Meet Rachel
             </Link>
-            <Link to="/services" className="hover:text-white transition-colors">
-              Services
+            <Link to="/programs" className="hover:text-white transition-colors">
+              Programs
             </Link>
-            <Link to="/pain-locator" className="hover:text-white transition-colors">
-              Pain Locator
+            <Link to="/find-your-program" className="hover:text-white transition-colors">
+              Find Your Program
+            </Link>
+            <Link to="/community" className="hover:text-white transition-colors">
+              Community
             </Link>
             <Link to="/blog" className="hover:text-white transition-colors">
               Movement Blog
             </Link>
             <Link to="/stories" className="hover:text-white transition-colors">
-              Success Stories
+              Client Stories
             </Link>
             <Link to="/locations" className="hover:text-white transition-colors">
               Locations
@@ -105,8 +110,8 @@ export const Footer: React.FC = () => {
 
         {/* Bottom copyright line */}
         <div className="mt-8 pt-6 border-t border-[#3D4C5C]/40 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-2">
-          <p>© {new Date().getFullYear()} All rights Reserved by D'Rozario Muscle Release</p>
-          <p>Personal Training & Targeted Muscle Release Therapy · Stoney Creek</p>
+          <p>© {new Date().getFullYear()} All rights Reserved by D'Rozario Fitness</p>
+          <p>Women's Prenatal, Postnatal, Menopause & Longevity Coaching · Stoney Creek</p>
         </div>
       </div>
     </footer>

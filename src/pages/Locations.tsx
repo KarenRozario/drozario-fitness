@@ -7,8 +7,8 @@ export const Locations: React.FC = () => {
   return (
     <div className="bg-white text-slate-800">
       <SEO
-        title="Studio Location & Hours | Stoney Creek, Ontario"
-        description="Visit D'Rozario Muscle Release in Stoney Creek, Ontario. Directions, studio amenities, and operating hours."
+        title="Studio Location & Hours | Stoney Creek Women's Fitness"
+        description="Visit D'Rozario Fitness in Stoney Creek, Ontario. Directions, studio amenities, and operating hours for women's fitness coaching."
       />
 
       {/* Hero Banner */}
@@ -29,7 +29,7 @@ export const Locations: React.FC = () => {
               Studio Location
             </h1>
             <p className="text-base sm:text-lg text-slate-200 font-light leading-relaxed max-w-xl">
-              Private 1-on-1 personal training and muscle release facility in Stoney Creek, Ontario.
+              Private women's fitness studio in Stoney Creek, Ontario. Welcoming, supportive, and baby-friendly.
             </p>
           </div>
         </div>
@@ -41,7 +41,7 @@ export const Locations: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Info Column */}
             <div className="lg:col-span-5 space-y-8">
-              <div className="bg-[#F8F9FA] p-8 rounded-2xl border border-slate-200 space-y-4">
+              <div className="bg-[#F8F9FA] p-8 rounded-3xl border border-slate-200 space-y-4">
                 <h2 className="text-2xl font-light text-[#3B6B96]">
                   {siteConfig.name}
                 </h2>
@@ -71,7 +71,7 @@ export const Locations: React.FC = () => {
               </div>
 
               {/* Operating Hours */}
-              <div className="bg-[#F8F9FA] p-8 rounded-2xl border border-slate-200 space-y-4">
+              <div className="bg-[#F8F9FA] p-8 rounded-3xl border border-slate-200 space-y-4">
                 <div className="flex items-center gap-2 text-[#3B6B96]">
                   <Clock className="w-5 h-5 text-burntOrange" />
                   <h3 className="text-lg font-medium text-slate-900">
@@ -87,14 +87,14 @@ export const Locations: React.FC = () => {
                   ))}
                 </div>
                 <p className="text-xs text-slate-400">
-                  * All sessions are by private appointment to guarantee Rachel's undivided focus.
+                  * All sessions and small group classes are scheduled in advance to ensure comfortable pacing and personal attention.
                 </p>
               </div>
 
               {/* Direct Inquiries */}
               <div className="bg-[#F8F9FA] p-6 rounded-2xl border border-slate-200 space-y-2 text-xs text-slate-600">
                 <span className="font-semibold text-slate-800 uppercase tracking-wider block mb-1">
-                  Direct Contact
+                  Direct Inquiries
                 </span>
                 <div className="flex items-center gap-2">
                   <Phone className="w-3.5 h-3.5 text-burntOrange" />
@@ -109,7 +109,7 @@ export const Locations: React.FC = () => {
 
             {/* Right Map Column (OpenStreetMap Embed - NO Google Maps) */}
             <div className="lg:col-span-7 space-y-4">
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+              <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-md">
                 <div className="p-3 bg-[#F8F9FA] border-b border-slate-200 flex items-center justify-between text-xs text-slate-600">
                   <span className="font-medium flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-500" />
@@ -138,17 +138,17 @@ export const Locations: React.FC = () => {
 
               {/* Amenities */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                <div className="p-4 rounded-xl bg-[#F8F9FA] border border-slate-200 text-xs">
-                  <span className="font-semibold text-slate-800 block mb-1">Private Parking</span>
-                  <span className="text-slate-500">Dedicated on-site parking stalls for clients.</span>
+                <div className="p-4 rounded-2xl bg-[#F8F9FA] border border-slate-200 text-xs">
+                  <span className="font-semibold text-slate-800 block mb-1">Baby Friendly</span>
+                  <span className="text-slate-500">Strollers and little ones welcome in studio.</span>
                 </div>
-                <div className="p-4 rounded-xl bg-[#F8F9FA] border border-slate-200 text-xs">
+                <div className="p-4 rounded-2xl bg-[#F8F9FA] border border-slate-200 text-xs">
                   <span className="font-semibold text-slate-800 block mb-1">Private Facility</span>
-                  <span className="text-slate-500">No crowds, spectators, or waiting for stations.</span>
+                  <span className="text-slate-500">Comfortable, judgment-free space for women.</span>
                 </div>
-                <div className="p-4 rounded-xl bg-[#F8F9FA] border border-slate-200 text-xs">
-                  <span className="font-semibold text-slate-800 block mb-1">Sanitized Protocols</span>
-                  <span className="text-slate-500">Equipment & tables sanitized after each session.</span>
+                <div className="p-4 rounded-2xl bg-[#F8F9FA] border border-slate-200 text-xs">
+                  <span className="font-semibold text-slate-800 block mb-1">Easy Parking</span>
+                  <span className="text-slate-500">Dedicated on-site parking stalls.</span>
                 </div>
               </div>
             </div>
