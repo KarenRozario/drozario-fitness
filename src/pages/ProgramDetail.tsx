@@ -13,43 +13,43 @@ export const ProgramDetail: React.FC = () => {
   }
 
   return (
-    <div className="bg-white text-slate-800">
+    <div className="bg-white text-zinc-900">
       <SEO
         title={`${program.title} | Women's Fitness Coaching Stoney Creek`}
         description={program.shortDescription}
       />
 
-      {/* Hero Banner */}
-      <section className="relative min-h-[45vh] flex items-center bg-[#151A20] overflow-hidden">
+      {/* Hero Banner - Covers 70vh */}
+      <section className="relative min-h-[70vh] flex items-center bg-black overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src={program.image}
             alt={program.title}
-            className="w-full h-full object-cover object-center opacity-30"
+            className="w-full h-full object-cover object-center grayscale contrast-110 brightness-75"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#141A22] via-[#141A22]/75 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
-          <div className="mb-4">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+          <div className="mb-6">
             <Link
               to="/programs"
-              className="inline-flex items-center gap-1 text-xs text-slate-300 hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-zinc-300 hover:text-white transition-colors bg-white/10 px-3.5 py-1.5 rounded-full border border-white/20"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Back to Programs</span>
+              <span>Back to all programs</span>
             </Link>
           </div>
 
-          <div className="max-w-2xl text-left">
-            <span className="text-xs font-semibold text-burntOrange uppercase tracking-wider block mb-2">
-              Women's Life Stage Coaching
+          <div className="max-w-3xl text-left">
+            <span className="text-xs uppercase tracking-[0.25em] text-zinc-300 font-mono block mb-3">
+              {program.stageName}
             </span>
-            <h1 className="text-4xl sm:text-6xl font-light tracking-tight text-white mb-4">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white mb-4">
               {program.title}
             </h1>
-            <p className="text-lg sm:text-xl text-slate-200 font-light max-w-xl">
+            <p className="text-lg sm:text-2xl text-zinc-200 font-light max-w-2xl leading-relaxed">
               {program.shortDescription}
             </p>
           </div>
@@ -57,61 +57,70 @@ export const ProgramDetail: React.FC = () => {
       </section>
 
       {/* Main Content Details */}
-      <section className="py-20 bg-white border-b border-slate-100">
+      <section className="py-24 bg-white border-b border-zinc-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Column */}
             <div className="lg:col-span-8 space-y-12">
               {/* Program Overview */}
               <div className="space-y-4">
-                <h2 className="text-3xl font-light text-[#3B6B96] tracking-tight">
+                <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest block font-mono">
+                  Program Overview
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-light text-zinc-900 tracking-tight">
                   About This Program
                 </h2>
-                <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+                <p className="text-base sm:text-lg text-zinc-600 leading-relaxed font-normal">
                   {program.fullDescription}
                 </p>
               </div>
 
               {/* Medical Notice (Mandatory for prenatal/postnatal) */}
               {program.medicalNotice && (
-                <div className="p-5 rounded-2xl bg-amber-50 border border-amber-200 text-sm text-amber-900 leading-relaxed space-y-1">
-                  <div className="flex items-center gap-2 font-semibold">
-                    <ShieldCheck className="w-4 h-4 text-amber-700" />
-                    <span>Safety First</span>
+                <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-300 text-sm text-zinc-800 leading-relaxed space-y-2">
+                  <div className="flex items-center gap-2 font-semibold text-black uppercase tracking-wider text-xs">
+                    <ShieldCheck className="w-4 h-4 text-black" />
+                    <span>Safety Notice</span>
                   </div>
-                  <p>{program.medicalNotice}</p>
+                  <p className="italic">{program.medicalNotice}</p>
                 </div>
               )}
 
               {/* Who It's For */}
-              <div className="bg-[#F8F9FA] p-8 rounded-2xl border border-slate-200 space-y-4">
-                <h3 className="text-2xl font-light text-[#3B6B96]">
+              <div className="bg-zinc-50 p-8 rounded-2xl border border-zinc-200 space-y-3">
+                <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest block font-mono">
+                  Ideal Candidate
+                </span>
+                <h3 className="text-2xl font-light text-zinc-900">
                   Who It's For
                 </h3>
-                <p className="text-base text-slate-600 leading-relaxed">
+                <p className="text-base text-zinc-600 leading-relaxed">
                   {program.whoItsFor}
                 </p>
               </div>
 
               {/* What Sessions Look Like */}
               <div className="space-y-4">
-                <h2 className="text-3xl font-light text-[#3B6B96] tracking-tight">
+                <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest block font-mono">
+                  Session Experience
+                </span>
+                <h2 className="text-3xl font-light text-zinc-900 tracking-tight">
                   What Sessions Look Like
                 </h2>
-                <div className="p-6 rounded-2xl border border-slate-200 bg-white text-slate-600 leading-relaxed text-base">
+                <div className="p-6 rounded-2xl border border-zinc-200 bg-white text-zinc-600 leading-relaxed text-base">
                   {program.sessionOverview}
                 </div>
               </div>
 
               {/* What to Expect */}
               <div className="space-y-4">
-                <h3 className="text-xl font-medium text-slate-800">
-                  What You Can Expect:
+                <h3 className="text-xl font-medium text-zinc-900">
+                  Key Adaptations & Benefits:
                 </h3>
                 <ul className="space-y-3">
                   {program.benefits.map((b, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-slate-600">
-                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <li key={idx} className="flex items-start gap-3 text-zinc-600">
+                      <div className="w-5 h-5 rounded-full bg-black text-white flex items-center justify-center text-xs shrink-0 mt-0.5">✓</div>
                       <span className="text-base">{b}</span>
                     </li>
                   ))}
@@ -121,38 +130,38 @@ export const ProgramDetail: React.FC = () => {
 
             {/* Right Column: Pricing & Booking Box */}
             <div className="lg:col-span-4">
-              <div className="bg-[#F8F9FA] p-8 rounded-2xl border border-slate-200 sticky top-28 space-y-6 shadow-sm">
+              <div className="bg-zinc-950 text-white p-8 rounded-3xl border border-zinc-800 sticky top-28 space-y-6 shadow-xl">
                 <div>
-                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-1">
+                  <span className="text-xs font-mono uppercase tracking-widest text-zinc-400 block mb-2">
                     Investment
                   </span>
-                  <div className="text-2xl font-normal text-slate-900">
+                  <div className="text-3xl font-light text-white">
                     {program.pricingPlaceholder}
                   </div>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Available in private 1-on-1 or supportive small-group formats in Stoney Creek.
+                  <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+                    Available in private 1-on-1 coaching or supportive small-group formats in Stoney Creek.
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-slate-200 space-y-2 text-xs text-slate-600">
+                <div className="pt-4 border-t border-zinc-800 space-y-3 text-xs text-zinc-300">
                   <div className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-emerald-600" />
+                    <Check className="w-4 h-4 text-white" />
                     <span>Personalised form cues from Rachel</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Pelvic floor & core-aware training</span>
+                    <Check className="w-4 h-4 text-white" />
+                    <span>Pelvic floor & deep core awareness</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Supportive community of women</span>
+                    <Check className="w-4 h-4 text-white" />
+                    <span>Supportive Stoney Creek community</span>
                   </div>
                 </div>
 
                 <div className="pt-2">
                   <a
                     href={BOOKING_URL}
-                    className="block w-full text-center bg-[#507C9E] hover:bg-[#416885] text-white py-3 rounded-md text-sm font-medium transition-colors shadow-sm"
+                    className="block w-full text-center bg-white hover:bg-zinc-200 text-black py-3.5 rounded-lg text-sm font-semibold transition-colors shadow-lg"
                   >
                     Book a Session
                   </a>
@@ -164,9 +173,9 @@ export const ProgramDetail: React.FC = () => {
       </section>
 
       {/* Cross-linking other programs */}
-      <section className="py-16 bg-[#F8F9FA]">
+      <section className="py-20 bg-zinc-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-light text-[#3B6B96] mb-8">
+          <h2 className="text-2xl sm:text-3xl font-light text-zinc-900 mb-8">
             Explore Other Life Stage Programs
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -176,15 +185,15 @@ export const ProgramDetail: React.FC = () => {
                 <Link
                   key={other.slug}
                   to={`/programs/${other.slug}`}
-                  className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-[#3B6B96] transition-all shadow-xs group"
+                  className="p-6 rounded-2xl bg-white border border-zinc-200 hover:border-black transition-all shadow-sm group"
                 >
-                  <h3 className="font-medium text-lg text-slate-900 group-hover:text-[#3B6B96] transition-colors">
+                  <h3 className="font-medium text-lg text-zinc-900 group-hover:text-zinc-600 transition-colors">
                     {other.title}
                   </h3>
-                  <p className="text-xs text-slate-500 line-clamp-2 mt-1">
+                  <p className="text-xs text-zinc-500 line-clamp-2 mt-2">
                     {other.shortDescription}
                   </p>
-                  <span className="text-xs font-semibold text-burntOrange inline-flex items-center gap-1 mt-3">
+                  <span className="text-xs font-semibold text-black inline-flex items-center gap-1 mt-4">
                     View program →
                   </span>
                 </Link>

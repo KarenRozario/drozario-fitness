@@ -46,8 +46,8 @@ export const Header: React.FC = () => {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? 'bg-[#1E242B]/95 backdrop-blur-md shadow-md py-3.5 border-b border-[#2C3540]'
-          : 'bg-[#1E242B] py-4 sm:py-5 border-b border-[#2C3540]/60'
+          ? 'bg-black/95 backdrop-blur-md shadow-lg py-3.5 border-b border-zinc-800'
+          : 'bg-black py-4 sm:py-5 border-b border-zinc-900'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,13 +55,13 @@ export const Header: React.FC = () => {
           {/* Logo wordmark: D'ROZARIO with sub-line FITNESS */}
           <Link
             to="/"
-            className="flex flex-col group focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded p-1"
+            className="flex flex-col group focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded p-1"
             aria-label={`${siteConfig.name} - Home`}
           >
             <span className="text-white text-xl sm:text-2xl font-bold tracking-wider uppercase font-sans">
               D'ROZARIO
             </span>
-            <span className="text-[10px] tracking-[0.3em] text-slate-300 font-medium uppercase -mt-0.5">
+            <span className="text-[10px] tracking-[0.32em] text-zinc-400 font-medium uppercase -mt-0.5">
               FITNESS
             </span>
           </Link>
@@ -76,10 +76,10 @@ export const Header: React.FC = () => {
                 onMouseEnter={() => setProgramsDropdownOpen(true)}
                 aria-expanded={programsDropdownOpen}
                 aria-haspopup="true"
-                className={`flex items-center gap-1 transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
+                className={`flex items-center gap-1 transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded ${
                   location.pathname.startsWith('/programs')
-                    ? 'text-white font-medium border-b-2 border-burntOrange'
-                    : 'text-slate-200 hover:text-white'
+                    ? 'text-white font-medium border-b-2 border-white'
+                    : 'text-zinc-300 hover:text-white'
                 }`}
               >
                 <span>Programs</span>
@@ -89,7 +89,7 @@ export const Header: React.FC = () => {
               {programsDropdownOpen && (
                 <div
                   onMouseLeave={() => setProgramsDropdownOpen(false)}
-                  className="absolute left-0 mt-1 w-64 rounded-md bg-[#242C35] border border-[#374351] shadow-xl p-2 z-50 animate-fade-in"
+                  className="absolute left-0 mt-1 w-64 rounded-md bg-zinc-950 border border-zinc-800 shadow-2xl p-2 z-50 animate-fade-in"
                   role="menu"
                 >
                   {siteConfig.programs.map((prog) => (
@@ -97,17 +97,17 @@ export const Header: React.FC = () => {
                       key={prog.slug}
                       to={`/programs/${prog.slug}`}
                       role="menuitem"
-                      className="block px-3 py-2 text-xs text-slate-200 hover:text-white hover:bg-[#2F3A46] rounded transition-colors"
+                      className="block px-3 py-2 text-xs text-zinc-300 hover:text-white hover:bg-zinc-900 rounded transition-colors"
                       onClick={() => setProgramsDropdownOpen(false)}
                     >
                       <div className="font-medium text-white">{prog.title}</div>
-                      <div className="text-[11px] text-slate-400 line-clamp-1">{prog.shortDescription}</div>
+                      <div className="text-[11px] text-zinc-400 line-clamp-1">{prog.shortDescription}</div>
                     </Link>
                   ))}
-                  <div className="pt-1 mt-1 border-t border-[#374351]">
+                  <div className="pt-1 mt-1 border-t border-zinc-800">
                     <Link
                       to="/programs"
-                      className="block px-3 py-1.5 text-[11px] text-burntOrange hover:underline font-medium"
+                      className="block px-3 py-1.5 text-[11px] text-zinc-300 hover:text-white hover:underline font-medium"
                       onClick={() => setProgramsDropdownOpen(false)}
                     >
                       All Programs Overview →
@@ -120,10 +120,10 @@ export const Header: React.FC = () => {
             {/* Meet Rachel */}
             <Link
               to="/team"
-              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
+              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded ${
                 isActive('/team')
-                  ? 'text-white font-medium border-b-2 border-burntOrange'
-                  : 'text-slate-200 hover:text-white'
+                  ? 'text-white font-medium border-b-2 border-white'
+                  : 'text-zinc-300 hover:text-white'
               }`}
             >
               Meet Rachel
@@ -132,10 +132,10 @@ export const Header: React.FC = () => {
             {/* Find Your Program */}
             <Link
               to="/find-your-program"
-              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
+              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded ${
                 isActive('/find-your-program')
-                  ? 'text-white font-medium border-b-2 border-burntOrange'
-                  : 'text-slate-200 hover:text-white'
+                  ? 'text-white font-medium border-b-2 border-white'
+                  : 'text-zinc-300 hover:text-white'
               }`}
             >
               Find Your Program
@@ -144,10 +144,10 @@ export const Header: React.FC = () => {
             {/* Community */}
             <Link
               to="/community"
-              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
+              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded ${
                 isActive('/community')
-                  ? 'text-white font-medium border-b-2 border-burntOrange'
-                  : 'text-slate-200 hover:text-white'
+                  ? 'text-white font-medium border-b-2 border-white'
+                  : 'text-zinc-300 hover:text-white'
               }`}
             >
               Community
@@ -161,10 +161,10 @@ export const Header: React.FC = () => {
                 onMouseEnter={() => setLearnDropdownOpen(true)}
                 aria-expanded={learnDropdownOpen}
                 aria-haspopup="true"
-                className={`flex items-center gap-1 transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
+                className={`flex items-center gap-1 transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded ${
                   location.pathname.startsWith('/blog') || location.pathname.startsWith('/stories')
-                    ? 'text-white font-medium border-b-2 border-burntOrange'
-                    : 'text-slate-200 hover:text-white'
+                    ? 'text-white font-medium border-b-2 border-white'
+                    : 'text-zinc-300 hover:text-white'
                 }`}
               >
                 <span>Learn</span>
@@ -174,26 +174,26 @@ export const Header: React.FC = () => {
               {learnDropdownOpen && (
                 <div
                   onMouseLeave={() => setLearnDropdownOpen(false)}
-                  className="absolute left-0 mt-1 w-52 rounded-md bg-[#242C35] border border-[#374351] shadow-xl p-2 z-50 animate-fade-in"
+                  className="absolute left-0 mt-1 w-52 rounded-md bg-zinc-950 border border-zinc-800 shadow-2xl p-2 z-50 animate-fade-in"
                   role="menu"
                 >
                   <Link
                     to="/blog"
                     role="menuitem"
-                    className="block px-3 py-2 text-xs text-slate-200 hover:text-white hover:bg-[#2F3A46] rounded transition-colors"
+                    className="block px-3 py-2 text-xs text-zinc-300 hover:text-white hover:bg-zinc-900 rounded transition-colors"
                     onClick={() => setLearnDropdownOpen(false)}
                   >
-                    <div className="font-medium text-white">Movement Blog</div>
-                    <div className="text-[11px] text-slate-400">Articles & Life Stage Tips</div>
+                    <div className="font-medium text-white">Articles & Insights</div>
+                    <div className="text-[11px] text-zinc-400">Life Stage Guidance</div>
                   </Link>
                   <Link
                     to="/stories"
                     role="menuitem"
-                    className="block px-3 py-2 text-xs text-slate-200 hover:text-white hover:bg-[#2F3A46] rounded transition-colors"
+                    className="block px-3 py-2 text-xs text-zinc-300 hover:text-white hover:bg-zinc-900 rounded transition-colors"
                     onClick={() => setLearnDropdownOpen(false)}
                   >
                     <div className="font-medium text-white">Client Stories</div>
-                    <div className="text-[11px] text-slate-400">Movement Case Studies</div>
+                    <div className="text-[11px] text-zinc-400">Movement Case Studies</div>
                   </Link>
                 </div>
               )}
@@ -202,10 +202,10 @@ export const Header: React.FC = () => {
             {/* Locations */}
             <Link
               to="/locations"
-              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
+              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded ${
                 isActive('/locations')
-                  ? 'text-white font-medium border-b-2 border-burntOrange'
-                  : 'text-slate-200 hover:text-white'
+                  ? 'text-white font-medium border-b-2 border-white'
+                  : 'text-zinc-300 hover:text-white'
               }`}
             >
               Locations
@@ -214,10 +214,10 @@ export const Header: React.FC = () => {
             {/* Contact Us */}
             <Link
               to="/contact"
-              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
+              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded ${
                 isActive('/contact')
-                  ? 'text-white font-medium border-b-2 border-burntOrange'
-                  : 'text-slate-200 hover:text-white'
+                  ? 'text-white font-medium border-b-2 border-white'
+                  : 'text-zinc-300 hover:text-white'
               }`}
             >
               Contact Us
@@ -228,7 +228,7 @@ export const Header: React.FC = () => {
           <div className="hidden lg:flex items-center">
             <a
               href={BOOKING_URL}
-              className="border border-slate-300 text-white hover:bg-white hover:text-[#1E242B] px-5 py-2 rounded text-sm font-medium transition-all duration-200"
+              className="border border-white/80 text-white hover:bg-white hover:text-black px-5 py-2 rounded text-sm font-medium transition-all duration-200"
             >
               Book a session
             </a>
@@ -238,14 +238,14 @@ export const Header: React.FC = () => {
           <div className="flex lg:hidden items-center gap-3">
             <a
               href={BOOKING_URL}
-              className="border border-slate-300 text-white text-xs px-3 py-1.5 rounded font-medium"
+              className="border border-white/80 text-white text-xs px-3 py-1.5 rounded font-medium"
             >
               Book
             </a>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 text-white hover:text-burntOrange rounded-md focus:outline-none"
+              className="p-1.5 text-white hover:text-zinc-300 rounded-md focus:outline-none"
               aria-label={mobileMenuOpen ? 'Close Navigation' : 'Open Navigation'}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -256,33 +256,33 @@ export const Header: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#242C35] border-t border-[#374351] px-4 pt-3 pb-6 space-y-2 text-sm text-slate-200">
-          <div className="py-2 border-b border-[#374351] font-semibold text-white">Programs</div>
+        <div className="lg:hidden bg-zinc-950 border-t border-zinc-800 px-4 pt-3 pb-6 space-y-2 text-sm text-zinc-300">
+          <div className="py-2 border-b border-zinc-800 font-semibold text-white">Programs</div>
           {siteConfig.programs.map((prog) => (
             <Link
               key={prog.slug}
               to={`/programs/${prog.slug}`}
-              className="block pl-3 py-1.5 text-xs text-slate-300 hover:text-white"
+              className="block pl-3 py-1.5 text-xs text-zinc-400 hover:text-white"
             >
               {prog.title}
             </Link>
           ))}
-          <Link to="/team" className="block py-2 border-b border-[#374351] text-white">
+          <Link to="/team" className="block py-2 border-b border-zinc-800 text-white">
             Meet Rachel
           </Link>
-          <Link to="/find-your-program" className="block py-2 border-b border-[#374351] text-white">
+          <Link to="/find-your-program" className="block py-2 border-b border-zinc-800 text-white">
             Find Your Program
           </Link>
-          <Link to="/community" className="block py-2 border-b border-[#374351] text-white">
+          <Link to="/community" className="block py-2 border-b border-zinc-800 text-white">
             Community
           </Link>
-          <Link to="/blog" className="block py-2 border-b border-[#374351] text-white">
-            Movement Blog
+          <Link to="/blog" className="block py-2 border-b border-zinc-800 text-white">
+            Articles & Insights
           </Link>
-          <Link to="/stories" className="block py-2 border-b border-[#374351] text-white">
+          <Link to="/stories" className="block py-2 border-b border-zinc-800 text-white">
             Client Stories
           </Link>
-          <Link to="/locations" className="block py-2 border-b border-[#374351] text-white">
+          <Link to="/locations" className="block py-2 border-b border-zinc-800 text-white">
             Locations
           </Link>
           <Link to="/contact" className="block py-2 text-white">
@@ -291,7 +291,7 @@ export const Header: React.FC = () => {
           <div className="pt-3">
             <a
               href={BOOKING_URL}
-              className="block text-center w-full bg-burntOrange text-white py-2.5 rounded font-medium text-sm"
+              className="block text-center w-full bg-white text-black py-2.5 rounded font-medium text-sm hover:bg-zinc-200 transition-colors"
             >
               Book a session
             </a>

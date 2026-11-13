@@ -13,67 +13,67 @@ export const BlogPostDetail: React.FC = () => {
   }
 
   return (
-    <div className="bg-white text-slate-800">
+    <div className="bg-white text-zinc-900">
       <SEO
         title={`${post.title}`}
         description={post.excerpt}
       />
 
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="mb-6">
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="mb-8">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-1.5 text-xs text-[#3B6B96] hover:text-burntOrange font-medium transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-zinc-600 hover:text-black transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Learn Library</span>
           </Link>
         </div>
 
-        <div className="space-y-4 mb-8">
-          <div className="flex items-center gap-2 text-xs text-slate-400 font-mono uppercase">
+        <div className="space-y-4 mb-10">
+          <div className="flex items-center gap-2 text-xs text-zinc-400 font-mono uppercase">
             <span>{post.category}</span>
             <span>·</span>
             <span className="flex items-center gap-1">
-              <Clock className="w-3 h-3" />
+              <Clock className="w-3.5 h-3.5" />
               {post.readTime}
             </span>
             <span>·</span>
-            <span className="text-burntOrange font-semibold">{post.status}</span>
+            <span className="text-black font-semibold">{post.status}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-light text-[#3B6B96] leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-light text-zinc-900 leading-tight tracking-tight">
             {post.title}
           </h1>
 
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-zinc-500 font-light">
             By {post.author} · Women's Fitness Coach & Founder, D'Rozario Fitness
           </p>
         </div>
 
-        {/* Featured Image */}
-        <div className="rounded-2xl overflow-hidden shadow-md mb-10 border border-slate-200">
+        {/* Featured Image - High-Res Black & White */}
+        <div className="rounded-3xl overflow-hidden shadow-2xl mb-12 border border-zinc-200 bg-zinc-950">
           <img
             src={post.image}
             alt={post.title}
-            className="w-full h-80 sm:h-96 object-cover object-center"
+            className="w-full h-96 sm:h-[460px] object-cover object-center grayscale contrast-110"
             loading="eager"
           />
         </div>
 
         {/* Post Content */}
-        <div className="prose max-w-none text-slate-600 text-base sm:text-lg leading-relaxed space-y-6">
-          <p className="text-xl text-slate-800 font-normal leading-relaxed border-l-4 border-[#3B6B96] pl-4 italic">
+        <div className="prose max-w-none text-zinc-600 text-base sm:text-lg leading-relaxed space-y-6">
+          <p className="text-xl text-zinc-900 font-normal leading-relaxed border-l-4 border-black pl-5 italic">
             {post.excerpt}
           </p>
 
           {post.sections.map((sec, idx) => (
-            <div key={idx} className="space-y-3 pt-4">
-              <h2 className="text-2xl font-light text-[#3B6B96]">
+            <div key={idx} className="space-y-3 pt-6">
+              <h2 className="text-2xl sm:text-3xl font-light text-zinc-900">
                 {sec.heading}
               </h2>
               {sec.body.map((p, pIdx) => (
-                <p key={pIdx} className="text-base text-slate-600 leading-relaxed">
+                <p key={pIdx} className="text-base text-zinc-600 leading-relaxed font-light">
                   {p}
                 </p>
               ))}
@@ -82,17 +82,17 @@ export const BlogPostDetail: React.FC = () => {
         </div>
 
         {/* CTA Box */}
-        <div className="mt-16 p-8 rounded-2xl bg-[#F8F9FA] border border-slate-200 text-center space-y-4">
-          <h3 className="text-2xl font-light text-[#3B6B96]">
+        <div className="mt-16 p-10 rounded-3xl bg-zinc-950 text-white border border-zinc-800 text-center space-y-4">
+          <h3 className="text-2xl sm:text-3xl font-light tracking-tight">
             Ready to Build Strength in Stoney Creek?
           </h3>
-          <p className="text-sm text-slate-600 max-w-md mx-auto">
-            Book your 1-on-1 consultation or session directly with Rachel D'Rozario.
+          <p className="text-sm text-zinc-300 max-w-md mx-auto font-light">
+            Book your 1-on-1 consultation or small group session directly with Rachel D'Rozario.
           </p>
           <div className="pt-2">
             <a
               href={BOOKING_URL}
-              className="inline-block bg-[#507C9E] hover:bg-[#416885] text-white px-8 py-3.5 rounded text-sm font-medium transition-colors shadow-sm"
+              className="inline-block bg-white hover:bg-zinc-200 text-black px-8 py-3.5 rounded text-sm font-semibold transition-colors shadow-md"
             >
               Book a Session
             </a>

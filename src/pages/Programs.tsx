@@ -2,93 +2,107 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../config/site';
 import { SEO } from '../components/shared/SEO';
-import { Check } from 'lucide-react';
 
 export const Programs: React.FC = () => {
   return (
-    <div className="bg-white text-slate-800">
+    <div className="bg-white text-zinc-900">
       <SEO
         title="Women's Fitness Programs | Prenatal, Postnatal, Menopause & 50+"
-        description="Explore specialized women's fitness coaching programs in Stoney Creek, Ontario: Prenatal Fitness, Postnatal Fitness, Perimenopause & Menopause, and Strong After 50."
+        description="Explore specialised women's fitness coaching programs in Stoney Creek, Ontario: Prenatal Fitness, Postnatal Fitness, Perimenopause & Menopause, and Strong After 50."
       />
 
-      {/* Hero Banner */}
-      <section className="relative min-h-[45vh] flex items-center bg-[#151A20] overflow-hidden">
+      {/* Hero Banner - Covers 70vh */}
+      <section className="relative min-h-[70vh] flex items-center bg-black overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-women-fitness.jpg"
             alt="Women's Fitness Programs at D'Rozario Fitness"
-            className="w-full h-full object-cover object-center opacity-35"
+            className="w-full h-full object-cover object-center grayscale contrast-110 brightness-75"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#141A22] via-[#141A22]/75 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-          <div className="max-w-2xl text-left">
-            <h1 className="text-4xl sm:text-6xl font-light tracking-tight text-white mb-4">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+          <div className="max-w-3xl">
+            <span className="inline-block text-xs uppercase tracking-[0.25em] text-zinc-300 font-mono mb-3 bg-white/10 px-3.5 py-1 rounded-full border border-white/20">
+              Life-Stage Movement
+            </span>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white mb-4">
               Our Programs
             </h1>
-            <p className="text-lg sm:text-xl text-slate-200 font-light max-w-xl">
-              Coaching designed for women through pregnancy, motherhood, menopause, and beyond.
+            <p className="text-lg sm:text-2xl text-zinc-200 font-light max-w-2xl leading-relaxed">
+              Coaching designed for women through pregnancy, motherhood, perimenopause, menopause, and lifelong strength.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Programs List */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+      {/* Programs List - 50/50 Split Screen Sections (Images Cover Half The Page) */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28">
           {siteConfig.programs.map((program, index) => (
             <div
               key={program.slug}
-              className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ${
-                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              }`}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
             >
-              {/* Image side */}
-              <div className={`lg:col-span-6 relative flex justify-center ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <div className="w-full max-w-[460px] rounded-3xl overflow-hidden shadow-lg border border-slate-200">
+              {/* Image side - Covers 50% of the screen */}
+              <div
+                className={`lg:col-span-6 relative ${
+                  index % 2 === 1 ? 'lg:order-2' : ''
+                }`}
+              >
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-zinc-950 min-h-[440px] sm:min-h-[540px] lg:min-h-[620px] group">
                   <img
                     src={program.image}
                     alt={program.title}
-                    className="w-full h-80 sm:h-96 object-cover object-center"
+                    className="w-full h-full object-cover object-center absolute inset-0 grayscale contrast-110 group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
+                    <span className="text-xs uppercase tracking-widest text-zinc-300 font-mono mb-1">
+                      {program.stageName}
+                    </span>
+                    <h3 className="text-xl font-light text-white">{program.title}</h3>
+                  </div>
                 </div>
               </div>
 
               {/* Text side */}
-              <div className={`lg:col-span-6 space-y-5 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                <span className="text-xs font-semibold text-burntOrange uppercase tracking-wider block">
+              <div
+                className={`lg:col-span-6 space-y-6 ${
+                  index % 2 === 1 ? 'lg:order-1' : ''
+                }`}
+              >
+                <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest block font-mono">
                   Life Stage Program 0{index + 1}
                 </span>
 
-                <h2 className="text-3xl sm:text-4xl font-light text-[#3B6B96] tracking-tight">
+                <h2 className="text-3xl sm:text-5xl font-light text-zinc-900 tracking-tight leading-tight">
                   {program.title}
                 </h2>
 
-                <p className="text-base text-slate-600 leading-relaxed font-normal">
+                <p className="text-base text-zinc-600 leading-relaxed font-normal">
                   {program.fullDescription}
                 </p>
 
-                <div className="bg-[#F8F9FA] p-5 rounded-2xl border border-slate-200 space-y-2">
-                  <span className="text-xs font-semibold text-slate-700 uppercase tracking-wider block">
-                    Who It's For
+                <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-200 space-y-2">
+                  <span className="text-xs font-semibold text-zinc-900 uppercase tracking-wider block">
+                    Who It's For:
                   </span>
-                  <p className="text-sm text-slate-600">
+                  <p className="text-sm text-zinc-600 leading-relaxed">
                     {program.whoItsFor}
                   </p>
                 </div>
 
                 <div className="space-y-2">
-                  <span className="text-xs font-semibold text-slate-700 uppercase tracking-wider block">
+                  <span className="text-xs font-semibold text-zinc-900 uppercase tracking-wider block">
                     Key Adaptations:
                   </span>
-                  <ul className="space-y-1.5 text-sm text-slate-600">
+                  <ul className="space-y-2 text-sm text-zinc-600">
                     {program.benefits.map((b, bIdx) => (
-                      <li key={bIdx} className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <li key={bIdx} className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-black text-white flex items-center justify-center text-xs shrink-0">✓</div>
                         <span>{b}</span>
                       </li>
                     ))}
@@ -96,21 +110,21 @@ export const Programs: React.FC = () => {
                 </div>
 
                 {program.medicalNotice && (
-                  <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200/80 text-xs text-amber-900 leading-relaxed">
+                  <div className="p-4 rounded-xl bg-zinc-100 border border-zinc-200 text-xs text-zinc-800 leading-relaxed italic">
                     <strong>Medical Note:</strong> {program.medicalNotice}
                   </div>
                 )}
 
-                <div className="pt-3 flex flex-wrap items-center gap-4">
+                <div className="pt-2 flex flex-wrap items-center gap-4">
                   <Link
                     to={`/programs/${program.slug}`}
-                    className="bg-[#507C9E] hover:bg-[#416885] text-white px-6 py-2.5 rounded text-sm font-medium transition-colors shadow-sm"
+                    className="bg-black hover:bg-zinc-800 text-white px-7 py-3.5 rounded text-sm font-medium transition-colors shadow-md"
                   >
                     View Program Details
                   </Link>
                   <a
                     href={BOOKING_URL}
-                    className="border border-slate-300 hover:border-slate-500 text-slate-700 px-6 py-2.5 rounded text-sm font-medium transition-colors"
+                    className="border border-black text-black hover:bg-black hover:text-white px-7 py-3.5 rounded text-sm font-medium transition-colors"
                   >
                     Book a Session
                   </a>

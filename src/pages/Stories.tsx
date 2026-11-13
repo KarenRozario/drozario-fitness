@@ -9,55 +9,61 @@ export const Stories: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div className="bg-white text-slate-800">
+    <div className="bg-white text-zinc-900">
       <SEO
         title="Client Stories | Women's Fitness Journeys Stoney Creek"
         description="Structured movement case studies and client journeys at D'Rozario Fitness in Stoney Creek. Documenting objective functional outcomes and maternal strength."
       />
 
-      {/* Hero Banner */}
-      <section className="relative min-h-[45vh] flex items-center bg-[#151A20] overflow-hidden">
+      {/* Hero Banner - Covers 70vh */}
+      <section className="relative min-h-[70vh] flex items-center bg-black overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/stories-hero.jpg"
             alt="Client Stories at D'Rozario Fitness"
-            className="w-full h-full object-cover object-center opacity-35"
+            className="w-full h-full object-cover object-center grayscale contrast-110 brightness-75"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#141A22] via-[#141A22]/75 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-          <div className="max-w-2xl text-left">
-            <h1 className="text-4xl sm:text-6xl font-light tracking-tight text-white mb-4">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+          <div className="max-w-3xl text-left">
+            <span className="text-xs uppercase tracking-[0.25em] text-zinc-300 font-mono block mb-3">
+              Verified Progress
+            </span>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white mb-4">
               Client Stories
             </h1>
-            <p className="text-base sm:text-lg text-slate-200 font-light leading-relaxed max-w-xl">
-              Each and every day, Rachel helps our Stoney Creek women feel stronger, more confident, and energized through every season of life.
+            <p className="text-lg sm:text-2xl text-zinc-200 font-light max-w-2xl leading-relaxed">
+              Every day, Rachel helps our Stoney Creek women feel stronger, more confident, and energised through every season of life.
             </p>
           </div>
         </div>
       </section>
 
       {/* Transparency Banner */}
-      <section className="py-4 bg-[#F8F9FA] border-b border-slate-200 text-xs text-slate-500">
+      <section className="py-4 bg-zinc-950 text-xs text-zinc-400 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2">
-          <Shield className="w-4 h-4 text-[#3B6B96] shrink-0" />
+          <Shield className="w-4 h-4 text-white shrink-0" />
           <span>
-            <strong>Verification Standard:</strong> D'Rozario Fitness documents verified functional outcomes (strength progress, core connection, daily stamina). We do not invent reviews or ratings.
+            <strong className="text-white">Verification Standard:</strong> D'Rozario Fitness documents verified functional outcomes (strength progress, core connection, daily stamina). We do not invent reviews or ratings.
           </span>
         </div>
       </section>
 
-      {/* Clinical Framework & Case Studies */}
-      <section className="py-20 bg-white">
+      {/* Case Studies */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-light text-[#3B6B96] mb-3">
+            <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest block mb-2 font-mono">
+              Empowerment Framework
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-light text-zinc-900 mb-3 tracking-tight">
               How We Document & Support Progress
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Every woman follows a thoughtful, personalized trajectory from baseline consultation through progressive functional strength.
+            <p className="text-zinc-600 text-sm sm:text-base leading-relaxed font-light">
+              Every woman follows a thoughtful, personalised trajectory from baseline consultation through progressive functional strength.
             </p>
           </div>
 
@@ -65,28 +71,28 @@ export const Stories: React.FC = () => {
             {clientStoriesPlaceholder.placeholderCards.map((card) => (
               <div
                 key={card.id}
-                className="bg-white rounded-2xl border border-slate-200/80 p-7 shadow-sm hover:shadow-md transition-shadow space-y-4 flex flex-col justify-between"
+                className="bg-zinc-50 rounded-2xl border border-zinc-200 p-8 shadow-sm hover:shadow-xl transition-all duration-300 space-y-5 flex flex-col justify-between"
               >
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between text-xs text-slate-400 font-mono">
-                    <span className="text-burntOrange font-semibold uppercase">{card.label}</span>
-                    <Activity className="w-4 h-4 text-[#3B6B96]" />
+                  <div className="flex items-center justify-between text-xs text-zinc-400 font-mono">
+                    <span className="text-black font-semibold uppercase">{card.label}</span>
+                    <Activity className="w-4 h-4 text-zinc-700" />
                   </div>
 
-                  <h3 className="text-xl font-light text-[#3B6B96]">
+                  <h3 className="text-xl font-light text-zinc-900">
                     {card.category}
                   </h3>
 
-                  <div className="text-xs text-slate-500">
+                  <div className="text-xs text-zinc-500 font-mono">
                     {card.demographic} · {card.timeline}
                   </div>
 
-                  <p className="text-xs text-slate-600 bg-[#F8F9FA] p-3 rounded-lg border border-slate-200/60 font-mono">
+                  <p className="text-xs text-zinc-700 bg-white p-4 rounded-xl border border-zinc-200 font-mono">
                     <strong>Milestone:</strong> {card.metricsPlaceholder}
                   </p>
                 </div>
 
-                <p className="text-xs text-slate-400 italic pt-2 border-t border-slate-100">
+                <p className="text-xs text-zinc-400 italic pt-3 border-t border-zinc-200">
                   [Verified case study in progress. Full milestone summary will be published upon client consent.]
                 </p>
               </div>
@@ -96,7 +102,7 @@ export const Stories: React.FC = () => {
           <div className="pt-8 text-center">
             <a
               href={BOOKING_URL}
-              className="inline-block bg-[#507C9E] hover:bg-[#416885] text-white px-8 py-3.5 rounded text-sm font-medium transition-colors shadow-sm"
+              className="inline-block bg-black hover:bg-zinc-800 text-white px-8 py-3.5 rounded text-sm font-semibold transition-colors shadow-md"
             >
               Start Your Own Movement Journey
             </a>
@@ -104,31 +110,34 @@ export const Stories: React.FC = () => {
         </div>
       </section>
 
-      {/* Community Newsletter Strip */}
-      <section className="py-20 bg-[#F8F9FA] border-t border-slate-200/60">
+      {/* Community Newsletter Strip - 50/50 Split */}
+      <section className="py-24 bg-zinc-950 text-white border-t border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="w-full max-w-[360px] rounded-3xl overflow-hidden shadow-md">
+            <div className="lg:col-span-6 relative">
+              <div className="w-full rounded-2xl overflow-hidden shadow-2xl bg-zinc-900 min-h-[400px]">
                 <img
                   src="/images/community-jump.jpg"
                   alt="Women's fitness community"
-                  className="w-full h-80 object-cover"
+                  className="w-full h-full object-cover object-center absolute inset-0 grayscale contrast-110"
                   loading="lazy"
                 />
               </div>
             </div>
 
-            <div className="lg:col-span-7 space-y-4">
-              <h2 className="text-3xl font-light text-[#3B6B96]">
+            <div className="lg:col-span-6 space-y-6">
+              <span className="text-xs font-semibold text-zinc-400 uppercase tracking-widest block font-mono">
+                Stay Informed
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-tight">
                 Join The Community
               </h2>
-              <p className="text-sm text-slate-600 leading-relaxed max-w-lg">
-                Sign up for our Movement bulletin to receive women's fitness tips, mom group news, and life-stage updates.
+              <p className="text-base text-zinc-300 leading-relaxed font-light">
+                Sign up for our Movement bulletin to receive women's fitness tips, mom group news, and life-stage updates in Stoney Creek.
               </p>
 
               {submitted ? (
-                <div className="p-4 bg-emerald-50 border border-emerald-200 rounded text-emerald-800 text-xs font-medium">
+                <div className="p-4 bg-zinc-900 border border-white/20 rounded-xl text-white text-xs font-medium">
                   Thank you! You're subscribed to Rachel's community updates.
                 </div>
               ) : (
@@ -145,11 +154,11 @@ export const Stories: React.FC = () => {
                     placeholder="Email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 border border-slate-300 rounded px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-[#3B6B96]"
+                    className="flex-1 bg-zinc-900 border border-zinc-800 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-white transition-colors"
                   />
                   <button
                     type="submit"
-                    className="bg-[#507C9E] hover:bg-[#416885] text-white px-6 py-2.5 rounded text-sm font-medium transition-colors"
+                    className="bg-white hover:bg-zinc-200 text-black px-6 py-3 rounded text-sm font-semibold transition-colors shrink-0"
                   >
                     Sign me up
                   </button>
