@@ -1,6 +1,7 @@
 import React from 'react';
 import { siteConfig, BOOKING_URL } from '../config/site';
 import { SEO } from '../components/shared/SEO';
+import { ThemePageHero } from '../themes';
 
 export const Community: React.FC = () => {
   const { community } = siteConfig;
@@ -12,32 +13,13 @@ export const Community: React.FC = () => {
         description="Rachel D'Rozario works closely with Stoney Creek mommy networks and mom groups, hosting group fitness classes, stroller strength meetups, and workshops."
       />
 
-      {/* Hero Banner - Editorial Header */}
-      <section className="relative min-h-[65vh] flex items-end pb-20 bg-[#1A1714] overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/community-moms.jpg"
-            alt="Stoney Creek Women and Mom Community Fitness"
-            className="w-full h-full object-cover object-center"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#FAF7F2]/90 block mb-3">
-              MOMMY NETWORKS & WORKSHOPS · STONEY CREEK
-            </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-[#FAF7F2] tracking-tight leading-[1.05] mb-4">
-              Community & Mom Groups
-            </h1>
-            <p className="text-lg sm:text-xl text-[#FAF7F2]/90 font-light max-w-[65ch] leading-[1.7]">
-              Bringing women together through movement, postpartum support, and life-stage strength in Stoney Creek.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Dynamic Theme Page Hero */}
+      <ThemePageHero
+        title="Community & Mom Groups"
+        kicker="MOMMY NETWORKS & WORKSHOPS · STONEY CREEK"
+        description="Bringing women together through movement, postpartum support, and life-stage strength in Stoney Creek."
+        image="/images/community-moms.jpg"
+      />
 
       {/* Intro Section - Two-Image Asymmetric Photo Feature */}
       <section className="py-28 lg:py-36 bg-[#FAF7F2] border-b border-[#1A1714]/15">

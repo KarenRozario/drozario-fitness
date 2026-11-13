@@ -1,6 +1,7 @@
 import React from 'react';
 import { siteConfig, BOOKING_URL } from '../config/site';
 import { SEO } from '../components/shared/SEO';
+import { ThemePageHero } from '../themes';
 import { MapPin } from 'lucide-react';
 
 export const Team: React.FC = () => {
@@ -13,32 +14,13 @@ export const Team: React.FC = () => {
         description="Meet Rachel D'Rozario, Founder & Women's Fitness Coach at D'Rozario Fitness in Stoney Creek, Ontario. Dedicated to prenatal, postnatal, and menopause fitness."
       />
 
-      {/* Hero Banner - Editorial Magazine Header */}
-      <section className="relative min-h-[65vh] flex items-end pb-20 bg-[#1A1714] overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/team-hero.jpg"
-            alt="Rachel D'Rozario coaching in Stoney Creek"
-            className="w-full h-full object-cover object-center"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#FAF7F2]/90 block mb-3">
-              FOUNDER & HEAD COACH · STONEY CREEK
-            </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-[#FAF7F2] tracking-tight leading-[1.05] mb-4">
-              Meet Rachel D'Rozario
-            </h1>
-            <p className="text-lg sm:text-xl text-[#FAF7F2]/90 font-light max-w-[65ch] leading-[1.7]">
-              Empowering women through pregnancy, motherhood, and menopause with safe, progressive strength in Stoney Creek.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Dynamic Theme Page Hero */}
+      <ThemePageHero
+        title="Meet Rachel D'Rozario"
+        kicker="FOUNDER & HEAD COACH · STONEY CREEK"
+        description="Empowering women through pregnancy, motherhood, and menopause with safe, progressive strength in Stoney Creek."
+        image="/images/team-hero.jpg"
+      />
 
       {/* Philosophy Statement Between Hairline Rules */}
       <section className="py-24 sm:py-32 bg-[#FAF7F2] border-b border-[#1A1714]/15">

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../config/site';
 import { SEO } from '../components/shared/SEO';
+import { ThemePageHero } from '../themes';
 import { ArrowRight } from 'lucide-react';
 
 export const Programs: React.FC = () => {
@@ -12,32 +13,13 @@ export const Programs: React.FC = () => {
         description="Explore specialised women's fitness coaching programs in Stoney Creek, Ontario: Prenatal Fitness, Postnatal Fitness, Perimenopause & Menopause, and Strong After 50."
       />
 
-      {/* Hero Banner - Editorial Header */}
-      <section className="relative min-h-[65vh] flex items-end pb-20 bg-[#1A1714] overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/hero-women-fitness.jpg"
-            alt="Women's Fitness Programs at D'Rozario Fitness"
-            className="w-full h-full object-cover object-center"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#FAF7F2]/90 block mb-3">
-              LIFE-STAGE MOVEMENT · STONEY CREEK
-            </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-[#FAF7F2] tracking-tight leading-[1.05] mb-4">
-              Our Programs
-            </h1>
-            <p className="text-lg sm:text-xl text-[#FAF7F2]/90 font-light max-w-[65ch] leading-[1.7]">
-              Coaching designed for women through pregnancy, motherhood, perimenopause, menopause, and lifelong strength.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Dynamic Theme Page Hero */}
+      <ThemePageHero
+        title="Our Programs"
+        kicker="LIFE-STAGE MOVEMENT · STONEY CREEK"
+        description="Coaching designed for women through pregnancy, motherhood, perimenopause, menopause, and lifelong strength."
+        image="/images/hero-women-fitness.jpg"
+      />
 
       {/* Programs List - Asymmetric 12-Column Magazine Spreads */}
       <section className="py-28 lg:py-36 bg-[#FAF7F2]">

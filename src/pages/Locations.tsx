@@ -1,6 +1,7 @@
 import React from 'react';
 import { siteConfig, BOOKING_URL } from '../config/site';
 import { SEO } from '../components/shared/SEO';
+import { ThemePageHero } from '../themes';
 import { Clock, Phone, Mail, Navigation, ExternalLink } from 'lucide-react';
 
 export const Locations: React.FC = () => {
@@ -11,32 +12,13 @@ export const Locations: React.FC = () => {
         description="Visit D'Rozario Fitness in Stoney Creek, Ontario. Directions, studio amenities, and operating hours for women's fitness coaching."
       />
 
-      {/* Hero Banner - Editorial Magazine Header */}
-      <section className="relative min-h-[65vh] flex items-end pb-20 bg-[#1A1714] overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/studio-stoney-creek.jpg"
-            alt="Stoney Creek Studio Facility"
-            className="w-full h-full object-cover object-center"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#FAF7F2]/90 block mb-3">
-              FACILITY & HOURS · STONEY CREEK
-            </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-[#FAF7F2] tracking-tight leading-[1.05] mb-4">
-              Studio Location
-            </h1>
-            <p className="text-lg sm:text-xl text-[#FAF7F2]/90 font-light max-w-[65ch] leading-[1.7]">
-              Private women's fitness studio in Stoney Creek, Ontario. Welcoming, supportive, and baby-friendly.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Dynamic Theme Page Hero */}
+      <ThemePageHero
+        title="Studio Location"
+        kicker="FACILITY & HOURS · STONEY CREEK"
+        description="Private women's fitness studio in Stoney Creek, Ontario. Welcoming, supportive, and baby-friendly."
+        image="/images/studio-stoney-creek.jpg"
+      />
 
       {/* Studio Info & Map */}
       <section className="py-28 lg:py-36 bg-[#FAF7F2]">

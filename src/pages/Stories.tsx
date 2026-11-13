@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { siteConfig, BOOKING_URL } from '../config/site';
 import { SEO } from '../components/shared/SEO';
+import { ThemePageHero } from '../themes';
 import { Shield } from 'lucide-react';
 
 export const Stories: React.FC = () => {
@@ -15,32 +16,13 @@ export const Stories: React.FC = () => {
         description="Structured movement case studies and client journeys at D'Rozario Fitness in Stoney Creek. Documenting objective functional outcomes and maternal strength."
       />
 
-      {/* Hero Banner - Editorial Magazine Header */}
-      <section className="relative min-h-[65vh] flex items-end pb-20 bg-[#1A1714] overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/stories-hero.jpg"
-            alt="Client Stories at D'Rozario Fitness"
-            className="w-full h-full object-cover object-center"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#FAF7F2]/90 block mb-3">
-              VERIFIED OUTCOMES · STONEY CREEK
-            </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-[#FAF7F2] tracking-tight leading-[1.05] mb-4">
-              Client Stories
-            </h1>
-            <p className="text-lg sm:text-xl text-[#FAF7F2]/90 font-light max-w-[65ch] leading-[1.7]">
-              Every day, Rachel helps our Stoney Creek women feel stronger, more confident, and energised through every season of life.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Dynamic Theme Page Hero */}
+      <ThemePageHero
+        title="Client Stories"
+        kicker="VERIFIED OUTCOMES · STONEY CREEK"
+        description="Every day, Rachel helps our Stoney Creek women feel stronger, more confident, and energised through every season of life."
+        image="/images/stories-hero.jpg"
+      />
 
       {/* Transparency Banner Between Hairline Rules */}
       <section className="py-4 bg-[#F2ECE3] text-xs text-[#1A1714]/80 border-b border-[#1A1714]/15">

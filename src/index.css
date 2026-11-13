@@ -7,23 +7,29 @@
 @import "@fontsource/playfair-display/700.css";
 
 /* Theme 2: Soft Wellness */
-@import "@fontsource/fraunces/400.css";
-@import "@fontsource/fraunces/500.css";
-@import "@fontsource/fraunces/600.css";
-@import "@fontsource/fraunces/700.css";
-@import "@fontsource/nunito-sans/400.css";
-@import "@fontsource/nunito-sans/500.css";
-@import "@fontsource/nunito-sans/600.css";
+@import "@fontsource/dm-serif-display/400.css";
+@import "@fontsource/dm-serif-display/400-italic.css";
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/500.css";
+@import "@fontsource/dm-sans/700.css";
+@import "@fontsource/caveat/400.css";
+@import "@fontsource/caveat/600.css";
 
 /* Theme 3: Modern Strong */
-@import "@fontsource/space-grotesk/400.css";
-@import "@fontsource/space-grotesk/500.css";
-@import "@fontsource/space-grotesk/600.css";
-@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/archivo/800.css";
+@import "@fontsource/archivo/900.css";
+@import "@fontsource/manrope/400.css";
+@import "@fontsource/manrope/500.css";
+@import "@fontsource/manrope/600.css";
+@import "@fontsource/manrope/700.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --preview-bar-h: 0px;
+}
 
 @layer base {
   body {
@@ -53,6 +59,36 @@
     color: #1A1714;
     transition: color 0.2s ease;
   }
+}
+
+/* Typography Helpers */
+.font-dm-serif {
+  font-family: 'DM Serif Display', Georgia, serif;
+}
+
+.font-dm-sans {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-caveat {
+  font-family: 'Caveat', cursive;
+}
+
+.font-archivo {
+  font-family: 'Archivo', system-ui, -apple-system, sans-serif;
+}
+
+.font-manrope {
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+}
+
+/* Photo Scrim & Text Shadow for Legibility */
+.text-photo-shadow {
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+
+.photo-scrim-gradient {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.40) 50%, rgba(0, 0, 0, 0) 100%);
 }
 
 /* Editorial Drop Cap */
@@ -85,6 +121,7 @@
   font-weight: 500;
   padding: 0.875rem 1.75rem;
   transition: all 0.25s ease;
+  white-space: nowrap;
 }
 
 .btn-editorial-primary:hover {
@@ -109,6 +146,7 @@
   font-weight: 500;
   padding: 0.875rem 1.75rem;
   transition: all 0.25s ease;
+  white-space: nowrap;
 }
 
 .btn-editorial-outline:hover {
@@ -132,6 +170,7 @@
   font-weight: 500;
   padding: 0.875rem 1.75rem;
   transition: all 0.25s ease;
+  white-space: nowrap;
 }
 
 .btn-editorial-outline-white:hover {
@@ -147,34 +186,62 @@
 /* Kicker label */
 .kicker-label {
   font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* Custom subtle scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: #FAF7F2;
 }
 ::-webkit-scrollbar-thumb {
   background: #D5CEBE;
-  border-radius: 0px;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #B4532A;
 }
 
+/* Modern Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 24s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
 /* ==========================================================================
-   THEME 2: SOFT WELLNESS (Calm, nurturing, rounded corners, sage & cocoa)
+   THEME 2: SOFT WELLNESS (Calm, nurturing, rounded corners, DM Serif & DM Sans)
    ========================================================================== */
 html[data-theme="soft"] body {
   background-color: #FFFBF8 !important;
   color: #3B2F2A !important;
-  font-family: 'Nunito Sans', system-ui, -apple-system, sans-serif !important;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif !important;
 }
 
 html[data-theme="soft"] h1,
@@ -183,14 +250,9 @@ html[data-theme="soft"] h3,
 html[data-theme="soft"] h4,
 html[data-theme="soft"] h5,
 html[data-theme="soft"] h6 {
-  font-family: 'Fraunces', Georgia, serif !important;
+  font-family: 'DM Serif Display', Georgia, serif !important;
   color: #3B2F2A !important;
   letter-spacing: -0.01em !important;
-}
-
-html[data-theme="soft"] .drop-cap::first-letter {
-  font-family: 'Fraunces', Georgia, serif !important;
-  color: #3B2F2A !important;
 }
 
 /* Soft Wellness Palette Overrides */
@@ -228,7 +290,10 @@ html[data-theme="soft"] .btn-editorial-primary {
   border-color: #3B2F2A !important;
   color: #FFFBF8 !important;
   border-radius: 9999px !important;
-  font-family: 'Nunito Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: 0.05em !important;
+  font-weight: 600 !important;
   padding: 0.85rem 2rem !important;
   box-shadow: 0 4px 12px rgba(59, 47, 42, 0.08) !important;
 }
@@ -243,7 +308,10 @@ html[data-theme="soft"] .btn-editorial-outline {
   border-color: #3B2F2A !important;
   color: #3B2F2A !important;
   border-radius: 9999px !important;
-  font-family: 'Nunito Sans', sans-serif !important;
+  font-family: 'DM Sans', sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: 0.05em !important;
+  font-weight: 600 !important;
   padding: 0.85rem 2rem !important;
 }
 
@@ -255,30 +323,16 @@ html[data-theme="soft"] .btn-editorial-outline:hover {
 
 html[data-theme="soft"] .btn-editorial-outline-white {
   border-radius: 9999px !important;
-  font-family: 'Nunito Sans', sans-serif !important;
-}
-
-/* Soft Wellness Rounded Images & Cards */
-html[data-theme="soft"] .aspect-\[4\/5\],
-html[data-theme="soft"] .aspect-\[4\/3\],
-html[data-theme="soft"] .aspect-\[3\/2\],
-html[data-theme="soft"] .aspect-\[16\/9\] {
-  border-radius: 24px !important;
-}
-
-html[data-theme="soft"] input,
-html[data-theme="soft"] textarea,
-html[data-theme="soft"] select {
-  border-radius: 12px !important;
+  font-family: 'DM Sans', sans-serif !important;
 }
 
 /* ==========================================================================
-   THEME 3: MODERN STRONG (Confident, deep plum, coral, lilac, Space Grotesk)
+   THEME 3: MODERN STRONG (Confident, deep plum, coral, lilac, Archivo & Manrope)
    ========================================================================== */
 html[data-theme="modern"] body {
   background-color: #FFFFFF !important;
   color: #2E1A47 !important;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif !important;
 }
 
 html[data-theme="modern"] h1,
@@ -287,16 +341,11 @@ html[data-theme="modern"] h3,
 html[data-theme="modern"] h4,
 html[data-theme="modern"] h5,
 html[data-theme="modern"] h6 {
-  font-family: 'Space Grotesk', system-ui, sans-serif !important;
-  font-weight: 700 !important;
+  font-family: 'Archivo', system-ui, sans-serif !important;
+  font-weight: 800 !important;
   color: #2E1A47 !important;
-  letter-spacing: -0.03em !important;
-}
-
-html[data-theme="modern"] .drop-cap::first-letter {
-  font-family: 'Space Grotesk', system-ui, sans-serif !important;
-  font-weight: 700 !important;
-  color: #FF6B4A !important;
+  letter-spacing: -0.02em !important;
+  text-transform: uppercase !important;
 }
 
 /* Modern Strong Palette Overrides */
@@ -328,40 +377,32 @@ html[data-theme="modern"] .border-\[\#B4532A\] {
   border-color: #FF6B4A !important;
 }
 
-/* Modern Strong Buttons */
 html[data-theme="modern"] .btn-editorial-primary {
   background-color: #FF6B4A !important;
   border-color: #FF6B4A !important;
   color: #FFFFFF !important;
   border-radius: 0px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.15em !important;
+  font-family: 'Archivo', sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
 }
 
 html[data-theme="modern"] .btn-editorial-primary:hover {
-  background-color: #E85535 !important;
-  border-color: #E85535 !important;
+  background-color: #2E1A47 !important;
+  border-color: #2E1A47 !important;
+  color: #FFFFFF !important;
 }
 
 html[data-theme="modern"] .btn-editorial-outline {
   border-color: #2E1A47 !important;
   color: #2E1A47 !important;
   border-radius: 0px !important;
-  font-weight: 700 !important;
+  font-family: 'Archivo', sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
 }
 
 html[data-theme="modern"] .btn-editorial-outline:hover {
   background-color: #2E1A47 !important;
   color: #FFFFFF !important;
-}
-
-html[data-theme="modern"] .btn-editorial-outline-white {
-  border-radius: 0px !important;
-  font-weight: 700 !important;
-}
-
-html[data-theme="modern"] input,
-html[data-theme="modern"] textarea,
-html[data-theme="modern"] select {
-  border-radius: 0px !important;
 }
