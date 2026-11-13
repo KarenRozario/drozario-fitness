@@ -97,7 +97,7 @@ export const siteConfig = {
     { days: "Sunday", times: "[By appointment only]" },
   ],
   
-  // Value Strip Points
+  // Value Strip Points (Home Section 2)
   valuePoints: [
     {
       title: "1-on-1 Coached Precision",
@@ -121,7 +121,7 @@ export const siteConfig = {
     },
   ],
 
-  // Journey Steps
+  // Journey Steps (Home Section 3)
   journeySteps: [
     {
       number: "01",
@@ -145,63 +145,21 @@ export const siteConfig = {
     },
   ],
 
-  // Team Members
+  // Team: Just ONE person — Rachel D'Rozario (no other trainers)
   team: [
     {
       id: "rachel-drozario",
       name: "Rachel D'Rozario",
-      role: "Owner, Head Personal Trainer & Muscle Release Specialist",
+      role: "Founder, Head Personal Trainer & Muscle Release Specialist",
       isOwner: true,
       image: "/images/rachel-drozario.jpg",
       certifications: "[Certification placeholder, e.g. CPT, Muscle Release Practitioner]",
-      bio: "Rachel founded D'Rozario Muscle Release to offer Stoney Creek a higher standard of athletic care — bridging the gap between heavy, progressive strength training and precise hands-on muscle release. Working with athletes, lifters, and active community members, Rachel focuses on uncovering root biomechanical restrictions to eliminate persistent pain and unlock long-term strength.",
+      bio: "Rachel founded D'Rozario Muscle Release to offer Stoney Creek a higher standard of athletic care — bridging the gap between heavy, progressive strength training and precise hands-on muscle release. Working with athletes, lifters, and active community members, Rachel focuses on uncovering root biomechanical restrictions to eliminate persistent pain and unlock long-term strength. Every client works directly with Rachel 1-on-1.",
       specialities: [
         "Hands-On Myofascial Release",
         "Biomechanical Movement Screening",
         "Athletic Strength & Conditioning",
         "Post-Rehab Integration",
-      ],
-    },
-    {
-      id: "trainer-2",
-      name: "[Trainer name]",
-      role: "[Performance Coach / Recovery Specialist]",
-      isOwner: false,
-      image: "/images/trainer-placeholder-1.jpg",
-      certifications: "[Certification placeholder]",
-      bio: "[Trainer bio placeholder: background, coaching philosophy, and focus areas for athletes and recovery clients in Stoney Creek.]",
-      specialities: [
-        "[Speciality 1]",
-        "[Speciality 2]",
-        "[Speciality 3]",
-      ],
-    },
-    {
-      id: "trainer-3",
-      name: "[Trainer name]",
-      role: "[Strength & Conditioning Specialist]",
-      isOwner: false,
-      image: "/images/trainer-placeholder-2.jpg",
-      certifications: "[Certification placeholder]",
-      bio: "[Trainer bio placeholder: athletic coaching credentials, movement assessment background, and client training philosophy.]",
-      specialities: [
-        "[Speciality 1]",
-        "[Speciality 2]",
-        "[Speciality 3]",
-      ],
-    },
-    {
-      id: "trainer-4",
-      name: "[Trainer name]",
-      role: "[Mobility & Movement Coach]",
-      isOwner: false,
-      image: "/images/trainer-placeholder-3.jpg",
-      certifications: "[Certification placeholder]",
-      bio: "[Trainer bio placeholder: joint health, myofascial release, and progressive rehabilitation support.]",
-      specialities: [
-        "[Speciality 1]",
-        "[Speciality 2]",
-        "[Speciality 3]",
       ],
     },
   ] as TeamMember[],
@@ -419,13 +377,13 @@ export const siteConfig = {
     },
     {
       slug: "building-bulletproof-shoulders-for-stoney-creek-athletes",
-      title: "Building Bulletproof Shoulders for Stoney Creek Athletes [Draft]",
+      title: "Shoulder Mobility Guide: Improve Flexibility, Stability and Control [Draft]",
       category: "Sports Performance",
       readTime: "5 min read",
       status: "[Draft]",
       author: "Rachel D'Rozario",
       image: "/images/blog-2.jpg",
-      excerpt: "Shoulder impingement isn't an inevitable consequence of heavy lifting or sports. Discover how scapular upward rotation and soft-tissue release protect your joints under load.",
+      excerpt: "Strong, mobile shoulders help you move confidently through everyday activities and perform more effectively in the gym. This guide explores every major shoulder movement pattern.",
       sections: [
         {
           heading: "Why Bench Pressing Alone Creates Joint Compression",
@@ -445,13 +403,13 @@ export const siteConfig = {
     },
     {
       slug: "the-science-of-targeted-muscle-release-explained",
-      title: "The Science of Targeted Muscle Release Explained [Draft]",
+      title: "How 1-on-1 Coached Recovery Helps You Achieve Your Goals [Draft]",
       category: "Muscle Release & Therapy",
       readTime: "6 min read",
       status: "[Draft]",
       author: "Rachel D'Rozario",
       image: "/images/blog-3.jpg",
-      excerpt: "How manual trigger point therapy and active release work directly with your central nervous system to down-regulate pain signals and unlock restricted movement.",
+      excerpt: "When you have the right 1-on-1 support, you start to enjoy the training process. The studio becomes a place of progress, and movement becomes a sustainable tool for lifelong health.",
       sections: [
         {
           heading: "It's Not Just Muscle — It's Neurological",

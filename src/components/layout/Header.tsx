@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../../config/site';
-import { Button } from '../shared/Button';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
 export const Header: React.FC = () => {
@@ -9,19 +8,17 @@ export const Header: React.FC = () => {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  
+
   const location = useLocation();
   const servicesRef = useRef<HTMLDivElement>(null);
   const learnRef = useRef<HTMLDivElement>(null);
 
-  // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
     setLearnDropdownOpen(false);
   }, [location.pathname]);
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -30,7 +27,6 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Handle outside click for dropdowns
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
@@ -44,53 +40,37 @@ export const Header: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Handle Escape key
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setServicesDropdownOpen(false);
-        setLearnDropdownOpen(false);
-        setMobileMenuOpen(false);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
   const isActive = (path: string) => location.pathname === path;
 
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? 'bg-espresso/95 backdrop-blur-md border-b border-espresso-border shadow-2xl py-3'
-          : 'bg-espresso/90 backdrop-blur-sm border-b border-espresso-border/50 py-4 sm:py-5'
+          ? 'bg-[#1E242B]/95 backdrop-blur-md shadow-md py-3.5 border-b border-[#2C3540]'
+          : 'bg-[#1E242B] py-4 sm:py-5 border-b border-[#2C3540]/60'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo / Wordmark */}
+          {/* Logo - Modeled on Body + Soul wordmark */}
           <Link
             to="/"
-            className="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded p-1"
+            className="flex flex-col group focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded p-1"
             aria-label={`${siteConfig.name} - Home`}
           >
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-6 bg-burntOrange block transition-transform group-hover:scale-y-110" />
-              <span className="font-display text-2xl sm:text-3xl text-cream tracking-wider uppercase font-bold leading-none">
-                {siteConfig.shortName}
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-white text-xl sm:text-2xl font-bold tracking-wider uppercase font-sans">
+                D'ROZARIO
               </span>
-              <span className="font-display text-sm sm:text-base text-burntOrange tracking-widest uppercase font-semibold">
-                Muscle Release
-              </span>
+              <span className="text-burntOrange font-black text-lg">+</span>
             </div>
-            <span className="text-[10px] text-cream-dark tracking-widest uppercase pl-4 hidden sm:block">
-              Stoney Creek Personal Training & Recovery
+            <span className="text-[10px] tracking-[0.25em] text-slate-300 font-medium uppercase -mt-1">
+              MUSCLE RELEASE
             </span>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6" aria-label="Main Navigation">
+          <nav className="hidden lg:flex items-center gap-8 text-sm font-normal" aria-label="Main Navigation">
             {/* Services Dropdown */}
             <div className="relative" ref={servicesRef}>
               <button
@@ -99,77 +79,69 @@ export const Header: React.FC = () => {
                 onMouseEnter={() => setServicesDropdownOpen(true)}
                 aria-expanded={servicesDropdownOpen}
                 aria-haspopup="true"
-                className={`flex items-center gap-1.5 text-sm uppercase tracking-wider font-medium transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
+                className={`flex items-center gap-1 transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
                   location.pathname.startsWith('/services')
-                    ? 'text-burntOrange font-semibold'
-                    : 'text-cream hover:text-burntOrange'
+                    ? 'text-white font-medium border-b-2 border-burntOrange'
+                    : 'text-slate-200 hover:text-white'
                 }`}
               >
                 <span>Services</span>
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    servicesDropdownOpen ? 'rotate-180 text-burntOrange' : ''
-                  }`}
-                />
+                <ChevronDown className="w-3.5 h-3.5 opacity-70" />
               </button>
 
               {servicesDropdownOpen && (
                 <div
                   onMouseLeave={() => setServicesDropdownOpen(false)}
-                  className="absolute left-0 mt-1 w-72 rounded-md bg-espresso-surface border border-espresso-border shadow-2xl p-2 z-50 animate-fade-in"
+                  className="absolute left-0 mt-1 w-64 rounded-md bg-[#242C35] border border-[#374351] shadow-xl p-2 z-50 animate-fade-in"
                   role="menu"
                 >
-                  <div className="px-3 py-2 text-[10px] font-mono uppercase tracking-widest text-burntOrange border-b border-espresso-border mb-1">
-                    Specialized Disciplines
-                  </div>
                   {siteConfig.services.map((service) => (
                     <Link
                       key={service.slug}
                       to={`/services/${service.slug}`}
                       role="menuitem"
-                      className="block px-3 py-2.5 rounded text-sm text-cream hover:text-burntOrange hover:bg-espresso-card transition-colors"
+                      className="block px-3 py-2 text-xs text-slate-200 hover:text-white hover:bg-[#2F3A46] rounded transition-colors"
                       onClick={() => setServicesDropdownOpen(false)}
                     >
-                      <div className="font-medium text-cream">{service.title}</div>
-                      <div className="text-xs text-cream-dark line-clamp-1 mt-0.5">
-                        {service.shortDescription}
-                      </div>
+                      <div className="font-medium text-white">{service.title}</div>
+                      <div className="text-[11px] text-slate-400 line-clamp-1">{service.shortDescription}</div>
                     </Link>
                   ))}
-                  <div className="pt-1 mt-1 border-t border-espresso-border">
+                  <div className="pt-1 mt-1 border-t border-[#374351]">
                     <Link
                       to="/services"
-                      className="block px-3 py-2 text-xs font-mono uppercase tracking-widest text-burntOrange hover:underline"
+                      className="block px-3 py-1.5 text-[11px] text-burntOrange hover:underline font-medium"
                       onClick={() => setServicesDropdownOpen(false)}
                     >
-                      View All Services Overview →
+                      All Services Overview →
                     </Link>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Team */}
+            {/* Meet Rachel (Single Trainer) */}
             <Link
               to="/team"
-              className={`text-sm uppercase tracking-wider font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded py-1 ${
-                isActive('/team') ? 'text-burntOrange font-semibold' : 'text-cream hover:text-burntOrange'
+              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
+                isActive('/team')
+                  ? 'text-white font-medium border-b-2 border-burntOrange'
+                  : 'text-slate-200 hover:text-white'
               }`}
             >
-              Team
+              Meet Rachel
             </Link>
 
             {/* Pain Locator */}
             <Link
               to="/pain-locator"
-              className={`text-sm uppercase tracking-wider font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded py-1 flex items-center gap-1 ${
+              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
                 isActive('/pain-locator')
-                  ? 'text-burntOrange font-semibold'
-                  : 'text-cream hover:text-burntOrange'
+                  ? 'text-white font-medium border-b-2 border-burntOrange'
+                  : 'text-slate-200 hover:text-white'
               }`}
             >
-              <span>Pain Locator</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-burntOrange animate-pulse" />
+              Pain Locator
             </Link>
 
             {/* Learn Dropdown */}
@@ -180,43 +152,39 @@ export const Header: React.FC = () => {
                 onMouseEnter={() => setLearnDropdownOpen(true)}
                 aria-expanded={learnDropdownOpen}
                 aria-haspopup="true"
-                className={`flex items-center gap-1.5 text-sm uppercase tracking-wider font-medium transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
+                className={`flex items-center gap-1 transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
                   location.pathname.startsWith('/blog') || location.pathname.startsWith('/stories')
-                    ? 'text-burntOrange font-semibold'
-                    : 'text-cream hover:text-burntOrange'
+                    ? 'text-white font-medium border-b-2 border-burntOrange'
+                    : 'text-slate-200 hover:text-white'
                 }`}
               >
                 <span>Learn</span>
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    learnDropdownOpen ? 'rotate-180 text-burntOrange' : ''
-                  }`}
-                />
+                <ChevronDown className="w-3.5 h-3.5 opacity-70" />
               </button>
 
               {learnDropdownOpen && (
                 <div
                   onMouseLeave={() => setLearnDropdownOpen(false)}
-                  className="absolute left-0 mt-1 w-56 rounded-md bg-espresso-surface border border-espresso-border shadow-2xl p-2 z-50 animate-fade-in"
+                  className="absolute left-0 mt-1 w-52 rounded-md bg-[#242C35] border border-[#374351] shadow-xl p-2 z-50 animate-fade-in"
                   role="menu"
                 >
                   <Link
                     to="/blog"
                     role="menuitem"
-                    className="block px-3 py-2 rounded text-sm text-cream hover:text-burntOrange hover:bg-espresso-card transition-colors"
+                    className="block px-3 py-2 text-xs text-slate-200 hover:text-white hover:bg-[#2F3A46] rounded transition-colors"
                     onClick={() => setLearnDropdownOpen(false)}
                   >
-                    <div className="font-medium">Movement Blog</div>
-                    <div className="text-xs text-cream-dark">Science & recovery articles</div>
+                    <div className="font-medium text-white">Movement Blog</div>
+                    <div className="text-[11px] text-slate-400">Biomechanics & Guides</div>
                   </Link>
                   <Link
                     to="/stories"
                     role="menuitem"
-                    className="block px-3 py-2 rounded text-sm text-cream hover:text-burntOrange hover:bg-espresso-card transition-colors"
+                    className="block px-3 py-2 text-xs text-slate-200 hover:text-white hover:bg-[#2F3A46] rounded transition-colors"
                     onClick={() => setLearnDropdownOpen(false)}
                   >
-                    <div className="font-medium">Client Stories</div>
-                    <div className="text-xs text-cream-dark">Case study frameworks</div>
+                    <div className="font-medium text-white">Success Stories</div>
+                    <div className="text-[11px] text-slate-400">Client Case Studies</div>
                   </Link>
                 </div>
               )}
@@ -225,55 +193,51 @@ export const Header: React.FC = () => {
             {/* Locations */}
             <Link
               to="/locations"
-              className={`text-sm uppercase tracking-wider font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded py-1 ${
+              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
                 isActive('/locations')
-                  ? 'text-burntOrange font-semibold'
-                  : 'text-cream hover:text-burntOrange'
+                  ? 'text-white font-medium border-b-2 border-burntOrange'
+                  : 'text-slate-200 hover:text-white'
               }`}
             >
               Locations
             </Link>
 
-            {/* Contact */}
+            {/* Contact Us */}
             <Link
               to="/contact"
-              className={`text-sm uppercase tracking-wider font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded py-1 ${
-                isActive('/contact') ? 'text-burntOrange font-semibold' : 'text-cream hover:text-burntOrange'
+              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange rounded ${
+                isActive('/contact')
+                  ? 'text-white font-medium border-b-2 border-burntOrange'
+                  : 'text-slate-200 hover:text-white'
               }`}
             >
-              Contact
+              Contact Us
             </Link>
           </nav>
 
-          {/* Primary CTA (Links to BOOKING_URL) */}
-          <div className="hidden lg:flex items-center gap-4">
-            <Button
+          {/* Right Button: "Book a Session" outline button (modeled on "Become a member") */}
+          <div className="hidden lg:flex items-center">
+            <a
               href={BOOKING_URL}
-              variant="primary"
-              size="sm"
-              ariaLabel="Book a session at D'Rozario Muscle Release"
+              className="border border-slate-300 text-white hover:bg-white hover:text-[#1E242B] px-5 py-2 rounded text-sm font-medium transition-all duration-200"
             >
-              Book Now
-            </Button>
+              Book a session
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex lg:hidden items-center gap-3">
-            <Button
+            <a
               href={BOOKING_URL}
-              variant="primary"
-              size="sm"
-              className="text-xs px-3 py-1.5"
-              ariaLabel="Book Now"
+              className="border border-slate-300 text-white text-xs px-3 py-1.5 rounded font-medium"
             >
-              Book Now
-            </Button>
+              Book
+            </a>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-cream hover:text-burntOrange rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-burntOrange"
-              aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
-              aria-expanded={mobileMenuOpen}
+              className="p-1.5 text-white hover:text-burntOrange rounded-md focus:outline-none"
+              aria-label={mobileMenuOpen ? 'Close Navigation' : 'Open Navigation'}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -281,73 +245,44 @@ export const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-espresso-surface border-b border-espresso-border px-4 pt-4 pb-6 space-y-3 animate-fade-in">
-          <div className="space-y-1">
-            <div className="px-3 py-1 text-xs font-mono uppercase text-burntOrange tracking-widest">
-              Services
-            </div>
-            {siteConfig.services.map((service) => (
-              <Link
-                key={service.slug}
-                to={`/services/${service.slug}`}
-                className="block px-3 py-2 text-sm text-cream hover:text-burntOrange hover:bg-espresso-card rounded"
-              >
-                {service.title}
-              </Link>
-            ))}
-          </div>
-
-          <div className="border-t border-espresso-border pt-2 space-y-1">
+        <div className="lg:hidden bg-[#242C35] border-t border-[#374351] px-4 pt-3 pb-6 space-y-2 text-sm text-slate-200">
+          <div className="py-2 border-b border-[#374351] font-semibold text-white">Services</div>
+          {siteConfig.services.map((service) => (
             <Link
-              to="/team"
-              className="block px-3 py-2 text-sm uppercase tracking-wider text-cream hover:text-burntOrange hover:bg-espresso-card rounded"
+              key={service.slug}
+              to={`/services/${service.slug}`}
+              className="block pl-3 py-1.5 text-xs text-slate-300 hover:text-white"
             >
-              Team
+              {service.title}
             </Link>
-            <Link
-              to="/pain-locator"
-              className="block px-3 py-2 text-sm uppercase tracking-wider text-cream hover:text-burntOrange hover:bg-espresso-card rounded flex items-center justify-between"
+          ))}
+          <Link to="/team" className="block py-2 border-b border-[#374351] text-white">
+            Meet Rachel
+          </Link>
+          <Link to="/pain-locator" className="block py-2 border-b border-[#374351] text-white">
+            Pain Locator
+          </Link>
+          <Link to="/blog" className="block py-2 border-b border-[#374351] text-white">
+            Movement Blog
+          </Link>
+          <Link to="/stories" className="block py-2 border-b border-[#374351] text-white">
+            Success Stories
+          </Link>
+          <Link to="/locations" className="block py-2 border-b border-[#374351] text-white">
+            Locations
+          </Link>
+          <Link to="/contact" className="block py-2 text-white">
+            Contact Us
+          </Link>
+          <div className="pt-3">
+            <a
+              href={BOOKING_URL}
+              className="block text-center w-full bg-burntOrange text-white py-2.5 rounded font-medium text-sm"
             >
-              <span>Pain Locator</span>
-              <span className="text-[10px] bg-burntOrange/20 text-burntOrange px-2 py-0.5 rounded font-mono">
-                Interactive
-              </span>
-            </Link>
-            <Link
-              to="/blog"
-              className="block px-3 py-2 text-sm uppercase tracking-wider text-cream hover:text-burntOrange hover:bg-espresso-card rounded"
-            >
-              Learn: Blog
-            </Link>
-            <Link
-              to="/stories"
-              className="block px-3 py-2 text-sm uppercase tracking-wider text-cream hover:text-burntOrange hover:bg-espresso-card rounded"
-            >
-              Learn: Client Stories
-            </Link>
-            <Link
-              to="/locations"
-              className="block px-3 py-2 text-sm uppercase tracking-wider text-cream hover:text-burntOrange hover:bg-espresso-card rounded"
-            >
-              Locations
-            </Link>
-            <Link
-              to="/contact"
-              className="block px-3 py-2 text-sm uppercase tracking-wider text-cream hover:text-burntOrange hover:bg-espresso-card rounded"
-            >
-              Contact
-            </Link>
-          </div>
-
-          <div className="pt-3 border-t border-espresso-border flex flex-col gap-2">
-            <Button href={BOOKING_URL} variant="primary" size="md" className="w-full">
-              Book a Session
-            </Button>
-            <div className="text-center text-xs text-cream-dark pt-1">
-              Stoney Creek, ON · {siteConfig.phone}
-            </div>
+              Book a session
+            </a>
           </div>
         </div>
       )}

@@ -1,115 +1,113 @@
 import React from 'react';
 import { siteConfig, BOOKING_URL } from '../config/site';
-import { Button } from '../components/shared/Button';
 import { SEO } from '../components/shared/SEO';
 import { Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Book: React.FC = () => {
   return (
-    <>
+    <div className="bg-white text-slate-800">
       <SEO
         title="Book a Session | Stoney Creek Personal Training & Recovery"
         description="Book your 1-on-1 personal training or muscle release assessment with Rachel D'Rozario in Stoney Creek, Ontario."
       />
 
-      {/* Hero */}
-      <section className="bg-espresso border-b border-espresso-border py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <span className="text-xs font-mono uppercase tracking-widest text-burntOrange block mb-3">
-              Direct Scheduling Portal
-            </span>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight text-cream mb-6">
+      {/* Hero Banner */}
+      <section className="relative min-h-[45vh] flex items-center bg-[#151A20] overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/hero-training.jpg"
+            alt="Book a session at D'Rozario Muscle Release"
+            className="w-full h-full object-cover object-center opacity-30"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#141A22] via-[#141A22]/75 to-transparent" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+          <div className="max-w-2xl text-left">
+            <h1 className="text-4xl sm:text-6xl font-light tracking-tight text-white mb-4">
               Book a Session
             </h1>
-            <p className="text-lg text-cream-muted leading-relaxed">
-              Take the first step toward lasting joint health and athletic power. All sessions are 1-on-1 and conducted at our private Stoney Creek studio.
+            <p className="text-base sm:text-lg text-slate-200 font-light leading-relaxed max-w-xl">
+              1-on-1 private personal training and muscle release with Rachel D'Rozario in Stoney Creek.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Booking Integration Panel */}
-      <section className="py-20 bg-espresso-surface border-b border-espresso-border">
+      {/* Booking Box */}
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-espresso-card p-8 sm:p-12 rounded-lg border border-espresso-border shadow-2xl space-y-8 text-center relative overflow-hidden">
-            <div className="w-16 h-16 rounded-full bg-burntOrange/20 border border-burntOrange text-burntOrange flex items-center justify-center mx-auto">
+          <div className="bg-[#F8F9FA] p-8 sm:p-14 rounded-3xl border border-slate-200 text-center space-y-8 shadow-sm">
+            <div className="w-16 h-16 rounded-full bg-[#EBF2F7] text-[#3B6B96] flex items-center justify-center mx-auto">
               <Calendar className="w-8 h-8" />
             </div>
 
             <div className="space-y-3">
-              <span className="text-xs font-mono uppercase tracking-widest text-burntOrange font-bold">
-                Online Reservation Engine
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-display text-cream uppercase">
+              <h2 className="text-3xl sm:text-4xl font-light text-[#3B6B96] tracking-tight">
                 Schedule Your Initial Assessment
               </h2>
-              <p className="text-sm sm:text-base text-cream-muted max-w-lg mx-auto leading-relaxed">
+              <p className="text-base text-slate-600 max-w-md mx-auto leading-relaxed">
                 Connect directly to our scheduling calendar to pick a time slot that matches your routine.
               </p>
             </div>
 
-            {/* Direct Booking Link Action */}
-            <div className="pt-2">
-              <Button
+            <div>
+              <a
                 href={BOOKING_URL}
-                variant="primary"
-                size="lg"
-                className="w-full sm:w-auto text-xl px-10 py-5"
-                ariaLabel="Launch external booking calendar"
+                className="inline-block bg-[#507C9E] hover:bg-[#416885] text-white px-10 py-4 rounded-md text-base font-medium transition-colors shadow-md"
               >
                 Launch Scheduling Calendar Now
-              </Button>
+              </a>
             </div>
 
-            <p className="text-xs font-mono text-cream-dark">
-              Target Booking Destination: <code className="text-burntOrange">{BOOKING_URL}</code>
+            <p className="text-xs text-slate-400 font-mono">
+              Target Booking Destination: <code className="text-burntOrange font-semibold">{BOOKING_URL}</code>
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-espresso-border text-left">
-              <div className="p-3 bg-espresso rounded border border-espresso-border space-y-1">
-                <span className="text-xs font-mono uppercase text-burntOrange font-semibold block">
-                  1. Choose Date
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-slate-200 text-left">
+              <div className="p-4 bg-white rounded-xl border border-slate-200/80 space-y-1">
+                <span className="text-xs font-semibold text-[#3B6B96] block">
+                  1. Choose Date & Time
                 </span>
-                <p className="text-xs text-cream-muted">
-                  View live availability for morning, afternoon, or evening sessions.
+                <p className="text-xs text-slate-500">
+                  Select available morning, afternoon, or evening appointment slots.
                 </p>
               </div>
 
-              <div className="p-3 bg-espresso rounded border border-espresso-border space-y-1">
-                <span className="text-xs font-mono uppercase text-burntOrange font-semibold block">
+              <div className="p-4 bg-white rounded-xl border border-slate-200/80 space-y-1">
+                <span className="text-xs font-semibold text-[#3B6B96] block">
                   2. Intake Form
                 </span>
-                <p className="text-xs text-cream-muted">
-                  Provide brief background on injuries, sport focus, and movement goals.
+                <p className="text-xs text-slate-500">
+                  Provide details about your pain points, injuries, and athletic goals.
                 </p>
               </div>
 
-              <div className="p-3 bg-espresso rounded border border-espresso-border space-y-1">
-                <span className="text-xs font-mono uppercase text-burntOrange font-semibold block">
-                  3. Meet Rachel
+              <div className="p-4 bg-white rounded-xl border border-slate-200/80 space-y-1">
+                <span className="text-xs font-semibold text-[#3B6B96] block">
+                  3. Meet Rachel 1-on-1
                 </span>
-                <p className="text-xs text-cream-muted">
-                  Private 1-on-1 assessment and treatment at our Stoney Creek facility.
+                <p className="text-xs text-slate-500">
+                  Private assessment, manual release, and training blueprint in Stoney Creek.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Contact Alternative */}
-          <div className="mt-12 text-center text-xs text-cream-dark space-y-2">
+          <div className="mt-12 text-center text-xs text-slate-500 space-y-1">
             <p>
-              Prefer to book via phone or email? Reach out directly to {siteConfig.phone} or {siteConfig.email}.
+              Prefer to book via phone or email? Call {siteConfig.phone} or email {siteConfig.email}.
             </p>
             <p>
-              <Link to="/contact" className="text-burntOrange hover:underline font-mono uppercase tracking-wider">
-                Visit contact page →
+              <Link to="/contact" className="text-[#3B6B96] hover:underline font-medium">
+                Visit our Contact page →
               </Link>
             </p>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };

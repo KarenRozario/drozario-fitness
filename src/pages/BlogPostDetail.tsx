@@ -1,9 +1,8 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../config/site';
-import { Button } from '../components/shared/Button';
 import { SEO } from '../components/shared/SEO';
-import { Clock, ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Clock } from 'lucide-react';
 
 export const BlogPostDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -14,127 +13,92 @@ export const BlogPostDetail: React.FC = () => {
   }
 
   return (
-    <>
+    <div className="bg-white text-slate-800">
       <SEO
         title={`${post.title}`}
         description={post.excerpt}
       />
 
-      <article className="min-h-screen bg-espresso">
-        {/* Post Header */}
-        <header className="border-b border-espresso-border py-16 sm:py-20 relative">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-6">
-              <Link
-                to="/blog"
-                className="text-xs font-mono uppercase tracking-widest text-cream-dark hover:text-burntOrange inline-flex items-center gap-1.5 transition-colors"
-              >
-                <ArrowLeft className="w-3.5 h-3.5" />
-                <span>Back to Learn Library</span>
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3 text-xs font-mono uppercase tracking-wider text-burntOrange mb-4">
-              <span className="px-2.5 py-1 rounded bg-espresso-surface border border-espresso-border">
-                {post.category}
-              </span>
-              <span>·</span>
-              <span className="flex items-center gap-1 text-cream-dark">
-                <Clock className="w-3.5 h-3.5" />
-                {post.readTime}
-              </span>
-              <span>·</span>
-              <span className="text-amber-500 font-bold">{post.status}</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display uppercase tracking-tight text-cream mb-6 leading-tight">
-              {post.title}
-            </h1>
-
-            <div className="flex items-center gap-3 pt-4 border-t border-espresso-border text-xs text-cream-muted">
-              <div className="w-8 h-8 rounded-full bg-burntOrange/20 border border-burntOrange/50 flex items-center justify-center text-burntOrange font-bold">
-                RD
-              </div>
-              <div>
-                <span className="block font-medium text-cream">{post.author}</span>
-                <span className="text-[11px] text-cream-dark">
-                  Head Coach & Founder, D'Rozario Muscle Release · Stoney Creek
-                </span>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        {/* Featured Image */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="rounded-lg overflow-hidden border border-espresso-border bg-espresso-surface shadow-2xl">
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full h-72 sm:h-96 object-cover object-center filter contrast-105"
-              loading="eager"
-            />
-          </div>
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="mb-6">
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-1.5 text-xs text-[#3B6B96] hover:text-burntOrange font-medium transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Back to Healthy Living Library</span>
+          </Link>
         </div>
 
-        {/* Article Body */}
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-          <div className="prose prose-invert prose-orange max-w-none space-y-8 text-cream-muted text-base sm:text-lg leading-relaxed font-sans">
-            <p className="text-xl sm:text-2xl text-cream font-display leading-snug border-l-4 border-burntOrange pl-4">
-              {post.excerpt}
-            </p>
-
-            {post.sections.map((sec, index) => (
-              <div key={index} className="space-y-4 pt-4">
-                <h2 className="text-2xl sm:text-3xl font-display uppercase tracking-wide text-cream">
-                  {sec.heading}
-                </h2>
-                {sec.body.map((p, pIdx) => (
-                  <p key={pIdx} className="text-sm sm:text-base text-cream-muted leading-relaxed">
-                    {p}
-                  </p>
-                ))}
-              </div>
-            ))}
-          </div>
-
-          {/* Post Footer Call to Action */}
-          <div className="mt-16 p-8 rounded-lg bg-espresso-surface border border-espresso-border text-center space-y-4">
-            <span className="text-xs font-mono uppercase tracking-widest text-burntOrange block">
-              Experience the Solution In Stoney Creek
+        <div className="space-y-4 mb-8">
+          <div className="flex items-center gap-2 text-xs text-slate-400 font-mono uppercase">
+            <span>{post.category}</span>
+            <span>·</span>
+            <span className="flex items-center gap-1">
+              <Clock className="w-3 h-3" />
+              {post.readTime}
             </span>
-            <h3 className="text-3xl font-display text-cream uppercase">
-              Ready to Resolve Your Movement Restrictions?
-            </h3>
-            <p className="text-sm text-cream-muted max-w-md mx-auto">
-              Schedule an in-person movement and muscle release assessment at our Stoney Creek studio.
-            </p>
-            <div className="pt-2">
-              <Button href={BOOKING_URL} variant="primary" size="lg">
-                Book a Session With Rachel
-              </Button>
-            </div>
+            <span>·</span>
+            <span className="text-burntOrange font-semibold">{post.status}</span>
           </div>
 
-          {/* Navigation to Other Articles */}
-          <div className="mt-12 pt-8 border-t border-espresso-border flex justify-between items-center text-xs font-mono uppercase tracking-wider">
-            <Link
-              to="/blog"
-              className="text-cream-dark hover:text-burntOrange inline-flex items-center gap-1"
+          <h1 className="text-3xl sm:text-5xl font-light text-[#3B6B96] leading-tight">
+            {post.title}
+          </h1>
+
+          <p className="text-sm text-slate-500">
+            By {post.author} · Founder & Head Coach, D'Rozario Muscle Release
+          </p>
+        </div>
+
+        {/* Featured Image */}
+        <div className="rounded-2xl overflow-hidden shadow-md mb-10 border border-slate-200">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-80 sm:h-96 object-cover object-center"
+            loading="eager"
+          />
+        </div>
+
+        {/* Post Content */}
+        <div className="prose max-w-none text-slate-600 text-base sm:text-lg leading-relaxed space-y-6">
+          <p className="text-xl text-slate-800 font-normal leading-relaxed border-l-4 border-[#3B6B96] pl-4 italic">
+            {post.excerpt}
+          </p>
+
+          {post.sections.map((sec, idx) => (
+            <div key={idx} className="space-y-3 pt-4">
+              <h2 className="text-2xl font-light text-[#3B6B96]">
+                {sec.heading}
+              </h2>
+              {sec.body.map((p, pIdx) => (
+                <p key={pIdx} className="text-base text-slate-600 leading-relaxed">
+                  {p}
+                </p>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Box */}
+        <div className="mt-16 p-8 rounded-2xl bg-[#F8F9FA] border border-slate-200 text-center space-y-4">
+          <h3 className="text-2xl font-light text-[#3B6B96]">
+            Ready to Move Pain-Free in Stoney Creek?
+          </h3>
+          <p className="text-sm text-slate-600 max-w-md mx-auto">
+            Book your 1-on-1 movement and recovery assessment directly with Rachel D'Rozario.
+          </p>
+          <div className="pt-2">
+            <a
+              href={BOOKING_URL}
+              className="inline-block bg-[#507C9E] hover:bg-[#416885] text-white px-8 py-3.5 rounded text-sm font-medium transition-colors shadow-sm"
             >
-              <ArrowLeft className="w-3.5 h-3.5" />
-              <span>All Articles</span>
-            </Link>
-            <Link
-              to="/pain-locator"
-              className="text-burntOrange hover:underline inline-flex items-center gap-1"
-            >
-              <span>Explore Pain Locator</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+              Book an Assessment Session
+            </a>
           </div>
         </div>
       </article>
-    </>
+    </div>
   );
 };

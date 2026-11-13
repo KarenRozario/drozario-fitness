@@ -1,186 +1,160 @@
 import React from 'react';
 import { siteConfig, BOOKING_URL } from '../config/site';
-import { Button } from '../components/shared/Button';
 import { SEO } from '../components/shared/SEO';
-import { MapPin, Clock, Phone, Mail, Navigation, ExternalLink } from 'lucide-react';
+import { Clock, Phone, Mail, Navigation, ExternalLink } from 'lucide-react';
 
 export const Locations: React.FC = () => {
   return (
-    <>
+    <div className="bg-white text-slate-800">
       <SEO
         title="Studio Location & Hours | Stoney Creek, Ontario"
         description="Visit D'Rozario Muscle Release in Stoney Creek, Ontario. Directions, studio amenities, and operating hours."
       />
 
-      {/* Hero */}
-      <section className="bg-espresso border-b border-espresso-border py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <span className="text-xs font-mono uppercase tracking-widest text-burntOrange block mb-3">
-              Private Athletic Facility
-            </span>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display uppercase tracking-tight text-cream mb-6">
+      {/* Hero Banner */}
+      <section className="relative min-h-[45vh] flex items-center bg-[#151A20] overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/studio-stoney-creek.jpg"
+            alt="Stoney Creek Studio Facility"
+            className="w-full h-full object-cover object-center opacity-35"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#141A22] via-[#141A22]/75 to-transparent" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+          <div className="max-w-2xl text-left">
+            <h1 className="text-4xl sm:text-6xl font-light tracking-tight text-white mb-4">
               Studio Location
             </h1>
-            <p className="text-lg text-cream-muted leading-relaxed">
-              Located in Stoney Creek, Ontario, serving athletes and recovery clients across Hamilton, Grimsby, Burlington, and the Niagara region. By appointment only for total privacy and focus.
+            <p className="text-base sm:text-lg text-slate-200 font-light leading-relaxed max-w-xl">
+              Private 1-on-1 personal training and muscle release facility in Stoney Creek, Ontario.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Location Details & OpenStreetMap Embed */}
-      <section className="py-20 bg-espresso-surface border-b border-espresso-border">
+      {/* Studio Info & Map */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Info Column */}
             <div className="lg:col-span-5 space-y-8">
-              {/* Address Card */}
-              <div className="bg-espresso-card p-6 rounded-lg border border-espresso-border space-y-4">
-                <div className="flex items-center gap-2 text-burntOrange">
-                  <MapPin className="w-5 h-5" />
-                  <span className="text-xs font-mono uppercase tracking-wider font-bold">
-                    Primary Studio
-                  </span>
-                </div>
-                <div>
-                  <h2 className="text-2xl font-display text-cream uppercase">
-                    {siteConfig.name}
-                  </h2>
-                  <p className="text-base text-cream mt-1 font-medium">
-                    {siteConfig.address}
-                  </p>
-                  <p className="text-sm text-cream-muted">
-                    {siteConfig.city}, {siteConfig.province}, {siteConfig.country}
-                  </p>
-                  <p className="text-xs text-cream-dark mt-1">
-                    Postal Code: {siteConfig.postalCode}
-                  </p>
+              <div className="bg-[#F8F9FA] p-8 rounded-2xl border border-slate-200 space-y-4">
+                <h2 className="text-2xl font-light text-[#3B6B96]">
+                  {siteConfig.name}
+                </h2>
+                <div className="space-y-1 text-sm text-slate-600">
+                  <p className="font-medium text-slate-800">{siteConfig.address}</p>
+                  <p>{siteConfig.city}, {siteConfig.province}, {siteConfig.country}</p>
+                  <p className="text-xs text-slate-400">Postal Code: {siteConfig.postalCode}</p>
                 </div>
 
                 <div className="pt-2 flex flex-col sm:flex-row gap-3">
-                  <Button
+                  <a
                     href={siteConfig.openStreetMapDirectionsUrl}
-                    variant="outline"
-                    size="sm"
-                    external={true}
-                    ariaLabel="Get directions via OpenStreetMap"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 border border-slate-300 hover:border-slate-500 text-slate-700 px-5 py-2.5 rounded text-sm font-medium transition-colors"
                   >
-                    <span className="inline-flex items-center gap-1.5">
-                      <Navigation className="w-3.5 h-3.5" />
-                      Get Directions
-                    </span>
-                  </Button>
-                  <Button
+                    <Navigation className="w-3.5 h-3.5 text-burntOrange" />
+                    <span>Get Directions</span>
+                  </a>
+                  <a
                     href={BOOKING_URL}
-                    variant="primary"
-                    size="sm"
-                    ariaLabel="Book a session at this studio"
+                    className="inline-flex items-center justify-center bg-[#507C9E] hover:bg-[#416885] text-white px-5 py-2.5 rounded text-sm font-medium transition-colors shadow-sm"
                   >
                     Book a Session
-                  </Button>
+                  </a>
                 </div>
               </div>
 
-              {/* Hours Card */}
-              <div className="bg-espresso-card p-6 rounded-lg border border-espresso-border space-y-4">
-                <div className="flex items-center gap-2 text-burntOrange">
-                  <Clock className="w-5 h-5" />
-                  <span className="text-xs font-mono uppercase tracking-wider font-bold">
+              {/* Operating Hours */}
+              <div className="bg-[#F8F9FA] p-8 rounded-2xl border border-slate-200 space-y-4">
+                <div className="flex items-center gap-2 text-[#3B6B96]">
+                  <Clock className="w-5 h-5 text-burntOrange" />
+                  <h3 className="text-lg font-medium text-slate-900">
                     Operating Hours
-                  </span>
+                  </h3>
                 </div>
-                <div className="divide-y divide-espresso-border text-sm">
+                <div className="divide-y divide-slate-200 text-sm">
                   {siteConfig.hours.map((item, idx) => (
-                    <div key={idx} className="py-2.5 flex justify-between items-center text-xs sm:text-sm">
-                      <span className="text-cream-muted font-medium">{item.days}</span>
-                      <span className="text-cream font-mono">{item.times}</span>
+                    <div key={idx} className="py-2.5 flex justify-between text-xs sm:text-sm text-slate-600">
+                      <span className="font-medium text-slate-700">{item.days}</span>
+                      <span className="font-mono text-slate-500">{item.times}</span>
                     </div>
                   ))}
                 </div>
-                <p className="text-xs text-cream-dark pt-1">
-                  * All personal training and muscle release sessions are scheduled in advance to ensure undivided coach focus.
+                <p className="text-xs text-slate-400">
+                  * All sessions are by private appointment to guarantee Rachel's undivided focus.
                 </p>
               </div>
 
-              {/* Direct Inquiries Card */}
-              <div className="bg-espresso-card p-6 rounded-lg border border-espresso-border space-y-3">
-                <span className="text-xs font-mono uppercase tracking-wider text-burntOrange block">
-                  Direct Inquiries
+              {/* Direct Inquiries */}
+              <div className="bg-[#F8F9FA] p-6 rounded-2xl border border-slate-200 space-y-2 text-xs text-slate-600">
+                <span className="font-semibold text-slate-800 uppercase tracking-wider block mb-1">
+                  Direct Contact
                 </span>
-                <div className="space-y-2 text-sm text-cream">
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-burntOrange" />
-                    <span>{siteConfig.phone}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-burntOrange" />
-                    <span>{siteConfig.email}</span>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-3.5 h-3.5 text-burntOrange" />
+                  <span>{siteConfig.phone}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-3.5 h-3.5 text-burntOrange" />
+                  <span>{siteConfig.email}</span>
                 </div>
               </div>
             </div>
 
             {/* Right Map Column (OpenStreetMap Embed - NO Google Maps) */}
             <div className="lg:col-span-7 space-y-4">
-              <div className="bg-espresso-card rounded-lg overflow-hidden border border-espresso-border shadow-2xl relative">
-                <div className="p-3 bg-espresso border-b border-espresso-border flex items-center justify-between text-xs font-mono text-cream-dark">
-                  <span className="flex items-center gap-2 text-cream">
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                <div className="p-3 bg-[#F8F9FA] border-b border-slate-200 flex items-center justify-between text-xs text-slate-600">
+                  <span className="font-medium flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    OpenStreetMap Embed · Stoney Creek
+                    OpenStreetMap Embed · Stoney Creek, Ontario
                   </span>
                   <a
                     href={siteConfig.openStreetMapDirectionsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-burntOrange hover:underline inline-flex items-center gap-1"
+                    className="text-[#3B6B96] hover:text-burntOrange font-medium inline-flex items-center gap-1"
                   >
-                    <span>View full map</span>
+                    <span>Full Map</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
 
-                <div className="w-full h-[420px] sm:h-[480px] bg-espresso relative">
+                <div className="w-full h-[440px] bg-slate-100">
                   <iframe
-                    title="OpenStreetMap Location of Stoney Creek, Ontario"
+                    title="OpenStreetMap Stoney Creek"
                     src={siteConfig.openStreetMapEmbedUrl}
-                    className="w-full h-full border-0 filter contrast-105"
+                    className="w-full h-full border-0"
                     loading="lazy"
                   />
                 </div>
-
-                <div className="p-4 bg-espresso text-xs text-cream-muted border-t border-espresso-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-                  <span>Interactive map provided via OpenStreetMap contributors</span>
-                  <a
-                    href={siteConfig.openStreetMapDirectionsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-burntOrange font-mono hover:underline"
-                  >
-                    Open external directions →
-                  </a>
-                </div>
               </div>
 
-              {/* Studio Amenities */}
+              {/* Amenities */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                <div className="p-3.5 rounded bg-espresso-card border border-espresso-border text-xs">
-                  <span className="font-semibold text-cream block mb-1">Private Parking</span>
-                  <span className="text-cream-dark">Dedicated on-site parking stalls for all clients.</span>
+                <div className="p-4 rounded-xl bg-[#F8F9FA] border border-slate-200 text-xs">
+                  <span className="font-semibold text-slate-800 block mb-1">Private Parking</span>
+                  <span className="text-slate-500">Dedicated on-site parking stalls for clients.</span>
                 </div>
-                <div className="p-3.5 rounded bg-espresso-card border border-espresso-border text-xs">
-                  <span className="font-semibold text-cream block mb-1">Private Facility</span>
-                  <span className="text-cream-dark">No crowds, spectators, or waiting for stations.</span>
+                <div className="p-4 rounded-xl bg-[#F8F9FA] border border-slate-200 text-xs">
+                  <span className="font-semibold text-slate-800 block mb-1">Private Facility</span>
+                  <span className="text-slate-500">No crowds, spectators, or waiting for stations.</span>
                 </div>
-                <div className="p-3.5 rounded bg-espresso-card border border-espresso-border text-xs">
-                  <span className="font-semibold text-cream block mb-1">Sanitized Protocols</span>
-                  <span className="text-cream-dark">Treatment tables and lifting bars sanitized between visits.</span>
+                <div className="p-4 rounded-xl bg-[#F8F9FA] border border-slate-200 text-xs">
+                  <span className="font-semibold text-slate-800 block mb-1">Sanitized Protocols</span>
+                  <span className="text-slate-500">Equipment & tables sanitized after each session.</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };

@@ -1,515 +1,633 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../config/site';
-import { Button } from '../components/shared/Button';
 import { PainLocator } from '../components/shared/PainLocator';
-import { Newsletter } from '../components/shared/Newsletter';
 import { SEO } from '../components/shared/SEO';
-import {
-  ShieldCheck,
-  Activity,
-  Target,
-  MapPin,
-  ArrowRight,
-  CheckCircle,
-  Zap,
-} from 'lucide-react';
+import { CheckCircle2, ChevronRight } from 'lucide-react';
 
 export const Home: React.FC = () => {
-  // Value strip icon mapper
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'ShieldCheck':
-        return <ShieldCheck className="w-6 h-6 text-burntOrange shrink-0" />;
-      case 'Activity':
-        return <Activity className="w-6 h-6 text-burntOrange shrink-0" />;
-      case 'Target':
-        return <Target className="w-6 h-6 text-burntOrange shrink-0" />;
-      case 'MapPin':
-      default:
-        return <MapPin className="w-6 h-6 text-burntOrange shrink-0" />;
-    }
+  // Newsletter Form State
+  const [newsFirstName, setNewsFirstName] = useState('');
+  const [newsLastName, setNewsLastName] = useState('');
+  const [newsEmail, setNewsEmail] = useState('');
+  const [newsSubmitted, setNewsSubmitted] = useState(false);
+
+  const handleNewsSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsEmail) return;
+
+    // TODO: Connect this newsletter subscription to your production CRM / email service endpoint
+    // e.g. fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ firstName: newsFirstName, lastName: newsLastName, email: newsEmail }) })
+    setNewsSubmitted(true);
   };
 
   return (
-    <>
+    <div className="bg-white text-slate-800">
       <SEO
-        title="Train Hard. Recover Harder."
-        description="Targeted 1-on-1 personal training and restorative muscle release therapy in Stoney Creek, Ontario. Coached by Rachel D'Rozario."
+        title="Love The Gym Again · Train Hard, Recover Harder"
+        description="Targeted 1-on-1 personal training and restorative muscle release therapy in Stoney Creek, Ontario with Rachel D'Rozario."
       />
 
-      {/* 1. HERO SECTION */}
-      <section className="relative min-h-[85vh] sm:min-h-[88vh] flex items-center justify-center overflow-hidden bg-espresso py-16 sm:py-24 border-b border-espresso-border">
-        {/* Background Graphic & Subtle Overlay */}
+      {/* 1. HERO SECTION - Modeled directly on Screenshot 12.57.54 PM */}
+      <section className="relative min-h-[82vh] flex items-center bg-[#151A20] overflow-hidden">
+        {/* Background Image with Cinematic Overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-training.jpg"
-            alt="Personal training and muscle release session in progress at D'Rozario Stoney Creek studio"
-            className="w-full h-full object-cover object-center opacity-25 filter grayscale contrast-125"
+            alt="Athlete training with battle ropes at D'Rozario studio"
+            className="w-full h-full object-cover object-center opacity-45"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-espresso via-espresso/90 to-espresso/70" />
-          <div className="absolute inset-0 bg-radial-gradient from-transparent via-espresso/60 to-espresso" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#141A22] via-[#141A22]/75 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
-            {/* Tagline Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-espresso-card/90 border border-burntOrange/40 text-xs font-mono tracking-widest uppercase text-burntOrange mb-6 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-burntOrange animate-pulse" />
-              <span>Stoney Creek, Ontario · Personal Training & Muscle Release</span>
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-display uppercase tracking-tight text-cream leading-[0.92] mb-6 drop-shadow-md">
-              Train Hard. <br />
-              <span className="text-burntOrange underline decoration-burntOrange/40 decoration-4 underline-offset-8">
-                Recover Harder.
-              </span>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+          <div className="max-w-2xl text-left">
+            <h1 className="text-5xl sm:text-7xl font-light tracking-tight text-white leading-[1.08] mb-5">
+              Train Hard.<br />
+              <span className="font-semibold text-white">Recover Harder.</span>
             </h1>
 
-            {/* One-line subhead about personal training and recovery for Stoney Creek athletes */}
-            <p className="text-lg sm:text-xl text-cream-muted leading-relaxed font-sans font-normal max-w-2xl mb-8">
-              Targeted personal training and hands-on recovery therapy engineered for Stoney Creek athletes, lifters, and active movers who refuse to let chronic pain dictate their ceiling.
+            <p className="text-xl sm:text-2xl text-slate-200 font-light mb-8 max-w-xl">
+              We make fitness and recovery personal — because it is.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <Button
+            <div className="flex flex-wrap items-center gap-4">
+              <a
                 href={BOOKING_URL}
-                variant="primary"
-                size="lg"
-                ariaLabel="Book a session at D'Rozario Muscle Release"
+                className="bg-[#507C9E] hover:bg-[#416885] text-white px-7 py-3.5 rounded text-base font-medium shadow-md transition-all duration-200"
               >
                 Book a Session
-              </Button>
-
-              <Button
+              </a>
+              <Link
                 to="/pain-locator"
-                variant="secondary"
-                size="lg"
-                ariaLabel="Find Your Pain Point interactive tool"
+                className="border border-white/60 text-white hover:bg-white/10 px-7 py-3.5 rounded text-base font-medium transition-all duration-200"
               >
                 Find Your Pain Point
-              </Button>
+              </Link>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Local Trust Note */}
-            <div className="mt-10 flex items-center gap-6 pt-6 border-t border-espresso-border/60 text-xs font-mono uppercase tracking-wider text-cream-dark">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-burntOrange" />
-                <span>1-on-1 Private Studio</span>
+      {/* 2. "START YOUR FITNESS JOURNEY" - Modeled on Screenshot 12.58.00 PM */}
+      <section className="py-20 sm:py-24 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <h2 className="text-3xl sm:text-4xl font-light text-[#3B6B96] mb-6 tracking-tight">
+              Start Your Fitness & Recovery Journey
+            </h2>
+
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal mb-12">
+              Whether you are rebuilding after an injury or training with Rachel to reach new athletic heights, we want you to love movement again. Because when your body feels resilient and pain-free, you progress consistently. We help our Stoney Creek clients achieve their goals through a hands-on, evidence-based approach.
+            </p>
+
+            <div className="space-y-10">
+              <div>
+                <h3 className="text-xl sm:text-2xl font-light text-[#3B6B96] mb-2">
+                  1-on-1 Dedicated Coaching
+                </h3>
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                  We only offer private, 1-on-1 coaching sessions because we want your genuine results and positive experience to be the reason you come back. Every minute is customized to your body.
+                </p>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-burntOrange" />
-                <span>No Commercial Crowds</span>
+
+              <div>
+                <h3 className="text-xl sm:text-2xl font-light text-[#3B6B96] mb-2">
+                  Targeted Muscle Release Built Into Every Plan
+                </h3>
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                  Founder Rachel D'Rozario integrates specialized manual soft-tissue release, fascial tension therapy, and joint mobilization directly with your lifting program so you adapt without breakdown.
+                </p>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-burntOrange" />
-                <span>Evidence-Led Recovery</span>
+
+              <div>
+                <h3 className="text-xl sm:text-2xl font-light text-[#3B6B96] mb-2">
+                  Results-First Personal Training
+                </h3>
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                  Our approach is science-backed and evidence-based. Rachel crafts each training and recovery program according to your needs, backed by our comprehensive movement assessments. We'll get to know your joint mechanics and where to target our work so we can build a unique program for you. You'll see results faster and start living pain-free sooner.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. VALUE STRIP */}
-      <section className="bg-espresso-surface border-b border-espresso-border py-8 sm:py-10">
+      {/* 3. "THE PERFECT MATCH" (SPOTLIGHTING RACHEL D'ROZARIO ONLY) - Modeled on Screenshot 12.58.03 PM */}
+      <section className="py-20 sm:py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {siteConfig.valuePoints.map((point, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-4 p-4 rounded bg-espresso-card/40 border border-espresso-border/50 hover:border-burntOrange/40 transition-colors"
-              >
-                <div className="p-2.5 rounded bg-espresso-surface border border-espresso-border">
-                  {getIcon(point.icon)}
-                </div>
-                <div>
-                  <h3 className="font-display text-lg tracking-wide uppercase text-cream mb-1">
-                    {point.title}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left: Image with Signature Curved Decorative Outline Frame */}
+            <div className="lg:col-span-6 relative flex justify-center">
+              {/* Curved Bronze/Gold Accent Outline Frame from Inspo */}
+              <div className="absolute top-5 right-2 sm:right-6 w-full max-w-[420px] h-[92%] rounded-3xl border-2 border-[#C5A880]/70 pointer-events-none transform translate-x-3 translate-y-3 z-0" />
+
+              <div className="relative z-10 w-full max-w-[420px] rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src="/images/perfect-match.jpg"
+                  alt="Rachel D'Rozario coaching a client on functional row mechanics"
+                  className="w-full h-[480px] object-cover object-center"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Right: Copy + Rachel Profile Card (Only Rachel, no other trainers) */}
+            <div className="lg:col-span-6 space-y-6">
+              <h2 className="text-3xl sm:text-4xl font-light text-[#3B6B96] tracking-tight">
+                The Perfect Match
+              </h2>
+
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+                You work directly with owner and head coach Rachel D'Rozario based on your health and fitness goals. The right coach will help you succeed, resolve chronic pain points, and make sure you enjoy the process.
+              </p>
+
+              <div>
+                <Link
+                  to="/team"
+                  className="inline-flex items-center gap-1.5 text-sm text-[#3B6B96] hover:text-burntOrange font-medium transition-colors"
+                >
+                  <span>View Coach Profile</span>
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+              </div>
+
+              {/* Single Trainer Spotlight Card: Rachel D'Rozario */}
+              <div className="pt-4 border-t border-slate-100 flex items-center gap-5 bg-[#F9FAFB] p-5 rounded-2xl border border-slate-200/80">
+                <img
+                  src="/images/rachel-drozario.jpg"
+                  alt="Rachel D'Rozario - Founder & Head Coach"
+                  className="w-20 h-24 sm:w-24 sm:h-28 rounded-xl object-cover shadow-sm shrink-0"
+                  loading="lazy"
+                />
+                <div className="space-y-1">
+                  <span className="text-xs font-semibold text-burntOrange uppercase tracking-wider block">
+                    Your Dedicated Coach
+                  </span>
+                  <h3 className="text-lg font-semibold text-slate-900">
+                    Rachel D'Rozario
                   </h3>
-                  <p className="text-xs text-cream-muted leading-relaxed">
-                    {point.description}
+                  <p className="text-xs text-slate-500">
+                    Founder, Head Trainer & Muscle Release Specialist
+                  </p>
+                  <p className="text-xs text-slate-600 line-clamp-2 pt-0.5">
+                    Bridging progressive barbell strength and targeted myofascial release for Stoney Creek lifters.
                   </p>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 3. "START YOUR JOURNEY" */}
-      <section className="py-20 sm:py-28 bg-espresso border-b border-espresso-border relative">
+      {/* 4. "EXPERIENCE D'ROZARIO MUSCLE RELEASE" (3 CARDS) - Modeled on Screenshot 12.58.09 PM */}
+      <section className="py-20 sm:py-24 bg-[#F8F9FA] border-y border-slate-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-burntOrange">
-                <span>The D'Rozario System</span>
-                <span className="w-8 h-px bg-burntOrange" />
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl sm:text-4xl font-light text-[#3B6B96] mb-4 tracking-tight">
+              Experience D'Rozario Muscle Release
+            </h2>
+            <p className="text-base text-slate-600 leading-relaxed font-normal">
+              We know fitness is personal, so your experience is always tailored to your needs, ensuring you enjoy every step of the journey toward your goals.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1: Personal Training */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between border border-slate-200/70">
+              <div>
+                <img
+                  src="/images/service-personal-training.jpg"
+                  alt="Personal Training session"
+                  className="w-full h-56 object-cover"
+                  loading="lazy"
+                />
+                <div className="p-6 sm:p-7 space-y-4">
+                  <h3 className="text-2xl font-light text-[#3B6B96]">
+                    Personal Training
+                  </h3>
+                  <ul className="space-y-2.5 text-sm text-slate-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#3B6B96] font-bold text-base leading-none">+</span>
+                      <span>Fitness and lifestyle assessment</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#3B6B96] font-bold text-base leading-none">+</span>
+                      <span>Customized strength program</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#3B6B96] font-bold text-base leading-none">+</span>
+                      <span>One-on-one coached sessions</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
-              <h2 className="text-4xl sm:text-5xl font-display text-cream tracking-tight uppercase leading-none">
-                Start Your Journey to Pain-Free Performance
-              </h2>
-
-              <p className="text-base text-cream-muted leading-relaxed">
-                Most fitness centres force you to choose between pushing your body hard or nursing your injuries. At D'Rozario Muscle Release, we integrate corrective soft-tissue treatment directly into your strength training. Your first session isn't a generic workout — it's a calibrated diagnostic and loading blueprint.
-              </p>
-
-              {/* Journey Steps Bullets (assessment → plan → train → recover) */}
-              <div className="space-y-4 pt-2">
-                {siteConfig.journeySteps.map((step) => (
-                  <div
-                    key={step.number}
-                    className="flex items-start gap-4 p-4 rounded-md bg-espresso-surface border border-espresso-border hover:border-espresso-subtle transition-colors"
-                  >
-                    <span className="font-display text-2xl text-burntOrange font-bold tracking-wider leading-none mt-0.5">
-                      {step.number}
-                    </span>
-                    <div>
-                      <h3 className="text-sm font-semibold uppercase tracking-wider text-cream">
-                        {step.title}
-                      </h3>
-                      <p className="text-xs text-cream-muted mt-1 leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Journey CTA */}
-              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <Button href={BOOKING_URL} variant="primary" size="lg">
-                  Book Your Initial Assessment
-                </Button>
+              <div className="p-6 pt-0">
                 <Link
-                  to="/services"
-                  className="text-xs font-mono uppercase tracking-widest text-cream hover:text-burntOrange inline-flex items-center gap-1.5 transition-colors self-center py-2"
+                  to="/services/personal-training"
+                  className="block w-full bg-[#414B56] hover:bg-burntOrange text-white text-center py-3 rounded-md text-sm font-medium transition-colors"
                 >
-                  <span>Explore session details</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  Learn More
                 </Link>
               </div>
             </div>
 
-            {/* Right Visual Card */}
-            <div className="lg:col-span-6">
-              <div className="relative rounded-lg overflow-hidden border border-espresso-border bg-espresso-surface shadow-2xl">
+            {/* Card 2: Sports Performance */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between border border-slate-200/70">
+              <div>
                 <img
-                  src="/images/journey-assessment.jpg"
-                  alt="Rachel D'Rozario conducting functional joint assessment at Stoney Creek facility"
-                  className="w-full h-80 sm:h-96 object-cover object-center filter contrast-105"
+                  src="/images/service-sports-performance.jpg"
+                  alt="Sports performance deadlift platform"
+                  className="w-full h-56 object-cover"
                   loading="lazy"
                 />
-                <div className="p-6 sm:p-8 bg-espresso-surface border-t border-espresso-border space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono uppercase tracking-widest text-burntOrange">
-                      First Session Protocol
-                    </span>
-                    <span className="text-xs text-cream-dark">60 – 75 Minutes</span>
-                  </div>
-                  <h3 className="text-2xl font-display text-cream uppercase">
-                    What to Expect On Day One
+                <div className="p-6 sm:p-7 space-y-4">
+                  <h3 className="text-2xl font-light text-[#3B6B96]">
+                    Sports Performance
                   </h3>
-                  <p className="text-xs sm:text-sm text-cream-muted leading-relaxed">
-                    Come dressed in training attire. We will map your range of motion, identify localized fascial adhesions, test neuromuscular recruitment, and execute your first hybrid release-and-load sequence.
-                  </p>
+                  <ul className="space-y-2.5 text-sm text-slate-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#3B6B96] font-bold text-base leading-none">+</span>
+                      <span>Kinetic chain power & speed</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#3B6B96] font-bold text-base leading-none">+</span>
+                      <span>Premium barbell & functional equipment</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#3B6B96] font-bold text-base leading-none">+</span>
+                      <span>Injury resilience & return-to-sport</span>
+                    </li>
+                  </ul>
                 </div>
+              </div>
+
+              <div className="p-6 pt-0">
+                <Link
+                  to="/services/sports-performance"
+                  className="block w-full bg-[#414B56] hover:bg-burntOrange text-white text-center py-3 rounded-md text-sm font-medium transition-colors"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 3: Muscle Release Therapy */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between border border-slate-200/70">
+              <div>
+                <img
+                  src="/images/service-muscle-release.jpg"
+                  alt="Muscle Release Therapy table stretch"
+                  className="w-full h-56 object-cover"
+                  loading="lazy"
+                />
+                <div className="p-6 sm:p-7 space-y-4">
+                  <h3 className="text-2xl font-light text-[#3B6B96]">
+                    Muscle Release Therapy
+                  </h3>
+                  <ul className="space-y-2.5 text-sm text-slate-600">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#3B6B96] font-bold text-base leading-none">+</span>
+                      <span>Targeted Fascial Stretch Therapy</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#3B6B96] font-bold text-base leading-none">+</span>
+                      <span>Neuromuscular trigger point release</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#3B6B96] font-bold text-base leading-none">+</span>
+                      <span>Joint decompression & posture reset</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="p-6 pt-0">
+                <Link
+                  to="/services/muscle-release-recovery"
+                  className="block w-full bg-[#414B56] hover:bg-burntOrange text-white text-center py-3 rounded-md text-sm font-medium transition-colors"
+                >
+                  Learn More
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. TEAM PREVIEW */}
-      <section className="py-20 sm:py-28 bg-espresso-surface border-b border-espresso-border">
+      {/* 5. FEATURE 1: SPECIALIZED PERSONAL TRAINING - Modeled on Screenshot 12.58.12 PM */}
+      <section className="py-20 sm:py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-burntOrange block mb-2">
-                Coaching & Therapy Staff
-              </span>
-              <h2 className="text-4xl sm:text-5xl font-display text-cream tracking-tight uppercase">
-                Meet the Coaches
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-6 space-y-6">
+              <h2 className="text-3xl sm:text-4xl font-light text-[#3B6B96] tracking-tight">
+                Specialized Personal Training
               </h2>
+
+              <p className="text-base text-slate-600 leading-relaxed font-normal">
+                We create the most personalized program to help you achieve your specific goals. To support you on your journey, Rachel D'Rozario brings deep expertise in functional anatomy, kinesiology, and soft-tissue mobilization. Every session identifies and addresses unique exercise requirements and treatment methods based on your needs.
+              </p>
+
+              <div>
+                <span className="text-sm font-medium text-slate-800 block mb-3">
+                  Areas of Expertise:
+                </span>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#3B6B96] font-bold">+</span>
+                    <span>Mobility & Joint Range Restoration</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#3B6B96] font-bold">+</span>
+                    <span>Athletic Running & Sprint Mechanics</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#3B6B96] font-bold">+</span>
+                    <span>Lower Back & Pelvic Decompression</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#3B6B96] font-bold">+</span>
+                    <span>Shoulder Impingement & Rotator Cuff Health</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#3B6B96] font-bold">+</span>
+                    <span>Injury Recovery and Prevention</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-2">
+                <Link
+                  to="/services/personal-training"
+                  className="inline-flex items-center gap-1.5 text-sm text-[#3B6B96] hover:text-burntOrange font-medium transition-colors"
+                >
+                  <span>Specialized Training</span>
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
-            <Link
-              to="/team"
-              className="text-xs font-mono uppercase tracking-widest text-burntOrange hover:underline inline-flex items-center gap-1.5"
-            >
-              <span>View Full Coach Profiles & Credentials</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
 
-          {/* 4 Trainer Cards linking to /team */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {siteConfig.team.map((trainer) => (
-              <Link
-                key={trainer.id}
-                to="/team"
-                className="group block bg-espresso-card border border-espresso-border rounded-md overflow-hidden hover:border-burntOrange transition-all duration-300 hover:-translate-y-1 shadow-lg"
-              >
-                <div className="aspect-[4/5] overflow-hidden bg-espresso relative">
-                  <img
-                    src={trainer.image}
-                    alt={`${trainer.name} - ${trainer.role}`}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 filter contrast-105"
-                    loading="lazy"
-                  />
-                  {trainer.isOwner && (
-                    <div className="absolute top-3 left-3 bg-burntOrange text-cream font-mono text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded shadow">
-                      Founder
-                    </div>
-                  )}
-                  {!trainer.isOwner && (
-                    <div className="absolute top-3 left-3 bg-espresso/80 border border-espresso-border text-cream-dark font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded">
-                      [Placeholder]
-                    </div>
-                  )}
-                </div>
+            {/* Right: Image with Signature Curved Decorative Outline Frame */}
+            <div className="lg:col-span-6 relative flex justify-center">
+              <div className="absolute top-5 left-2 sm:left-6 w-full max-w-[440px] h-[92%] rounded-3xl border-2 border-[#C5A880]/70 pointer-events-none transform -translate-x-3 translate-y-3 z-0" />
 
-                <div className="p-5 space-y-2">
-                  <h3 className="font-display text-xl sm:text-2xl text-cream uppercase tracking-wide group-hover:text-burntOrange transition-colors">
-                    {trainer.name}
-                  </h3>
-                  <p className="text-xs text-cream-muted leading-tight">
-                    {trainer.role}
-                  </p>
-                  <div className="pt-2 text-[11px] font-mono text-burntOrange uppercase tracking-wider flex items-center gap-1">
-                    <span>View Bio & Specialties</span>
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. SERVICE CARDS */}
-      <section className="py-20 sm:py-28 bg-espresso border-b border-espresso-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-mono uppercase tracking-widest text-burntOrange block mb-2">
-              Structured Solutions
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-display text-cream tracking-tight uppercase mb-4">
-              Our Core Disciplines
-            </h2>
-            <p className="text-sm sm:text-base text-cream-muted leading-relaxed">
-              Every body moves differently. Our programs blend progressive resistance training with targeted soft-tissue therapy to deliver durable athletic performance.
-            </p>
-          </div>
-
-          {/* 3 Core Service Cards: Personal Training, Muscle Release & Recovery, Sports Performance */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {siteConfig.services.slice(0, 3).map((service) => (
-              <div
-                key={service.slug}
-                className="bg-espresso-surface border border-espresso-border rounded-lg overflow-hidden flex flex-col justify-between hover:border-burntOrange/60 transition-all duration-300 shadow-xl group"
-              >
-                <div>
-                  <div className="aspect-[16/10] overflow-hidden bg-espresso relative">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-espresso-surface via-transparent to-transparent opacity-80" />
-                  </div>
-
-                  <div className="p-6 sm:p-7 space-y-3">
-                    <h3 className="text-2xl sm:text-3xl font-display text-cream uppercase tracking-wide group-hover:text-burntOrange transition-colors">
-                      {service.title}
-                    </h3>
-                    {/* 2-line description */}
-                    <p className="text-sm text-cream-muted leading-relaxed line-clamp-2">
-                      {service.shortDescription}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-6 sm:p-7 pt-0 border-t border-espresso-border/40 mt-4 flex items-center justify-between">
-                  <Link
-                    to={`/services/${service.slug}`}
-                    className="text-xs font-mono uppercase tracking-widest text-burntOrange hover:underline inline-flex items-center gap-1 group-hover:gap-2 transition-all font-bold"
-                  >
-                    <span>Learn more</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-
-                  <a
-                    href={BOOKING_URL}
-                    className="text-xs font-display uppercase tracking-wider text-cream-muted hover:text-cream"
-                  >
-                    Book Session →
-                  </a>
-                </div>
+              <div className="relative z-10 w-full max-w-[440px] rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src="/images/feature-training.jpg"
+                  alt="Coach supervising deadlift technique"
+                  className="w-full h-[460px] object-cover object-center"
+                  loading="lazy"
+                />
               </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              to="/services"
-              className="text-xs font-mono uppercase tracking-widest text-cream hover:text-burntOrange inline-flex items-center gap-2 border border-espresso-border px-6 py-3 rounded bg-espresso-surface hover:bg-espresso-card transition-colors"
-            >
-              <span>View All 4 Training & Recovery Disciplines</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 6. FOCUS AREAS LIST */}
-      <section className="py-20 sm:py-28 bg-espresso-surface border-b border-espresso-border">
+      {/* 6. FEATURE 2: 12-WEEK MOVEMENT LONGEVITY - Modeled on Screenshot 12.58.14 PM */}
+      <section className="py-20 sm:py-24 bg-[#F8F9FA] border-t border-slate-200/60 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs font-mono uppercase tracking-widest text-burntOrange block mb-2">
-              Biomechanics & Problem Solvers
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-display text-cream tracking-tight uppercase mb-4">
-              Focus Areas We Address
-            </h2>
-            <p className="text-sm sm:text-base text-cream-muted leading-relaxed">
-              We specialize in resolving the stubborn, recurring movement bottlenecks that keep active people from training at full intensity.
-            </p>
-          </div>
-
-          {/* 6 Focus Areas: lower back, shoulders, hips & knees, posture, post-injury return, athletic performance */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {siteConfig.focusAreas.map((area) => (
-              <div
-                key={area.id}
-                className="bg-espresso-card p-6 rounded-md border border-espresso-border hover:border-burntOrange/50 transition-all space-y-3"
-              >
-                <div className="flex items-center gap-2 text-burntOrange">
-                  <Zap className="w-4 h-4" />
-                  <span className="text-xs font-mono uppercase tracking-wider">
-                    Target Protocol
-                  </span>
-                </div>
-                <h3 className="text-2xl font-display text-cream uppercase tracking-wide">
-                  {area.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-cream-muted leading-relaxed">
-                  {area.description}
-                </p>
-                <div className="pt-2 border-t border-espresso-border/50 text-[11px] text-cream-dark">
-                  <span className="font-semibold text-cream-muted">Clinical Strategy:</span> {area.protocol}
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left: Flat-lay photo */}
+            <div className="lg:col-span-6 flex justify-center">
+              <div className="w-full max-w-[440px] rounded-3xl overflow-hidden shadow-lg border border-slate-200/80">
+                <img
+                  src="/images/feature-nutrition.jpg"
+                  alt="Nutritional food flat lay"
+                  className="w-full h-[440px] object-cover object-center"
+                  loading="lazy"
+                />
               </div>
-            ))}
+            </div>
+
+            {/* Right: Copy */}
+            <div className="lg:col-span-6 space-y-6">
+              <h2 className="text-3xl sm:text-4xl font-light text-[#3B6B96] tracking-tight">
+                12-Week Movement Longevity & Nutrition
+              </h2>
+
+              <p className="text-base text-slate-600 leading-relaxed font-normal">
+                Build durable muscle, alleviate joint stress, and develop sustainable daily recovery habits through a personalized program and regular 1-on-1 check-ins. Build lasting habits, track measurable progress, and achieve results you can see and feel.
+              </p>
+
+              <div>
+                <span className="text-sm font-medium text-slate-800 block mb-3">
+                  Why it Works
+                </span>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#3B6B96] font-bold">+</span>
+                    <span>Weekly 1-on-1 progress check-ins</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#3B6B96] font-bold">+</span>
+                    <span>Gradual, sustainable movement changes</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#3B6B96] font-bold">+</span>
+                    <span>Direct expert guidance from Rachel D'Rozario</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[#3B6B96] font-bold">+</span>
+                    <span>Clear 12-week functional roadmap</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pt-2">
+                <Link
+                  to="/services/muscle-release-recovery"
+                  className="inline-flex items-center gap-1.5 text-sm text-[#3B6B96] hover:text-burntOrange font-medium transition-colors"
+                >
+                  <span>Recovery Coaching</span>
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 7. PAIN LOCATOR TEASER */}
-      <section id="pain-locator-teaser" className="py-20 sm:py-28 bg-espresso border-b border-espresso-border">
+      {/* 7. PAIN LOCATOR TEASER (DIAGNOSTIC TOOL) */}
+      <section className="py-20 sm:py-24 bg-white border-t border-slate-200/60" id="pain-locator-teaser">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-mono uppercase tracking-widest text-burntOrange block mb-2">
-              Self-Diagnostic Tool
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-display text-cream tracking-tight uppercase mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <h2 className="text-3xl sm:text-4xl font-light text-[#3B6B96] mb-3 tracking-tight">
               Where Does It Hurt?
             </h2>
-            <p className="text-sm sm:text-base text-cream-muted leading-relaxed">
-              Use our interactive body map to identify your primary restriction zone, explore underlying biomechanical causes, and learn how targeted muscle release creates immediate relief.
+            <p className="text-base text-slate-600 leading-relaxed font-normal">
+              Click any region on our anatomical map to see underlying biomechanical causes and how Rachel's targeted muscle release creates immediate relief.
             </p>
           </div>
 
-          {/* Pain Locator Component */}
-          <PainLocator isTeaser={true} />
+          <div className="bg-[#140D0B] text-white p-6 sm:p-10 rounded-2xl shadow-xl">
+            <PainLocator isTeaser={true} />
+          </div>
         </div>
       </section>
 
-      {/* 8. LEARN LIBRARY */}
-      <section className="py-20 sm:py-28 bg-espresso-surface border-b border-espresso-border">
+      {/* 8. "HEALTHY LIVING LIBRARY" / LEARN LIBRARY - Modeled on Screenshot 12.58.17 PM */}
+      <section className="py-20 sm:py-24 bg-[#F8F9FA] border-t border-slate-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-burntOrange block mb-2">
-                Movement Science & Education
-              </span>
-              <h2 className="text-4xl sm:text-5xl font-display text-cream tracking-tight uppercase">
-                Learn Library
-              </h2>
-            </div>
-            <Link
-              to="/blog"
-              className="text-xs font-mono uppercase tracking-widest text-burntOrange hover:underline inline-flex items-center gap-1.5"
-            >
-              <span>Explore All Articles</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+          <div className="max-w-3xl mb-14">
+            <h2 className="text-3xl sm:text-4xl font-light text-[#3B6B96] mb-3 tracking-tight">
+              Healthy Living Library
+            </h2>
+            <p className="text-base text-slate-600 leading-relaxed font-normal">
+              With education as the focus, our Healthy Living Library is designed to show you that health and fitness are about more than just moving well. From tips on recovery and sleep to follow-along mobility routines, our articles teach you how to take care of your body.
+            </p>
           </div>
 
-          {/* 3 Article Cards (marked [Draft]) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {siteConfig.blogPosts.map((post) => (
               <article
                 key={post.slug}
-                className="bg-espresso-card border border-espresso-border rounded-lg overflow-hidden flex flex-col justify-between hover:border-burntOrange/50 transition-all shadow-md group"
+                className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-slate-200/70 flex flex-col justify-between"
               >
                 <div>
-                  <div className="aspect-[16/9] overflow-hidden bg-espresso relative">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-3 right-3 bg-espresso/90 border border-espresso-border font-mono text-[10px] text-burntOrange uppercase px-2 py-0.5 rounded font-bold">
-                      {post.status}
-                    </div>
-                  </div>
-
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-52 object-cover"
+                    loading="lazy"
+                  />
                   <div className="p-6 space-y-3">
-                    <div className="flex items-center justify-between text-xs text-cream-dark font-mono uppercase">
-                      <span>{post.category}</span>
-                      <span>{post.readTime}</span>
-                    </div>
-
-                    <h3 className="text-xl sm:text-2xl font-display text-cream uppercase tracking-wide group-hover:text-burntOrange transition-colors">
+                    <h3 className="text-lg font-medium text-[#3B6B96] leading-snug hover:text-burntOrange transition-colors">
                       <Link to={`/blog/${post.slug}`}>
                         {post.title}
                       </Link>
                     </h3>
-
-                    <p className="text-xs sm:text-sm text-cream-muted leading-relaxed line-clamp-3">
+                    <p className="text-sm text-slate-600 leading-relaxed line-clamp-3">
                       {post.excerpt}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-6 pt-0 border-t border-espresso-border/40 mt-4 flex items-center justify-between">
+                <div className="p-6 pt-0 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
                   <Link
                     to={`/blog/${post.slug}`}
-                    className="text-xs font-mono uppercase tracking-widest text-burntOrange hover:underline inline-flex items-center gap-1 group-hover:gap-1.5 transition-all"
+                    className="text-[#3B6B96] hover:text-burntOrange font-medium"
                   >
-                    <span>Read article</span>
-                    <ArrowRight className="w-3 h-3" />
+                    Read article →
                   </Link>
-                  <span className="text-xs text-cream-dark">By {post.author}</span>
+                  <span>{post.readTime}</span>
                 </div>
               </article>
             ))}
           </div>
+
+          <div className="mt-10 text-right">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-1.5 text-sm text-[#3B6B96] hover:text-burntOrange font-medium"
+            >
+              <span>More Articles</span>
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* 9. NEWSLETTER SIGNUP */}
-      <section className="py-20 sm:py-24 bg-espresso">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Newsletter />
+      {/* 9. "JOIN THE COMMUNITY" / NEWSLETTER - Modeled on Screenshot 12.58.20 PM */}
+      <section className="py-20 sm:py-24 bg-white border-t border-slate-200/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left: Joyful jump box athlete photo */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="w-full max-w-[380px] rounded-3xl overflow-hidden shadow-lg border border-slate-200/80">
+                <img
+                  src="/images/community-jump.jpg"
+                  alt="Athlete performing jump in bright fitness studio"
+                  className="w-full h-[400px] object-cover object-center"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            {/* Right: Join The Community Form */}
+            <div className="lg:col-span-7 space-y-6">
+              <h2 className="text-3xl sm:text-4xl font-light text-[#3B6B96] tracking-tight">
+                Join The Community
+              </h2>
+
+              <p className="text-base text-slate-600 leading-relaxed font-normal">
+                Sign up to receive health + fitness tips, exclusive promotional offers and updates, delivered right to your inbox.
+              </p>
+
+              {newsSubmitted ? (
+                <div className="bg-[#EBF2F7] border border-[#3B6B96]/30 p-6 rounded-lg text-slate-800">
+                  <div className="flex items-center gap-2 text-[#3B6B96] font-semibold mb-1">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                    <span>Thank you for signing up!</span>
+                  </div>
+                  <p className="text-sm text-slate-600">
+                    We've added <strong className="text-slate-800">{newsEmail}</strong> to Rachel's monthly movement and recovery bulletin.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleNewsSubmit} className="space-y-4 max-w-xl">
+                  {/* First Name & Last Name */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="first-name" className="block text-xs text-slate-600 font-medium mb-1">
+                        First Name*
+                      </label>
+                      <input
+                        id="first-name"
+                        type="text"
+                        required
+                        value={newsFirstName}
+                        onChange={(e) => setNewsFirstName(e.target.value)}
+                        className="w-full border border-slate-300 rounded px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-[#3B6B96] focus:ring-1 focus:ring-[#3B6B96]"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="last-name" className="block text-xs text-slate-600 font-medium mb-1">
+                        Last Name*
+                      </label>
+                      <input
+                        id="last-name"
+                        type="text"
+                        required
+                        value={newsLastName}
+                        onChange={(e) => setNewsLastName(e.target.value)}
+                        className="w-full border border-slate-300 rounded px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-[#3B6B96] focus:ring-1 focus:ring-[#3B6B96]"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label htmlFor="home-news-email" className="block text-xs text-slate-600 font-medium mb-1">
+                      Email*
+                    </label>
+                    <input
+                      id="home-news-email"
+                      type="email"
+                      required
+                      value={newsEmail}
+                      onChange={(e) => setNewsEmail(e.target.value)}
+                      className="w-full border border-slate-300 rounded px-3.5 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-[#3B6B96] focus:ring-1 focus:ring-[#3B6B96]"
+                    />
+                  </div>
+
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      className="bg-[#507C9E] hover:bg-[#416885] text-white px-7 py-3 rounded text-sm font-medium transition-colors"
+                    >
+                      Sign me up
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
