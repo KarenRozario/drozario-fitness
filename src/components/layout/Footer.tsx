@@ -86,11 +86,14 @@ export const Footer: React.FC = () => {
         {/* Links Navigation Row */}
         <div className="pt-10 flex flex-wrap items-center justify-between gap-6 text-xs uppercase tracking-[0.15em] font-medium">
           <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-[#FAF7F2]/60">
-            <Link to="/team" className="hover:text-[#FAF7F2] transition-colors">
-              Meet Rachel
-            </Link>
             <Link to="/programs" className="hover:text-[#FAF7F2] transition-colors">
               Programs
+            </Link>
+            <Link to="/nutrition" className="hover:text-[#FAF7F2] transition-colors">
+              Nutrition
+            </Link>
+            <Link to="/team" className="hover:text-[#FAF7F2] transition-colors">
+              Meet Rachel
             </Link>
             <Link to="/find-your-program" className="hover:text-[#FAF7F2] transition-colors">
               Find Your Program

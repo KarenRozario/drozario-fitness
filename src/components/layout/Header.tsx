@@ -112,7 +112,20 @@ export const Header: React.FC = () => {
                       </div>
                     </Link>
                   ))}
-                  <div className="pt-2 mt-1 border-t border-[#1A1714]/10">
+                  <div className="pt-2 mt-1 border-t border-[#1A1714]/10 space-y-1">
+                    <Link
+                      to="/nutrition"
+                      role="menuitem"
+                      className="block px-3 py-2 hover:bg-[#F2ECE3] transition-colors group"
+                      onClick={() => setProgramsDropdownOpen(false)}
+                    >
+                      <div className="text-xs font-serif text-[#1A1714] group-hover:text-[#B4532A] transition-colors">
+                        Nutrition Coaching
+                      </div>
+                      <div className="text-[11px] text-[#1A1714]/60 normal-case tracking-normal">
+                        Nourishing your body through every stage
+                      </div>
+                    </Link>
                     <Link
                       to="/programs"
                       className="block px-3 py-1.5 text-[11px] text-[#B4532A] hover:underline font-mono tracking-wider"
@@ -124,6 +137,18 @@ export const Header: React.FC = () => {
                 </div>
               )}
             </div>
+
+            {/* Nutrition */}
+            <Link
+              to="/nutrition"
+              className={`transition-colors py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B4532A] ${
+                isActive('/nutrition')
+                  ? 'text-[#1A1714] font-semibold border-b border-[#1A1714]'
+                  : 'text-[#1A1714]/75 hover:text-[#B4532A]'
+              }`}
+            >
+              Nutrition
+            </Link>
 
             {/* Meet Rachel */}
             <Link
@@ -277,6 +302,9 @@ export const Header: React.FC = () => {
               {prog.title}
             </Link>
           ))}
+          <Link to="/nutrition" className="block py-2 border-b border-[#1A1714]/15 hover:text-[#B4532A]">
+            Nutrition
+          </Link>
           <Link to="/team" className="block py-2 border-b border-[#1A1714]/15 hover:text-[#B4532A]">
             Meet Rachel
           </Link>

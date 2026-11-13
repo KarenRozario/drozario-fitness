@@ -6,6 +6,21 @@
 @import "@fontsource/playfair-display/600.css";
 @import "@fontsource/playfair-display/700.css";
 
+/* Theme 2: Soft Wellness */
+@import "@fontsource/fraunces/400.css";
+@import "@fontsource/fraunces/500.css";
+@import "@fontsource/fraunces/600.css";
+@import "@fontsource/fraunces/700.css";
+@import "@fontsource/nunito-sans/400.css";
+@import "@fontsource/nunito-sans/500.css";
+@import "@fontsource/nunito-sans/600.css";
+
+/* Theme 3: Modern Strong */
+@import "@fontsource/space-grotesk/400.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/space-grotesk/700.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,6 +33,7 @@
     font-size: 17px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   /* Accessible focus indicators across interactive elements */
@@ -35,6 +51,7 @@
     font-family: 'Playfair Display', Georgia, serif;
     letter-spacing: -0.02em;
     color: #1A1714;
+    transition: color 0.2s ease;
   }
 }
 
@@ -149,4 +166,202 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #B4532A;
+}
+
+/* ==========================================================================
+   THEME 2: SOFT WELLNESS (Calm, nurturing, rounded corners, sage & cocoa)
+   ========================================================================== */
+html[data-theme="soft"] body {
+  background-color: #FFFBF8 !important;
+  color: #3B2F2A !important;
+  font-family: 'Nunito Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+html[data-theme="soft"] h1,
+html[data-theme="soft"] h2,
+html[data-theme="soft"] h3,
+html[data-theme="soft"] h4,
+html[data-theme="soft"] h5,
+html[data-theme="soft"] h6 {
+  font-family: 'Fraunces', Georgia, serif !important;
+  color: #3B2F2A !important;
+  letter-spacing: -0.01em !important;
+}
+
+html[data-theme="soft"] .drop-cap::first-letter {
+  font-family: 'Fraunces', Georgia, serif !important;
+  color: #3B2F2A !important;
+}
+
+/* Soft Wellness Palette Overrides */
+html[data-theme="soft"] .bg-\[\#FAF7F2\] {
+  background-color: #FFFBF8 !important;
+}
+
+html[data-theme="soft"] .bg-\[\#F2ECE3\] {
+  background-color: #F6E8E1 !important;
+}
+
+html[data-theme="soft"] .text-\[\#1A1714\] {
+  color: #3B2F2A !important;
+}
+
+html[data-theme="soft"] .text-\[\#B4532A\] {
+  color: #8FA58A !important;
+}
+
+html[data-theme="soft"] .border-\[\#1A1714\]\/15 {
+  border-color: rgba(59, 47, 42, 0.12) !important;
+}
+
+html[data-theme="soft"] .border-\[\#1A1714\] {
+  border-color: #3B2F2A !important;
+}
+
+html[data-theme="soft"] .border-\[\#B4532A\] {
+  border-color: #8FA58A !important;
+}
+
+/* Soft Wellness Rounded Corners & Pill Buttons */
+html[data-theme="soft"] .btn-editorial-primary {
+  background-color: #3B2F2A !important;
+  border-color: #3B2F2A !important;
+  color: #FFFBF8 !important;
+  border-radius: 9999px !important;
+  font-family: 'Nunito Sans', sans-serif !important;
+  padding: 0.85rem 2rem !important;
+  box-shadow: 0 4px 12px rgba(59, 47, 42, 0.08) !important;
+}
+
+html[data-theme="soft"] .btn-editorial-primary:hover {
+  background-color: #8FA58A !important;
+  border-color: #8FA58A !important;
+  color: #FFFFFF !important;
+}
+
+html[data-theme="soft"] .btn-editorial-outline {
+  border-color: #3B2F2A !important;
+  color: #3B2F2A !important;
+  border-radius: 9999px !important;
+  font-family: 'Nunito Sans', sans-serif !important;
+  padding: 0.85rem 2rem !important;
+}
+
+html[data-theme="soft"] .btn-editorial-outline:hover {
+  background-color: #8FA58A !important;
+  border-color: #8FA58A !important;
+  color: #FFFFFF !important;
+}
+
+html[data-theme="soft"] .btn-editorial-outline-white {
+  border-radius: 9999px !important;
+  font-family: 'Nunito Sans', sans-serif !important;
+}
+
+/* Soft Wellness Rounded Images & Cards */
+html[data-theme="soft"] .aspect-\[4\/5\],
+html[data-theme="soft"] .aspect-\[4\/3\],
+html[data-theme="soft"] .aspect-\[3\/2\],
+html[data-theme="soft"] .aspect-\[16\/9\] {
+  border-radius: 24px !important;
+}
+
+html[data-theme="soft"] input,
+html[data-theme="soft"] textarea,
+html[data-theme="soft"] select {
+  border-radius: 12px !important;
+}
+
+/* ==========================================================================
+   THEME 3: MODERN STRONG (Confident, deep plum, coral, lilac, Space Grotesk)
+   ========================================================================== */
+html[data-theme="modern"] body {
+  background-color: #FFFFFF !important;
+  color: #2E1A47 !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+html[data-theme="modern"] h1,
+html[data-theme="modern"] h2,
+html[data-theme="modern"] h3,
+html[data-theme="modern"] h4,
+html[data-theme="modern"] h5,
+html[data-theme="modern"] h6 {
+  font-family: 'Space Grotesk', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  color: #2E1A47 !important;
+  letter-spacing: -0.03em !important;
+}
+
+html[data-theme="modern"] .drop-cap::first-letter {
+  font-family: 'Space Grotesk', system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  color: #FF6B4A !important;
+}
+
+/* Modern Strong Palette Overrides */
+html[data-theme="modern"] .bg-\[\#FAF7F2\] {
+  background-color: #FFFFFF !important;
+}
+
+html[data-theme="modern"] .bg-\[\#F2ECE3\] {
+  background-color: #F1ECF8 !important;
+}
+
+html[data-theme="modern"] .text-\[\#1A1714\] {
+  color: #2E1A47 !important;
+}
+
+html[data-theme="modern"] .text-\[\#B4532A\] {
+  color: #FF6B4A !important;
+}
+
+html[data-theme="modern"] .border-\[\#1A1714\]\/15 {
+  border-color: rgba(46, 26, 71, 0.16) !important;
+}
+
+html[data-theme="modern"] .border-\[\#1A1714\] {
+  border-color: #2E1A47 !important;
+}
+
+html[data-theme="modern"] .border-\[\#B4532A\] {
+  border-color: #FF6B4A !important;
+}
+
+/* Modern Strong Buttons */
+html[data-theme="modern"] .btn-editorial-primary {
+  background-color: #FF6B4A !important;
+  border-color: #FF6B4A !important;
+  color: #FFFFFF !important;
+  border-radius: 0px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.15em !important;
+}
+
+html[data-theme="modern"] .btn-editorial-primary:hover {
+  background-color: #E85535 !important;
+  border-color: #E85535 !important;
+}
+
+html[data-theme="modern"] .btn-editorial-outline {
+  border-color: #2E1A47 !important;
+  color: #2E1A47 !important;
+  border-radius: 0px !important;
+  font-weight: 700 !important;
+}
+
+html[data-theme="modern"] .btn-editorial-outline:hover {
+  background-color: #2E1A47 !important;
+  color: #FFFFFF !important;
+}
+
+html[data-theme="modern"] .btn-editorial-outline-white {
+  border-radius: 0px !important;
+  font-weight: 700 !important;
+}
+
+html[data-theme="modern"] input,
+html[data-theme="modern"] textarea,
+html[data-theme="modern"] select {
+  border-radius: 0px !important;
 }
