@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
 export const Header: React.FC = () => {
+  const { openBooking } = useBooking();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
@@ -261,7 +263,11 @@ export const Header: React.FC = () => {
           <div className="hidden lg:flex items-center">
             <a
               href={BOOKING_URL}
-              className="border border-[#1A1714] bg-[#1A1714] text-[#FAF7F2] hover:bg-[#B4532A] hover:border-[#B4532A] px-5 py-2.5 text-xs uppercase tracking-[0.2em] font-medium transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking();
+              }}
+              className="border border-[#1A1714] bg-[#1A1714] text-[#FAF7F2] hover:bg-[#B4532A] hover:border-[#B4532A] px-5 py-2.5 text-xs uppercase tracking-[0.2em] font-medium transition-colors cursor-pointer"
             >
               Book a session
             </a>
@@ -271,7 +277,11 @@ export const Header: React.FC = () => {
           <div className="flex lg:hidden items-center gap-3">
             <a
               href={BOOKING_URL}
-              className="border border-[#1A1714] bg-[#1A1714] text-[#FAF7F2] hover:bg-[#B4532A] text-[11px] uppercase tracking-wider px-3 py-1.5 font-medium transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking();
+              }}
+              className="border border-[#1A1714] bg-[#1A1714] text-[#FAF7F2] hover:bg-[#B4532A] text-[11px] uppercase tracking-wider px-3 py-1.5 font-medium transition-colors cursor-pointer"
             >
               Book
             </a>
@@ -329,7 +339,12 @@ export const Header: React.FC = () => {
           <div className="pt-4">
             <a
               href={BOOKING_URL}
-              className="block text-center w-full bg-[#1A1714] text-[#FAF7F2] hover:bg-[#B4532A] py-3 text-xs uppercase tracking-[0.2em] font-medium transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                openBooking();
+              }}
+              className="block text-center w-full bg-[#1A1714] text-[#FAF7F2] hover:bg-[#B4532A] py-3 text-xs uppercase tracking-[0.2em] font-medium transition-colors cursor-pointer"
             >
               Book a session
             </a>

@@ -1,10 +1,12 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../config/site';
+import { useBooking } from '../context/BookingContext';
 import { SEO } from '../components/shared/SEO';
 import { ArrowLeft, Clock } from 'lucide-react';
 
 export const BlogPostDetail: React.FC = () => {
+  const { openBooking } = useBooking();
   const { slug } = useParams<{ slug: string }>();
   const post = siteConfig.blogPosts.find((p) => p.slug === slug);
 
@@ -101,7 +103,11 @@ export const BlogPostDetail: React.FC = () => {
           <div className="pt-4">
             <a
               href={BOOKING_URL}
-              className="inline-block bg-[#FAF7F2] hover:bg-[#B4532A] hover:text-[#FAF7F2] text-[#1A1714] px-8 py-3.5 text-xs uppercase tracking-[0.2em] font-medium transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking();
+              }}
+              className="inline-block bg-[#FAF7F2] hover:bg-[#B4532A] hover:text-[#FAF7F2] text-[#1A1714] px-8 py-3.5 text-xs uppercase tracking-[0.2em] font-medium transition-colors cursor-pointer"
             >
               Book a Session
             </a>

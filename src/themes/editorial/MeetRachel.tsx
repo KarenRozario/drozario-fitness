@@ -1,9 +1,11 @@
 import React from 'react';
 import { BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { rachelContent } from '../../content/rachel';
 import { Check } from 'lucide-react';
 
 export const EditorialMeetRachel: React.FC = () => {
+  const { openBooking } = useBooking();
   return (
     <section className="py-28 lg:py-36 bg-[#FAF7F2] border-b border-[#1A1714]/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,7 +63,11 @@ export const EditorialMeetRachel: React.FC = () => {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <a
                 href={BOOKING_URL}
-                className="btn-editorial-primary whitespace-nowrap"
+                onClick={(e) => {
+                  e.preventDefault();
+                  openBooking();
+                }}
+                className="btn-editorial-primary whitespace-nowrap cursor-pointer"
               >
                 Book a Session with Rachel
               </a>

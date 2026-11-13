@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { programsContent } from '../../content/programs';
 import { ArrowRight, Check } from 'lucide-react';
 
 export const EditorialProgramsSection: React.FC = () => {
+  const { openBooking } = useBooking();
   return (
     <section className="py-28 lg:py-36 bg-[#FAF7F2] border-b border-[#1A1714]/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,7 +105,11 @@ export const EditorialProgramsSection: React.FC = () => {
                     </Link>
                     <a
                       href={BOOKING_URL}
-                      className="btn-editorial-primary text-[10px] py-2.5 px-5 whitespace-nowrap"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        openBooking(program.title);
+                      }}
+                      className="btn-editorial-primary text-[10px] py-2.5 px-5 whitespace-nowrap cursor-pointer"
                     >
                       Book Session
                     </a>

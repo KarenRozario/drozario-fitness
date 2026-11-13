@@ -32,6 +32,13 @@ export const DEFAULT_THEME: ThemeId = 'editorial';
  */
 export const NUTRITION_FORM_ENDPOINT = "";
 
+/**
+ * Booking Session Application Endpoint
+ * TODO: Connect this endpoint to your production CRM, calendar service, or serverless API handler.
+ * e.g. "https://api.drozariofitness.ca/book-session"
+ */
+export const BOOKING_FORM_ENDPOINT = "";
+
 export interface TeamMember {
   id: string;
   name: string;

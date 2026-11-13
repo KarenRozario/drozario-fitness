@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
 export const ModernHeader: React.FC = () => {
+  const { openBooking } = useBooking();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [programsOpen, setProgramsOpen] = useState(false);
   const [learnOpen, setLearnOpen] = useState(false);
@@ -182,7 +184,11 @@ export const ModernHeader: React.FC = () => {
             {/* Coral Square "Book a session" button */}
             <a
               href={BOOKING_URL}
-              className="bg-[#FF6B4A] hover:bg-[#E55A3A] text-white px-6 py-3 font-archivo font-black uppercase text-xs tracking-widest transition-colors rounded-none shadow-md ml-2 whitespace-nowrap"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking();
+              }}
+              className="bg-[#FF6B4A] hover:bg-[#E55A3A] text-white px-6 py-3 font-archivo font-black uppercase text-xs tracking-widest transition-colors rounded-none shadow-md ml-2 whitespace-nowrap cursor-pointer"
             >
               Book a session
             </a>
@@ -192,7 +198,11 @@ export const ModernHeader: React.FC = () => {
           <div className="flex xl:hidden items-center gap-3">
             <a
               href={BOOKING_URL}
-              className="bg-[#FF6B4A] text-white text-xs font-archivo font-bold px-4 py-2 uppercase whitespace-nowrap"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking();
+              }}
+              className="bg-[#FF6B4A] text-white text-xs font-archivo font-bold px-4 py-2 uppercase whitespace-nowrap cursor-pointer"
             >
               Book
             </a>
@@ -263,7 +273,12 @@ export const ModernHeader: React.FC = () => {
           <div className="pt-2">
             <a
               href={BOOKING_URL}
-              className="w-full block text-center bg-[#FF6B4A] text-white py-3.5 font-archivo font-black uppercase text-xs tracking-widest rounded-none shadow"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                openBooking();
+              }}
+              className="w-full block text-center bg-[#FF6B4A] hover:bg-[#2E1A47] text-white py-3.5 font-archivo font-black uppercase text-xs tracking-widest rounded-none shadow cursor-pointer transition-colors"
             >
               Book a session
             </a>

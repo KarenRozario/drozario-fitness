@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { siteConfig, NUTRITION_FORM_ENDPOINT, BOOKING_URL } from '../config/site';
+import { Link } from 'react-router-dom';
+import { siteConfig, NUTRITION_FORM_ENDPOINT } from '../config/site';
 import { SEO } from '../components/shared/SEO';
 import { ThemePageHero } from '../themes';
 import { CheckCircle2 } from 'lucide-react';
@@ -255,9 +256,9 @@ export const Nutrition: React.FC = () => {
                 Thank you — Rachel will be in touch within [2] business days to discuss your consultation and scheduling.
               </p>
               <div className="pt-4">
-                <a href={BOOKING_URL} className="btn-editorial-outline">
+                <Link to="/" className="btn-editorial-outline">
                   Return to Home
-                </a>
+                </Link>
               </div>
             </div>
           ) : (

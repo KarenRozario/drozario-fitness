@@ -3,8 +3,10 @@ import { FindYourProgram } from '../components/shared/FindYourProgram';
 import { SEO } from '../components/shared/SEO';
 import { ThemePageHero } from '../themes';
 import { BOOKING_URL } from '../config/site';
+import { useBooking } from '../context/BookingContext';
 
 export const FindYourProgramPage: React.FC = () => {
+  const { openBooking } = useBooking();
   return (
     <div className="bg-[#FAF7F2] text-[#1A1714]">
       <SEO
@@ -54,7 +56,11 @@ export const FindYourProgramPage: React.FC = () => {
           <div className="pt-4">
             <a
               href={BOOKING_URL}
-              className="btn-editorial-primary"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking('1-on-1 Private Consultation');
+              }}
+              className="btn-editorial-primary cursor-pointer"
             >
               Book a Free Consultation
             </a>

@@ -1,8 +1,10 @@
 import React from 'react';
 import { BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { communityContent } from '../../content/community';
 
 export const ModernCommunity: React.FC = () => {
+  const { openBooking } = useBooking();
   return (
     <section className="py-24 lg:py-32 bg-[#FFFFFF] border-b-2 border-[#2E1A47]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
@@ -22,7 +24,11 @@ export const ModernCommunity: React.FC = () => {
           <div className="lg:col-span-5 flex justify-start lg:justify-end">
             <a
               href={BOOKING_URL}
-              className="bg-[#FF6B4A] hover:bg-[#E55A3A] text-white px-8 py-4 font-archivo font-black uppercase text-xs tracking-widest transition-colors rounded-none shadow-lg whitespace-nowrap"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking('Semi-Private Pods');
+              }}
+              className="bg-[#FF6B4A] hover:bg-[#E55A3A] text-white px-8 py-4 font-archivo font-black uppercase text-xs tracking-widest transition-colors rounded-none shadow-lg whitespace-nowrap cursor-pointer"
             >
               Inquire About Group Pods
             </a>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
+import { BookingProvider } from './context/BookingContext';
+import { BookingModal } from './components/booking/BookingModal';
 import { Layout } from './components/layout/Layout';
 import { Home } from './pages/Home';
 import { Programs } from './pages/Programs';
@@ -21,44 +23,47 @@ export const App: React.FC = () => {
   return (
     <BrowserRouter>
       <ThemeProvider>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            
-            {/* Programs Routes */}
-            <Route path="/programs" element={<Programs />} />
-            <Route path="/programs/:slug" element={<ProgramDetail />} />
-            
-            {/* Nutrition Consultation Route */}
-            <Route path="/nutrition" element={<Nutrition />} />
+        <BookingProvider>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              
+              {/* Programs Routes */}
+              <Route path="/programs" element={<Programs />} />
+              <Route path="/programs/:slug" element={<ProgramDetail />} />
+              
+              {/* Nutrition Consultation Route */}
+              <Route path="/nutrition" element={<Nutrition />} />
 
-            {/* Legacy Service Redirects */}
-            <Route path="/services" element={<Navigate to="/programs" replace />} />
-            <Route path="/services/*" element={<Navigate to="/programs" replace />} />
+              {/* Legacy Service Redirects */}
+              <Route path="/services" element={<Navigate to="/programs" replace />} />
+              <Route path="/services/*" element={<Navigate to="/programs" replace />} />
 
-            {/* Life-Stage Program Matcher */}
-            <Route path="/find-your-program" element={<FindYourProgramPage />} />
+              {/* Life-Stage Program Matcher */}
+              <Route path="/find-your-program" element={<FindYourProgramPage />} />
 
-            {/* Community & Mom Networks */}
-            <Route path="/community" element={<Community />} />
+              {/* Community & Mom Networks */}
+              <Route path="/community" element={<Community />} />
 
-            {/* Coach Rachel D'Rozario Profile */}
-            <Route path="/team" element={<Team />} />
+              {/* Coach Rachel D'Rozario Profile */}
+              <Route path="/team" element={<Team />} />
 
-            {/* Learn Library & Client Case Studies */}
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogPostDetail />} />
-            <Route path="/stories" element={<Stories />} />
+              {/* Learn Library & Client Case Studies */}
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPostDetail />} />
+              <Route path="/stories" element={<Stories />} />
 
-            {/* Studio Locations, Contact & Booking */}
-            <Route path="/locations" element={<Locations />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/book" element={<Book />} />
+              {/* Studio Locations, Contact & Booking */}
+              <Route path="/locations" element={<Locations />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/book" element={<Book />} />
 
-            {/* Fallback 404 */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
+              {/* Fallback 404 */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
+          <BookingModal />
+        </BookingProvider>
       </ThemeProvider>
     </BrowserRouter>
   );

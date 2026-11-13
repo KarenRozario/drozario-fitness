@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { programsContent } from '../../content/programs';
 import { homeContent } from '../../content/home';
 import { ArrowRight } from 'lucide-react';
 
 export const ModernProgramsSection: React.FC = () => {
+  const { openBooking } = useBooking();
   const { programs } = programsContent;
   const { factsStrip } = homeContent;
 
@@ -94,7 +96,11 @@ export const ModernProgramsSection: React.FC = () => {
                 </Link>
                 <a
                   href={BOOKING_URL}
-                  className="border-2 border-white text-white hover:bg-white hover:text-[#2E1A47] px-6 py-3 font-archivo font-black text-xs uppercase tracking-widest whitespace-nowrap"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openBooking(prenatal.title);
+                  }}
+                  className="border-2 border-white text-white hover:bg-white hover:text-[#2E1A47] px-6 py-3 font-archivo font-black text-xs uppercase tracking-widest whitespace-nowrap cursor-pointer"
                 >
                   Book Session
                 </a>

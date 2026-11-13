@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../config/site';
+import { useBooking } from '../context/BookingContext';
 import { SEO } from '../components/shared/SEO';
 import { ThemePageHero } from '../themes';
 import { ArrowRight } from 'lucide-react';
 
 export const Programs: React.FC = () => {
+  const { openBooking } = useBooking();
   return (
     <div className="bg-[#FAF7F2] text-[#1A1714]">
       <SEO
@@ -104,7 +106,11 @@ export const Programs: React.FC = () => {
                     </Link>
                     <a
                       href={BOOKING_URL}
-                      className="btn-editorial-outline"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        openBooking(program.title);
+                      }}
+                      className="btn-editorial-outline cursor-pointer"
                     >
                       Book a Session
                     </a>

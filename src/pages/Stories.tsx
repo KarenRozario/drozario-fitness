@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { siteConfig, BOOKING_URL } from '../config/site';
+import { useBooking } from '../context/BookingContext';
 import { SEO } from '../components/shared/SEO';
 import { ThemePageHero } from '../themes';
 import { Shield } from 'lucide-react';
 
 export const Stories: React.FC = () => {
+  const { openBooking } = useBooking();
   const { clientStoriesPlaceholder } = siteConfig;
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
@@ -84,7 +86,11 @@ export const Stories: React.FC = () => {
           <div className="pt-8 text-center">
             <a
               href={BOOKING_URL}
-              className="btn-editorial-primary"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking();
+              }}
+              className="btn-editorial-primary cursor-pointer"
             >
               Start Your Own Movement Journey
             </a>

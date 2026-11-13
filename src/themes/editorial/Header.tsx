@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
 export const EditorialHeader: React.FC = () => {
+  const { openBooking } = useBooking();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
@@ -237,7 +239,11 @@ export const EditorialHeader: React.FC = () => {
             {/* Primary Action Button */}
             <a
               href={BOOKING_URL}
-              className="btn-editorial-primary text-[11px] py-2.5 px-5 shrink-0 ml-2 whitespace-nowrap"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking();
+              }}
+              className="btn-editorial-primary text-[11px] py-2.5 px-5 shrink-0 ml-2 whitespace-nowrap cursor-pointer"
             >
               Book a session
             </a>
@@ -247,7 +253,11 @@ export const EditorialHeader: React.FC = () => {
           <div className="flex items-center gap-3 xl:hidden">
             <a
               href={BOOKING_URL}
-              className="btn-editorial-primary text-[10px] py-2 px-3.5 whitespace-nowrap"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking();
+              }}
+              className="btn-editorial-primary text-[10px] py-2 px-3.5 whitespace-nowrap cursor-pointer"
             >
               Book session
             </a>
@@ -366,7 +376,12 @@ export const EditorialHeader: React.FC = () => {
           <div className="pt-2">
             <a
               href={BOOKING_URL}
-              className="btn-editorial-primary w-full text-center py-3"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                openBooking();
+              }}
+              className="btn-editorial-primary w-full text-center py-3 cursor-pointer"
             >
               Book a session
             </a>

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { homeContent } from '../../content/home';
 
 export const EditorialCTA: React.FC = () => {
+  const { openBooking } = useBooking();
   const { cta } = homeContent;
 
   return (
@@ -21,7 +23,11 @@ export const EditorialCTA: React.FC = () => {
         <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
           <a
             href={BOOKING_URL}
-            className="btn-editorial-primary text-xs tracking-[0.2em] whitespace-nowrap"
+            onClick={(e) => {
+              e.preventDefault();
+              openBooking();
+            }}
+            className="btn-editorial-primary text-xs tracking-[0.2em] whitespace-nowrap cursor-pointer"
           >
             {cta.primaryButton}
           </a>

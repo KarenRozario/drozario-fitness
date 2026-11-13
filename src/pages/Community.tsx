@@ -1,9 +1,11 @@
 import React from 'react';
 import { siteConfig, BOOKING_URL } from '../config/site';
+import { useBooking } from '../context/BookingContext';
 import { SEO } from '../components/shared/SEO';
 import { ThemePageHero } from '../themes';
 
 export const Community: React.FC = () => {
+  const { openBooking } = useBooking();
   const { community } = siteConfig;
 
   return (
@@ -39,7 +41,11 @@ export const Community: React.FC = () => {
               <div className="pt-2">
                 <a
                   href={BOOKING_URL}
-                  className="btn-editorial-primary"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openBooking('Semi-Private Pods');
+                  }}
+                  className="btn-editorial-primary cursor-pointer"
                 >
                   Join a Community Session
                 </a>
@@ -132,7 +138,11 @@ export const Community: React.FC = () => {
               </p>
               <a
                 href={BOOKING_URL}
-                className="btn-editorial-primary shrink-0"
+                onClick={(e) => {
+                  e.preventDefault();
+                  openBooking('Semi-Private Pods');
+                }}
+                className="btn-editorial-primary shrink-0 cursor-pointer"
               >
                 Inquire About Group Classes
               </a>

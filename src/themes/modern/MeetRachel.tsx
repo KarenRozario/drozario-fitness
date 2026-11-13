@@ -1,8 +1,10 @@
 import React from 'react';
 import { BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { rachelContent } from '../../content/rachel';
 
 export const ModernMeetRachel: React.FC = () => {
+  const { openBooking } = useBooking();
   return (
     <section className="bg-[#FFFFFF] py-20 lg:py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,7 +44,11 @@ export const ModernMeetRachel: React.FC = () => {
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <a
                   href={BOOKING_URL}
-                  className="bg-[#2E1A47] hover:bg-black text-white px-8 py-4 font-archivo font-black uppercase text-xs tracking-widest transition-colors rounded-none shadow whitespace-nowrap"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openBooking();
+                  }}
+                  className="bg-[#2E1A47] hover:bg-black text-white px-8 py-4 font-archivo font-black uppercase text-xs tracking-widest transition-colors rounded-none shadow whitespace-nowrap cursor-pointer"
                 >
                   Book with Rachel
                 </a>

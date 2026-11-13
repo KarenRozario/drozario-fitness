@@ -1,10 +1,14 @@
 import React from 'react';
-import { siteConfig, BOOKING_URL } from '../config/site';
+import { siteConfig } from '../config/site';
 import { SEO } from '../components/shared/SEO';
 import { ThemePageHero } from '../themes';
-import { Link } from 'react-router-dom';
+import { BookingForm } from '../components/booking/BookingForm';
+import { Link, useSearchParams } from 'react-router-dom';
 
 export const Book: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const programParam = searchParams.get('program') || undefined;
+
   return (
     <div className="bg-[#FAF7F2] text-[#1A1714]">
       <SEO
@@ -20,67 +24,42 @@ export const Book: React.FC = () => {
         image="/images/hero-women-fitness.jpg"
       />
 
-      {/* Booking Box */}
-      <section className="py-28 lg:py-36 bg-[#FAF7F2]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#F2ECE3] p-8 sm:p-16 border border-[#1A1714]/15 text-center space-y-8 shadow-sm">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#B4532A] block font-medium">
-              RESERVE YOUR APPOINTMENT
-            </span>
+      {/* Form Container */}
+      <section className="py-20 lg:py-28 bg-[#FAF7F2]">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <BookingForm initialProgram={programParam} isModal={false} />
 
-            <div className="space-y-4">
-              <h2 className="text-3xl sm:text-5xl font-serif text-[#1A1714] tracking-tight">
-                Schedule Your Session
-              </h2>
-              <p className="text-[17px] text-[#1A1714]/75 max-w-md mx-auto leading-[1.7] font-light">
-                Connect directly to our scheduling calendar to pick a time slot that matches your routine.
+          {/* How It Works Steps */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-16 text-left">
+            <div className="p-6 bg-[#F2ECE3] border border-[#1A1714]/15 space-y-2">
+              <span className="text-xs font-serif text-[#1A1714] block font-semibold">
+                01. Submit Request
+              </span>
+              <p className="text-xs text-[#1A1714]/70 font-light leading-relaxed">
+                Select your preferred life stage focus and available appointment window.
               </p>
             </div>
 
-            <div className="pt-2">
-              <a
-                href={BOOKING_URL}
-                className="btn-editorial-primary text-xs py-4 px-10"
-              >
-                Launch Scheduling Calendar Now
-              </a>
+            <div className="p-6 bg-[#F2ECE3] border border-[#1A1714]/15 space-y-2">
+              <span className="text-xs font-serif text-[#1A1714] block font-semibold">
+                02. Confidential Intake
+              </span>
+              <p className="text-xs text-[#1A1714]/70 font-light leading-relaxed">
+                Rachel reviews your background and contacts you within 1 business day to confirm.
+              </p>
             </div>
 
-            <p className="text-xs text-[#1A1714]/60 font-mono">
-              Target Booking Destination: <code className="text-[#1A1714] font-semibold">{BOOKING_URL}</code>
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-10 border-t border-[#1A1714]/15 text-left">
-              <div className="p-6 bg-[#FAF7F2] border border-[#1A1714]/15 space-y-2">
-                <span className="text-xs font-serif text-[#1A1714] block">
-                  01. Choose Date & Time
-                </span>
-                <p className="text-xs text-[#1A1714]/70 font-light leading-relaxed">
-                  Select available morning, afternoon, or evening appointment slots.
-                </p>
-              </div>
-
-              <div className="p-6 bg-[#FAF7F2] border border-[#1A1714]/15 space-y-2">
-                <span className="text-xs font-serif text-[#1A1714] block">
-                  02. Confidential Intake
-                </span>
-                <p className="text-xs text-[#1A1714]/70 font-light leading-relaxed">
-                  Share your life stage, birth or health background, and personal strength goals.
-                </p>
-              </div>
-
-              <div className="p-6 bg-[#FAF7F2] border border-[#1A1714]/15 space-y-2">
-                <span className="text-xs font-serif text-[#1A1714] block">
-                  03. Meet Rachel 1-on-1
-                </span>
-                <p className="text-xs text-[#1A1714]/70 font-light leading-relaxed">
-                  Personal consultation and movement blueprint tailored to your life stage in Stoney Creek.
-                </p>
-              </div>
+            <div className="p-6 bg-[#F2ECE3] border border-[#1A1714]/15 space-y-2">
+              <span className="text-xs font-serif text-[#1A1714] block font-semibold">
+                03. Meet Rachel 1-on-1
+              </span>
+              <p className="text-xs text-[#1A1714]/70 font-light leading-relaxed">
+                Personal consultation and movement assessment tailored to your life stage in Stoney Creek.
+              </p>
             </div>
           </div>
 
-          <div className="mt-14 text-center text-xs text-[#1A1714]/70 space-y-2 font-mono">
+          <div className="mt-12 text-center text-xs text-[#1A1714]/70 space-y-2 font-mono">
             <p>
               Prefer to book via phone or email? Call {siteConfig.phone} or email {siteConfig.email}.
             </p>

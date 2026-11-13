@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { homeContent } from '../../content/home';
 import { ArrowRight } from 'lucide-react';
 
 export const ModernHero: React.FC = () => {
+  const { openBooking } = useBooking();
   const { hero, marquee } = homeContent;
 
   return (
@@ -38,7 +40,11 @@ export const ModernHero: React.FC = () => {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <a
                 href={BOOKING_URL}
-                className="bg-[#FF6B4A] hover:bg-[#E55A3A] text-white px-8 py-4 font-archivo font-black uppercase text-xs tracking-widest transition-colors rounded-none shadow-lg whitespace-nowrap"
+                onClick={(e) => {
+                  e.preventDefault();
+                  openBooking();
+                }}
+                className="bg-[#FF6B4A] hover:bg-[#E55A3A] text-white px-8 py-4 font-archivo font-black uppercase text-xs tracking-widest transition-colors rounded-none shadow-lg whitespace-nowrap cursor-pointer"
               >
                 {hero.primaryCta.label}
               </a>

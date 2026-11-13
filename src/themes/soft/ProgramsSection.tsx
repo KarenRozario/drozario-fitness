@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { programsContent } from '../../content/programs';
 import { ChevronLeft, ChevronRight, ArrowRight, Check } from 'lucide-react';
 
 export const SoftProgramsSection: React.FC = () => {
+  const { openBooking } = useBooking();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -104,7 +106,11 @@ export const SoftProgramsSection: React.FC = () => {
                   </Link>
                   <a
                     href={BOOKING_URL}
-                    className="rounded-full bg-[#F6E8E1] hover:bg-[#8FA58A] text-[#3B2F2A] hover:text-white px-4 py-2 text-xs font-dm-sans font-semibold transition-all"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      openBooking(program.title);
+                    }}
+                    className="rounded-full bg-[#F6E8E1] hover:bg-[#8FA58A] text-[#3B2F2A] hover:text-white px-4 py-2 text-xs font-dm-sans font-semibold transition-all cursor-pointer"
                   >
                     Book
                   </a>

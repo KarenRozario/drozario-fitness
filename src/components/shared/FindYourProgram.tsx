@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { ArrowRight } from 'lucide-react';
 
 interface FindYourProgramProps {
@@ -8,6 +9,7 @@ interface FindYourProgramProps {
 }
 
 export const FindYourProgram: React.FC<FindYourProgramProps> = ({ isTeaser = false }) => {
+  const { openBooking } = useBooking();
   const [selectedId, setSelectedId] = useState<string>('pregnant');
 
   const selectedStage =
@@ -115,7 +117,11 @@ export const FindYourProgram: React.FC<FindYourProgramProps> = ({ isTeaser = fal
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <a
                 href={BOOKING_URL}
-                className="btn-editorial-primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  openBooking(selectedStage.headline);
+                }}
+                className="btn-editorial-primary cursor-pointer"
               >
                 Book a Session
               </a>

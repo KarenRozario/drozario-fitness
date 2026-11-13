@@ -1,9 +1,11 @@
 import React from 'react';
 import { BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { rachelContent } from '../../content/rachel';
 import { Check } from 'lucide-react';
 
 export const SoftMeetRachel: React.FC = () => {
+  const { openBooking } = useBooking();
   return (
     <section className="py-24 lg:py-32 bg-[#FFFBF8] border-b border-[#F6E8E1]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-10">
@@ -65,7 +67,11 @@ export const SoftMeetRachel: React.FC = () => {
             </div>
             <a
               href={BOOKING_URL}
-              className="rounded-full bg-[#3B2F2A] hover:bg-[#8FA58A] text-white px-6 py-2.5 text-xs font-dm-sans font-semibold transition-all shadow whitespace-nowrap"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking();
+              }}
+              className="rounded-full bg-[#3B2F2A] hover:bg-[#8FA58A] text-white px-6 py-2.5 text-xs font-dm-sans font-semibold transition-all shadow whitespace-nowrap cursor-pointer"
             >
               Book with Rachel
             </a>

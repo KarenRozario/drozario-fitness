@@ -1,10 +1,12 @@
 import React from 'react';
 import { siteConfig, BOOKING_URL } from '../config/site';
+import { useBooking } from '../context/BookingContext';
 import { SEO } from '../components/shared/SEO';
 import { ThemePageHero } from '../themes';
 import { MapPin } from 'lucide-react';
 
 export const Team: React.FC = () => {
+  const { openBooking } = useBooking();
   const rachel = siteConfig.team[0];
 
   return (
@@ -102,7 +104,11 @@ export const Team: React.FC = () => {
               <div className="pt-4 flex flex-wrap items-center gap-4">
                 <a
                   href={BOOKING_URL}
-                  className="btn-editorial-primary"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    openBooking();
+                  }}
+                  className="btn-editorial-primary cursor-pointer"
                 >
                   Book a Session with Rachel
                 </a>

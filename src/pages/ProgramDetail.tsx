@@ -1,10 +1,12 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../config/site';
+import { useBooking } from '../context/BookingContext';
 import { SEO } from '../components/shared/SEO';
 import { ArrowLeft } from 'lucide-react';
 
 export const ProgramDetail: React.FC = () => {
+  const { openBooking } = useBooking();
   const { slug } = useParams<{ slug: string }>();
   const program = siteConfig.programs.find((p) => p.slug === slug);
 
@@ -160,7 +162,11 @@ export const ProgramDetail: React.FC = () => {
                 <div className="pt-2">
                   <a
                     href={BOOKING_URL}
-                    className="block w-full text-center bg-[#FAF7F2] hover:bg-[#B4532A] hover:text-[#FAF7F2] text-[#1A1714] py-3 text-xs uppercase tracking-[0.2em] font-medium transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      openBooking(program.title);
+                    }}
+                    className="block w-full text-center bg-[#FAF7F2] hover:bg-[#B4532A] hover:text-[#FAF7F2] text-[#1A1714] py-3 text-xs uppercase tracking-[0.2em] font-medium transition-colors cursor-pointer"
                   >
                     Book a Session
                   </a>

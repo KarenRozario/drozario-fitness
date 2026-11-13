@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { homeContent } from '../../content/home';
 import { Sparkles, ArrowRight } from 'lucide-react';
 
 export const SoftHero: React.FC = () => {
+  const { openBooking } = useBooking();
   const { hero } = homeContent;
 
   return (
@@ -29,7 +31,11 @@ export const SoftHero: React.FC = () => {
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <a
                 href={BOOKING_URL}
-                className="rounded-full bg-[#3B2F2A] hover:bg-[#8FA58A] text-[#FFFBF8] px-7 py-3 text-sm font-dm-sans font-semibold transition-all shadow-md whitespace-nowrap"
+                onClick={(e) => {
+                  e.preventDefault();
+                  openBooking();
+                }}
+                className="rounded-full bg-[#3B2F2A] hover:bg-[#8FA58A] text-[#FFFBF8] px-7 py-3 text-sm font-dm-sans font-semibold transition-all shadow-md whitespace-nowrap cursor-pointer"
               >
                 {hero.primaryCta.label}
               </a>

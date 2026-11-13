@@ -1,8 +1,10 @@
 import React from 'react';
 import { BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { communityContent } from '../../content/community';
 
 export const SoftCommunity: React.FC = () => {
+  const { openBooking } = useBooking();
   return (
     <section className="py-24 lg:py-32 bg-[#FFFBF8] border-b border-[#F6E8E1]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
@@ -66,7 +68,11 @@ export const SoftCommunity: React.FC = () => {
           <div className="pt-4">
             <a
               href={BOOKING_URL}
-              className="rounded-full bg-[#3B2F2A] hover:bg-[#8FA58A] text-white px-8 py-3.5 text-xs font-dm-sans font-semibold tracking-wide transition-all shadow-md inline-block whitespace-nowrap"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking();
+              }}
+              className="rounded-full bg-[#3B2F2A] hover:bg-[#8FA58A] text-white px-8 py-3.5 text-xs font-dm-sans font-semibold tracking-wide transition-all shadow-md inline-block whitespace-nowrap cursor-pointer"
             >
               Join Our Next Community Class
             </a>

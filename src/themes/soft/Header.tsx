@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { siteConfig, BOOKING_URL } from '../../config/site';
+import { useBooking } from '../../context/BookingContext';
 import { ChevronDown, Menu, X } from 'lucide-react';
 
 export const SoftHeader: React.FC = () => {
+  const { openBooking } = useBooking();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [programsOpen, setProgramsOpen] = useState(false);
   const [learnOpen, setLearnOpen] = useState(false);
@@ -194,7 +196,11 @@ export const SoftHeader: React.FC = () => {
             {/* Pill "Book a session" button */}
             <a
               href={BOOKING_URL}
-              className="ml-2 rounded-full bg-[#3B2F2A] hover:bg-[#8FA58A] text-[#FFFBF8] px-6 py-2.5 text-xs font-semibold tracking-wide transition-all shadow-sm whitespace-nowrap"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking();
+              }}
+              className="ml-2 rounded-full bg-[#3B2F2A] hover:bg-[#8FA58A] text-[#FFFBF8] px-6 py-2.5 text-xs font-semibold tracking-wide transition-all shadow-sm whitespace-nowrap cursor-pointer"
             >
               Book a session
             </a>
@@ -213,7 +219,11 @@ export const SoftHeader: React.FC = () => {
           <div className="flex items-center gap-3">
             <a
               href={BOOKING_URL}
-              className="rounded-full bg-[#3B2F2A] text-[#FFFBF8] text-xs px-4 py-2 font-medium whitespace-nowrap"
+              onClick={(e) => {
+                e.preventDefault();
+                openBooking();
+              }}
+              className="rounded-full bg-[#3B2F2A] text-[#FFFBF8] text-xs px-4 py-2 font-medium whitespace-nowrap cursor-pointer"
             >
               Book
             </a>
@@ -284,7 +294,12 @@ export const SoftHeader: React.FC = () => {
           <div className="pt-2">
             <a
               href={BOOKING_URL}
-              className="w-full block text-center rounded-full bg-[#3B2F2A] text-white py-3 text-sm font-semibold shadow"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                openBooking();
+              }}
+              className="w-full block text-center rounded-full bg-[#3B2F2A] hover:bg-[#8FA58A] text-white py-3 text-sm font-semibold shadow cursor-pointer transition-colors"
             >
               Book a session
             </a>

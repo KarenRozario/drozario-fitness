@@ -1,10 +1,12 @@
 import React from 'react';
 import { siteConfig, BOOKING_URL } from '../config/site';
+import { useBooking } from '../context/BookingContext';
 import { SEO } from '../components/shared/SEO';
 import { ThemePageHero } from '../themes';
 import { Clock, Phone, Mail, Navigation, ExternalLink } from 'lucide-react';
 
 export const Locations: React.FC = () => {
+  const { openBooking } = useBooking();
   return (
     <div className="bg-[#FAF7F2] text-[#1A1714]">
       <SEO
@@ -51,7 +53,11 @@ export const Locations: React.FC = () => {
                   </a>
                   <a
                     href={BOOKING_URL}
-                    className="btn-editorial-primary text-center"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      openBooking();
+                    }}
+                    className="btn-editorial-primary text-center cursor-pointer"
                   >
                     Book a Session
                   </a>
