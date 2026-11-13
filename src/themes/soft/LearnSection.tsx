@@ -81,3 +81,4 @@ export const SoftLearnSection: React.FC = () => {
     </section>
   );
 };
+

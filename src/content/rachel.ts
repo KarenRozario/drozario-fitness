@@ -21,3 +21,4 @@ export const rachelContent = {
   modernPullQuote: "WE TRAIN TO FEEL CAPABLE, RESILIENT, AND UNAPOLOGETICALLY STRONG AT EVERY STAGE OF LIFE.",
   modernRoleLine: "FOUNDER · HEAD COACH · STONEY CREEK, ON",
 };
+

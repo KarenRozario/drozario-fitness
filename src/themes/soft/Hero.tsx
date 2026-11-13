@@ -70,3 +70,4 @@ export const SoftHero: React.FC = () => {
     </section>
   );
 };
+

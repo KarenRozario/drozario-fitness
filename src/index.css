@@ -56,7 +56,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', Georgia, serif;
     letter-spacing: -0.02em;
-    color: #1A1714;
+    color: inherit;
     transition: color 0.2s ease;
   }
 }
@@ -89,6 +89,35 @@
 
 .photo-scrim-gradient {
   background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.40) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Explicit white text rule across themes */
+.text-white,
+html[data-theme="modern"] .text-white,
+html[data-theme="soft"] .text-white,
+html[data-theme="editorial"] .text-white {
+  color: #FFFFFF !important;
+}
+
+/* High contrast text selection across themes */
+::selection {
+  background-color: #2E1A47;
+  color: #FFFFFF;
+}
+
+html[data-theme="editorial"] ::selection {
+  background-color: #1A1714;
+  color: #FAF7F2;
+}
+
+html[data-theme="soft"] ::selection {
+  background-color: #8FA58A;
+  color: #FFFFFF;
+}
+
+html[data-theme="modern"] ::selection {
+  background-color: #FF6B4A;
+  color: #FFFFFF;
 }
 
 /* Editorial Drop Cap */
@@ -251,7 +280,6 @@ html[data-theme="soft"] h4,
 html[data-theme="soft"] h5,
 html[data-theme="soft"] h6 {
   font-family: 'DM Serif Display', Georgia, serif !important;
-  color: #3B2F2A !important;
   letter-spacing: -0.01em !important;
 }
 
@@ -343,7 +371,6 @@ html[data-theme="modern"] h5,
 html[data-theme="modern"] h6 {
   font-family: 'Archivo', system-ui, sans-serif !important;
   font-weight: 800 !important;
-  color: #2E1A47 !important;
   letter-spacing: -0.02em !important;
   text-transform: uppercase !important;
 }

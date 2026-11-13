@@ -31,3 +31,4 @@ export const SoftSectionHeading: React.FC<SectionHeadingProps> = ({
     </div>
   );
 };
+

@@ -12,7 +12,7 @@ export const ModernCTA: React.FC = () => {
         <span className="font-archivo font-black text-xs uppercase tracking-widest text-[#FF6B4A]">
           {cta.kicker}
         </span>
-        <h2 className="font-archivo font-black text-4xl sm:text-6xl uppercase tracking-tight leading-none">
+        <h2 className="font-archivo font-black text-4xl sm:text-6xl uppercase tracking-tight leading-none text-white">
           {cta.headline}
         </h2>
         <p className="font-manrope text-base sm:text-lg text-white/80 max-w-xl mx-auto font-medium">
@@ -36,3 +36,4 @@ export const ModernCTA: React.FC = () => {
     </section>
   );
 };
+

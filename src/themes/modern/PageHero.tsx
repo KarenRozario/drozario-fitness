@@ -40,3 +40,4 @@ export const ModernPageHero: React.FC<PageHeroProps> = ({
     </section>
   );
 };
+

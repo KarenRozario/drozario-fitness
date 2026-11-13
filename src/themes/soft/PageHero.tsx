@@ -42,3 +42,4 @@ export const SoftPageHero: React.FC<PageHeroProps> = ({
     </section>
   );
 };
+

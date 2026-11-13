@@ -29,3 +29,4 @@ export const siteMeta = {
     { days: "Sunday", times: "[By appointment only]" },
   ],
 };
+

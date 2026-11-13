@@ -46,3 +46,4 @@ export const EditorialPageHero: React.FC<PageHeroProps> = ({
     </section>
   );
 };
+

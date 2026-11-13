@@ -20,14 +20,14 @@ export const ModernHero: React.FC = () => {
               </span>
 
               {/* Huge Stacked Uppercase Headline in Archivo */}
-              <h1 className="font-archivo font-black text-5xl sm:text-7xl lg:text-7xl xl:text-8xl tracking-tight leading-[0.95] uppercase">
-                <span>STRONG</span>
+              <h1 className="font-archivo font-black text-5xl sm:text-7xl lg:text-7xl xl:text-8xl tracking-tight leading-[0.95] uppercase text-white">
+                <span className="text-white">STRONG</span>
                 <br />
-                <span>THROUGH</span>
+                <span className="text-white">THROUGH</span>
                 <br />
                 <span className="text-[#FF6B4A]">EVERY</span>
                 <br />
-                <span>STAGE.</span>
+                <span className="text-white">STAGE.</span>
               </h1>
             </div>
 
@@ -82,3 +82,4 @@ export const ModernHero: React.FC = () => {
     </>
   );
 };
+

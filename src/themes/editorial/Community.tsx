@@ -109,3 +109,4 @@ export const EditorialCommunity: React.FC = () => {
     </section>
   );
 };
+

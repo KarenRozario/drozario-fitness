@@ -76,3 +76,4 @@ export const SoftCommunity: React.FC = () => {
     </section>
   );
 };
+

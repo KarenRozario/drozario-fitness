@@ -49,3 +49,4 @@ export const EditorialFocusAreas: React.FC = () => {
     </section>
   );
 };
+

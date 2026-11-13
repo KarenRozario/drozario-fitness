@@ -72,3 +72,4 @@ export const EditorialNutritionTeaser: React.FC = () => {
     </section>
   );
 };
+

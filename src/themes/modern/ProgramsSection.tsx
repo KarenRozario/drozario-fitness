@@ -79,7 +79,7 @@ export const ModernProgramsSection: React.FC = () => {
 
             {/* Title Bottom-Left & Actions */}
             <div className="space-y-4">
-              <h3 className="font-archivo font-black text-3xl sm:text-4xl uppercase tracking-tight">
+              <h3 className="font-archivo font-black text-3xl sm:text-4xl uppercase tracking-tight text-white">
                 {prenatal.title}
               </h3>
               <p className="font-manrope text-sm text-white/80 max-w-[55ch]">
@@ -123,7 +123,7 @@ export const ModernProgramsSection: React.FC = () => {
                 />
               </div>
               <div>
-                <h4 className="font-archivo font-black text-2xl uppercase tracking-tight">
+                <h4 className="font-archivo font-black text-2xl uppercase tracking-tight text-[#2E1A47]">
                   {postnatal.title}
                 </h4>
                 <p className="font-manrope text-xs text-[#2E1A47]/80 mt-1 line-clamp-2">
@@ -158,7 +158,7 @@ export const ModernProgramsSection: React.FC = () => {
                 />
               </div>
               <div>
-                <h4 className="font-archivo font-black text-2xl uppercase tracking-tight">
+                <h4 className="font-archivo font-black text-2xl uppercase tracking-tight text-white">
                   {menopause.title}
                 </h4>
                 <p className="font-manrope text-xs text-white/90 mt-1 line-clamp-2">
@@ -166,7 +166,7 @@ export const ModernProgramsSection: React.FC = () => {
                 </p>
                 <Link
                   to={`/programs/${menopause.slug}`}
-                  className="inline-flex items-center gap-1 font-archivo font-black text-xs uppercase tracking-wider text-[#2E1A47] mt-3 hover:underline"
+                  className="inline-flex items-center gap-1 font-archivo font-black text-xs uppercase tracking-wider text-white mt-3 hover:underline font-bold"
                 >
                   <span>Explore 03</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -193,7 +193,7 @@ export const ModernProgramsSection: React.FC = () => {
                 />
               </div>
               <div>
-                <h4 className="font-archivo font-black text-2xl uppercase tracking-tight">
+                <h4 className="font-archivo font-black text-2xl uppercase tracking-tight text-[#2E1A47]">
                   {strongAfter50.title}
                 </h4>
                 <p className="font-manrope text-xs text-[#2E1A47]/80 mt-1 line-clamp-2">
@@ -214,3 +214,4 @@ export const ModernProgramsSection: React.FC = () => {
     </section>
   );
 };
+

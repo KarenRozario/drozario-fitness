@@ -110,3 +110,4 @@ export const EditorialFooter: React.FC = () => {
     </footer>
   );
 };
+

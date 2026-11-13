@@ -31,3 +31,4 @@ export const ModernSectionHeading: React.FC<SectionHeadingProps> = ({
     </div>
   );
 };
+

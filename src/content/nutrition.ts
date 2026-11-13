@@ -69,3 +69,4 @@ export const nutritionContent = {
     cta: "Apply Now →",
   },
 };
+

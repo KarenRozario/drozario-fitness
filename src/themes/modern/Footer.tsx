@@ -93,3 +93,4 @@ export const ModernFooter: React.FC = () => {
     </footer>
   );
 };
+

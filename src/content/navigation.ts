@@ -114,3 +114,4 @@ export const navigationContent = {
     { label: "Contact", href: "/contact" },
   ],
 };
+

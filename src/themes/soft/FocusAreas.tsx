@@ -61,3 +61,4 @@ export const SoftFocusAreas: React.FC = () => {
     </section>
   );
 };
+

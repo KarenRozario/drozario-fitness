@@ -57,7 +57,7 @@ export const ModernCommunity: React.FC = () => {
             <span className="font-archivo font-black text-xs uppercase tracking-widest text-[#FF6B4A]">
               COLLABORATIVE NETWORKS
             </span>
-            <h3 className="font-archivo font-black text-3xl sm:text-4xl uppercase tracking-tight mt-1">
+            <h3 className="font-archivo font-black text-3xl sm:text-4xl uppercase tracking-tight mt-1 text-white">
               Active Community Partners Across Hamilton & Stoney Creek
             </h3>
           </div>
@@ -85,3 +85,4 @@ export const ModernCommunity: React.FC = () => {
     </section>
   );
 };
+

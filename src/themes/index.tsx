@@ -140,3 +140,4 @@ export const ThemeSectionHeading: React.FC<SectionHeadingProps> = (props) => {
   if (theme === 'modern') return <ModernSectionHeading {...props} />;
   return <EditorialSectionHeading {...props} />;
 };
+

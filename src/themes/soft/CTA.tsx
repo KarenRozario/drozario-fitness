@@ -38,3 +38,4 @@ export const SoftCTA: React.FC = () => {
     </section>
   );
 };
+

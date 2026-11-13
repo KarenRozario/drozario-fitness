@@ -294,3 +294,4 @@ export const SoftHeader: React.FC = () => {
     </header>
   );
 };
+

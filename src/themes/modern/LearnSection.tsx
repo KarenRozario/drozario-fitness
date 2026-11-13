@@ -34,7 +34,7 @@ export const ModernLearnSection: React.FC = () => {
               className="py-8 px-4 sm:px-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-[#F1ECF8] transition-colors group block"
             >
               <div className="md:w-1/4">
-                <span className="font-archivo font-black text-xs uppercase tracking-widest text-[#FF6B4A] bg-[#2E1A47] px-3 py-1 text-white inline-block">
+                <span className="font-archivo font-black text-xs uppercase tracking-widest text-[#FF6B4A] bg-[#2E1A47] px-3 py-1 inline-block">
                   {post.category}
                 </span>
               </div>
@@ -61,3 +61,4 @@ export const ModernLearnSection: React.FC = () => {
     </section>
   );
 };
+

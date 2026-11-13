@@ -31,3 +31,4 @@ export const EditorialSectionHeading: React.FC<SectionHeadingProps> = ({
     </div>
   );
 };
+
