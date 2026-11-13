@@ -39,16 +39,16 @@ export const Home: React.FC = () => {
 
       {/* 1. HERO SECTION - COVERS THE WHOLE PAGE (100VH / MIN-H-SCREEN) */}
       <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
-        {/* Full-Page Background Image (Black & White, High-Res) */}
+        {/* Full-Page Background Image (Full Natural Colour, High-Res) */}
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-women-fitness.jpg"
             alt="Woman fitness coaching at D'Rozario Fitness in Stoney Creek"
-            className="w-full h-full object-cover object-center grayscale contrast-110 brightness-75 scale-100"
+            className="w-full h-full object-cover object-center scale-100"
             loading="eager"
           />
-          {/* Subtle gradient overlay to ensure perfect contrast for white typography */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60" />
+          {/* Light bottom-weighted gradient overlay ONLY where white text sits, max 40% opacity */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full text-center sm:text-left">
@@ -165,10 +165,10 @@ export const Home: React.FC = () => {
               <img
                 src="/images/journey-assessment.jpg"
                 alt="Rachel D'Rozario coaching in private Stoney Creek studio"
-                className="w-full h-full object-cover object-center absolute inset-0 grayscale contrast-110 group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
                 <span className="text-xs uppercase tracking-widest text-zinc-300 font-mono mb-2">
                   1-on-1 & Small Group Coaching
                 </span>
@@ -259,10 +259,9 @@ export const Home: React.FC = () => {
                     <img
                       src={program.image}
                       alt={program.title}
-                      className="w-full h-full object-cover object-center grayscale contrast-110 group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <span className="absolute top-4 left-4 bg-black/80 backdrop-blur-sm text-white text-[11px] font-mono uppercase px-3 py-1 rounded-full border border-white/20">
                       {program.stageName}
                     </span>
@@ -423,10 +422,10 @@ export const Home: React.FC = () => {
               <img
                 src="/images/community-moms.jpg"
                 alt="Mothers exercising together in community class at D'Rozario Fitness"
-                className="w-full h-full object-cover object-center absolute inset-0 grayscale contrast-110 group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
                 <span className="text-xs uppercase tracking-widest text-zinc-300 font-mono mb-1">
                   Community Classes & Workshops
                 </span>
@@ -448,10 +447,10 @@ export const Home: React.FC = () => {
               <img
                 src="/images/rachel-drozario.jpg"
                 alt="Rachel D'Rozario - Women's Fitness Coach & Founder"
-                className="w-full h-full object-cover object-center absolute inset-0 grayscale contrast-110 group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
                 <h3 className="text-2xl font-light text-white">{rachel.name}</h3>
                 <p className="text-xs text-zinc-300 font-mono uppercase tracking-wider">{rachel.role}</p>
               </div>
@@ -537,7 +536,7 @@ export const Home: React.FC = () => {
                     <img
                       src={post.image}
                       alt={post.title}
-                      className="w-full h-full object-cover grayscale contrast-110 group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
                   </div>
@@ -580,10 +579,10 @@ export const Home: React.FC = () => {
               <img
                 src="/images/community-jump.jpg"
                 alt="Women's fitness community at D'Rozario Fitness"
-                className="w-full h-full object-cover object-center absolute inset-0 grayscale contrast-110 group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex flex-col justify-end p-8">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent flex flex-col justify-end p-8">
                 <span className="text-xs uppercase tracking-widest text-zinc-400 font-mono mb-1">
                   Empowering Stoney Creek Women
                 </span>

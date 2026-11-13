@@ -206,13 +206,13 @@ export const siteConfig = {
       slug: "menopause",
       title: "Perimenopause & Menopause",
       stageName: "I'm in perimenopause or menopause",
-      shortDescription: "Targeted resistance training designed to preserve bone density, build lean muscle, and boost daily energy through hormonal transitions.",
-      fullDescription: "As hormones shift during perimenopause and menopause, strength training becomes essential for lifelong health. We design progressive resistance workouts that stimulate bone density, maintain metabolic health, elevate mood, and keep you feeling vibrant and empowered.",
+      shortDescription: "Resistance training to build strength, support healthy bones and keep your energy up through every transition.",
+      fullDescription: "As hormones shift during perimenopause and menopause, strength training becomes essential for lifelong health. We design progressive resistance workouts that support healthy bones, maintain functional strength, elevate mood, and keep you feeling vibrant and empowered.",
       whoItsFor: "Women navigating perimenopause or menopause who want to protect their bone health, maintain muscle, and optimize their vitality.",
       sessionOverview: "60-minute session emphasizing progressive resistance loading, bone-strengthening compound movements, joint mobility, and nervous system regulation.",
       benefits: [
-        "Stimulates bone mineral density through progressive resistance",
-        "Preserves and builds lean muscle to support metabolic health",
+        "Supports healthy bones through progressive resistance training",
+        "Builds and maintains lean muscle to support daily energy and vitality",
         "Promotes restorative sleep, mood balance, and sustained energy",
         "Enhances joint mobility, flexibility, and physical confidence",
       ],
@@ -249,13 +249,13 @@ export const siteConfig = {
     {
       id: "strength-bone-health",
       title: "Strength & Bone Health",
-      description: "Progressive resistance training designed to stimulate bone mineral density, preserve lean muscle tissue, and maintain metabolic vigor.",
-      benefitsList: ["Weight-bearing compound exercises", "Bone density stimulation", "Lean muscle preservation"],
+      description: "Progressive resistance training to build strength, support healthy bones and help you stay strong and capable as you age.",
+      benefitsList: ["Weight-bearing compound exercises", "Healthy bone support", "Lean muscle preservation"],
     },
     {
       id: "energy-mood",
       title: "Energy & Mood",
-      description: "Exercise calibrated to balance hormones, reduce stress, improve sleep quality, and foster mental clarity across busy seasons of life.",
+      description: "Movement that supports your energy, helps you manage stress and leaves you feeling clearer and more like yourself through busy seasons of life.",
       benefitsList: ["Stress reduction and nervous system regulation", "Endorphin and mood elevation", "Better sleep consistency"],
     },
     {
@@ -311,10 +311,10 @@ export const siteConfig = {
       buttonLabel: "I'm in perimenopause or menopause",
       headline: "Perimenopause & Menopause Strength",
       programSlug: "menopause",
-      description: "Targeted resistance training designed to stimulate bone density, maintain lean muscle, and support energy through hormonal shifts.",
+      description: "Resistance training to build strength, support healthy bones and keep your energy up through every transition.",
       keyPoints: [
         "Heavy and moderate resistance loading for bone health",
-        "Metabolic conditioning and lean muscle support",
+        "Functional conditioning and lean muscle support",
         "Joint mobility and stress-reducing breathwork",
         "Energy and mood support through hormonal transitions",
       ],
@@ -408,13 +408,13 @@ export const siteConfig = {
       status: "[Draft]",
       author: "Rachel D'Rozario",
       image: "/images/blog-menopause-strength.jpg",
-      excerpt: "How progressive resistance training stimulates bone mineral density, protects lean muscle mass, and balances energy through hormonal shifts.",
+      excerpt: "How progressive resistance training supports healthy bones, protects lean muscle mass, and sustains energy through life transitions.",
       sections: [
         {
           heading: "Why Lifting Weights Matters More Than Ever",
           body: [
             "As estrogen levels fluctuate during perimenopause and menopause, bone turnover speeds up and lean muscle mass naturally tends to decline.",
-            "Cardio alone cannot signal the body to preserve bone density. Lifting moderate to heavy weights under proper supervision delivers the mechanical loading required to stimulate bone strength.",
+            "Cardio alone cannot provide the resistance required to support bone health. Lifting moderate weights under proper guidance delivers the functional loading to keep your bones and joints strong.",
           ],
         },
         {

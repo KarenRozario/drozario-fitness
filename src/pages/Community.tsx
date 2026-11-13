@@ -19,10 +19,10 @@ export const Community: React.FC = () => {
           <img
             src="/images/community-moms.jpg"
             alt="Stoney Creek Women and Mom Community Fitness"
-            className="w-full h-full object-cover object-center grayscale contrast-110 brightness-75"
+            className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
@@ -69,10 +69,10 @@ export const Community: React.FC = () => {
               <img
                 src="/images/community-moms.jpg"
                 alt="Mothers exercising together in community class"
-                className="w-full h-full object-cover object-center absolute inset-0 grayscale contrast-110 group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover object-center absolute inset-0 group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
                 <span className="text-xs uppercase tracking-widest text-zinc-300 font-mono mb-1">
                   Mothers & Families First
                 </span>

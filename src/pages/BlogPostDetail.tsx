@@ -51,12 +51,12 @@ export const BlogPostDetail: React.FC = () => {
           </p>
         </div>
 
-        {/* Featured Image - High-Res Black & White */}
+        {/* Featured Image */}
         <div className="rounded-3xl overflow-hidden shadow-2xl mb-12 border border-zinc-200 bg-zinc-950">
           <img
             src={post.image}
             alt={post.title}
-            className="w-full h-96 sm:h-[460px] object-cover object-center grayscale contrast-110"
+            className="w-full h-96 sm:h-[460px] object-cover object-center"
             loading="eager"
           />
         </div>

@@ -24,10 +24,10 @@ export const Blog: React.FC = () => {
           <img
             src="/images/blog-core-pelvic-floor.jpg"
             alt="Learn Library at D'Rozario Fitness"
-            className="w-full h-full object-cover object-center grayscale contrast-110 brightness-75"
+            className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
@@ -86,7 +86,7 @@ export const Blog: React.FC = () => {
                     <img
                       src={post.image}
                       alt={post.title}
-                      className="w-full h-full object-cover grayscale contrast-110 group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                     />
                   </div>

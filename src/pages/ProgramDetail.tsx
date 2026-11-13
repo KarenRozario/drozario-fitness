@@ -25,10 +25,10 @@ export const ProgramDetail: React.FC = () => {
           <img
             src={program.image}
             alt={program.title}
-            className="w-full h-full object-cover object-center grayscale contrast-110 brightness-75"
+            className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">

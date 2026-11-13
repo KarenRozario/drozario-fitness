@@ -151,7 +151,7 @@ export const FindYourProgram: React.FC<FindYourProgramProps> = ({ isTeaser = fal
                   <img
                     src={matchedProgram.image}
                     alt={matchedProgram.title}
-                    className="w-full h-full object-cover object-center grayscale contrast-110 group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
                 </div>

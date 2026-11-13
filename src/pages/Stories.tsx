@@ -21,10 +21,10 @@ export const Stories: React.FC = () => {
           <img
             src="/images/stories-hero.jpg"
             alt="Client Stories at D'Rozario Fitness"
-            className="w-full h-full object-cover object-center grayscale contrast-110 brightness-75"
+            className="w-full h-full object-cover object-center"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
@@ -119,7 +119,7 @@ export const Stories: React.FC = () => {
                 <img
                   src="/images/community-jump.jpg"
                   alt="Women's fitness community"
-                  className="w-full h-full object-cover object-center absolute inset-0 grayscale contrast-110"
+                  className="w-full h-full object-cover object-center absolute inset-0"
                   loading="lazy"
                 />
               </div>
