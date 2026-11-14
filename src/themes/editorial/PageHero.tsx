@@ -11,7 +11,7 @@ export const EditorialPageHero: React.FC<PageHeroProps> = ({
   title,
   kicker,
   description,
-  image = "/images/hero-women-fitness.jpg",
+  image = `${import.meta.env.BASE_URL}images/hero-women-fitness.jpg`,
 }) => {
   return (
     <section className="relative min-h-[60vh] flex items-end pb-16 sm:pb-20 bg-[#1A1714] overflow-hidden">

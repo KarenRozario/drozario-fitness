@@ -34,7 +34,7 @@ export const learnContent = {
       readTime: "4 min read",
       status: "Published",
       excerpt: "Understanding how breath and intra-abdominal pressure work together can transform your comfort during pregnancy and labour.",
-      image: "/images/blog-core-pelvic-floor.jpg",
+      image: `${import.meta.env.BASE_URL}images/blog-core-pelvic-floor.jpg`,
       author: "Rachel D'Rozario",
       sections: [
         {
@@ -60,7 +60,7 @@ export const learnContent = {
       readTime: "5 min read",
       status: "Published",
       excerpt: "Why lifting weights is one of the most empowering habits women can build during hormonal transitions.",
-      image: "/images/blog-menopause-strength.jpg",
+      image: `${import.meta.env.BASE_URL}images/blog-menopause-strength.jpg`,
       author: "Rachel D'Rozario",
       sections: [
         {
@@ -86,7 +86,7 @@ export const learnContent = {
       readTime: "6 min read",
       status: "Published",
       excerpt: "Skip the rush to 'bounce back.' Here is how to rebuild your body with care, patience, and true functional strength.",
-      image: "/images/blog-postnatal-return.jpg",
+      image: `${import.meta.env.BASE_URL}images/blog-postnatal-return.jpg`,
       author: "Rachel D'Rozario",
       sections: [
         {

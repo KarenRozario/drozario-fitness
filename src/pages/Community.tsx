@@ -20,7 +20,7 @@ export const Community: React.FC = () => {
         title="Community & Mom Groups"
         kicker="MOMMY NETWORKS & WORKSHOPS · STONEY CREEK"
         description="Bringing women together through movement, postpartum support, and life-stage strength in Stoney Creek."
-        image="/images/community-moms.jpg"
+        image={`${import.meta.env.BASE_URL}images/community-moms.jpg`}
       />
 
       {/* Intro Section - Two-Image Asymmetric Photo Feature */}
@@ -56,7 +56,7 @@ export const Community: React.FC = () => {
             <div className="lg:col-span-6 relative">
               <div className="aspect-[4/3] w-full overflow-hidden border border-[#1A1714]/15 bg-[#F2ECE3] shadow-sm group">
                 <img
-                  src="/images/community-moms.jpg"
+                  src={`${import.meta.env.BASE_URL}images/community-moms.jpg`}
                   alt="Mothers exercising together in community class"
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
@@ -64,7 +64,7 @@ export const Community: React.FC = () => {
               </div>
               <div className="hidden sm:block absolute -bottom-8 -left-6 w-1/2 aspect-[4/3] overflow-hidden border-4 border-[#FAF7F2] shadow-xl bg-[#F2ECE3]">
                 <img
-                  src="/images/studio-stoney-creek.jpg"
+                  src={`${import.meta.env.BASE_URL}images/studio-stoney-creek.jpg`}
                   alt="Stoney Creek studio"
                   className="w-full h-full object-cover object-center"
                   loading="lazy"

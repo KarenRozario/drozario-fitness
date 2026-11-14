@@ -21,7 +21,7 @@ export const Team: React.FC = () => {
         title="Meet Rachel D'Rozario"
         kicker="FOUNDER & HEAD COACH · STONEY CREEK"
         description="Empowering women through pregnancy, motherhood, and menopause with safe, progressive strength in Stoney Creek."
-        image="/images/team-hero.jpg"
+        image={`${import.meta.env.BASE_URL}images/team-hero.jpg`}
       />
 
       {/* Philosophy Statement Between Hairline Rules */}

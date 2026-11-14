@@ -11,7 +11,7 @@ export const SoftPageHero: React.FC<PageHeroProps> = ({
   title,
   kicker,
   description,
-  image = "/images/hero-women-fitness.jpg",
+  image = `${import.meta.env.BASE_URL}images/hero-women-fitness.jpg`,
 }) => {
   return (
     <section className="bg-[#FFFBF8] py-14 sm:py-20 border-b border-[#F6E8E1]">

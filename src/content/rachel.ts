@@ -2,7 +2,7 @@ export const rachelContent = {
   name: "Rachel D'Rozario",
   role: "Founder & Women's Fitness Coach",
   isOwner: true,
-  image: "/images/rachel-drozario.jpg",
+  image: `${import.meta.env.BASE_URL}images/rachel-drozario.jpg`,
   certifications: "[Certification: Certified Personal Trainer / Pre- & Postnatal Fitness Specialist / Menopause Movement Coach]",
   bio: "Rachel D'Rozario founded D'Rozario Fitness in Stoney Creek to give women an expert, welcoming space for lifelong strength. Rather than pushing generic high-intensity routines, Rachel specialises in functional training that honours the female body through each transformational chapter: pregnancy conditioning, safe postpartum recovery, and building lasting strength through perimenopause and beyond. Rachel works closely with local Stoney Creek mommy groups, healthcare providers, and midlife women seeking empowering, sustainable fitness.",
   specialities: [

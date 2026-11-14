@@ -44,7 +44,7 @@ export const programsContent: {
         "Maintains cardiovascular stamina and daily energy",
         "Reduces common pregnancy aches in hips and lower back",
       ],
-      image: "/images/program-prenatal.jpg",
+      image: `${import.meta.env.BASE_URL}images/program-prenatal.jpg`,
       pricingPlaceholder: "Private Coaching & Small Group Prenatal Pods available — [Pricing details upon inquiry]",
       medicalNotice: "Requires verbal or written clearance from your OB-GYN or midwife before commencing sessions.",
       modernColorBlock: {
@@ -69,7 +69,7 @@ export const programsContent: {
         "Restores posture and relieves upper-back tension",
         "Welcoming environment where babies are always welcome in private sessions",
       ],
-      image: "/images/program-postnatal.jpg",
+      image: `${import.meta.env.BASE_URL}images/program-postnatal.jpg`,
       pricingPlaceholder: "Postpartum Starter Series & Monthly Memberships — [Pricing details upon inquiry]",
       medicalNotice: "Requires 6-week postpartum clearance from your physician or midwife (10–12 weeks for caesarean birth).",
       modernColorBlock: {
@@ -94,7 +94,7 @@ export const programsContent: {
         "Enhances joint mobility, flexibility, and physical poise",
         "Encouraging, knowledgeable coaching tailored to fluctuating energy",
       ],
-      image: "/images/program-menopause.jpg",
+      image: `${import.meta.env.BASE_URL}images/program-menopause.jpg`,
       pricingPlaceholder: "Semi-Private Pods & 1-on-1 Coaching Packages — [Pricing details upon inquiry]",
       modernColorBlock: {
         bg: "bg-[#FF6B4A]",
@@ -118,7 +118,7 @@ export const programsContent: {
         "Increases vitality for gardening, hiking, and active travel",
         "Welcoming community of peers who celebrate every milestone",
       ],
-      image: "/images/program-strong-after-50.jpg",
+      image: `${import.meta.env.BASE_URL}images/program-strong-after-50.jpg`,
       pricingPlaceholder: "Weekly Small Groups & Private Packages — [Pricing details upon inquiry]",
       modernColorBlock: {
         bg: "bg-white",

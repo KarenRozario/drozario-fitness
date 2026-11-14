@@ -45,7 +45,7 @@ export const Contact: React.FC = () => {
         title="Contact Us"
         kicker="GET IN TOUCH · STONEY CREEK"
         description="Let us help you get started with your life-stage movement and fitness goals in Stoney Creek today."
-        image="/images/contact-hero.jpg"
+        image={`${import.meta.env.BASE_URL}images/contact-hero.jpg`}
       />
 
       {/* Contact Form & Studio Info */}

@@ -25,7 +25,7 @@ export const Blog: React.FC = () => {
         title="Learn Library"
         kicker="MOVEMENT ESSAYS & RESEARCH · STONEY CREEK"
         description="Evidence-based guides on pelvic floor coordination, maternal fitness, and midlife strength training."
-        image="/images/blog-core-pelvic-floor.jpg"
+        image={`${import.meta.env.BASE_URL}images/blog-core-pelvic-floor.jpg`}
       />
 
       {/* Category Filter & Magazine Article Cards */}

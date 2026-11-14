@@ -17,11 +17,14 @@ const VALID_THEMES: ThemeId[] = ['editorial', 'soft', 'modern'];
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<ThemeId>(() => {
-    // 1. Check URL query param ?theme=...
+    // 1. Check URL query param ?theme=... from search or hash
     if (typeof window !== 'undefined') {
       try {
-        const params = new URLSearchParams(window.location.search);
-        const queryTheme = params.get('theme') as ThemeId;
+        let queryTheme = new URLSearchParams(window.location.search).get('theme') as ThemeId;
+        if (!queryTheme && window.location.hash.includes('?')) {
+          const hashQuery = window.location.hash.split('?')[1];
+          queryTheme = new URLSearchParams(hashQuery).get('theme') as ThemeId;
+        }
         if (queryTheme && VALID_THEMES.includes(queryTheme)) {
           return queryTheme;
         }
@@ -59,10 +62,18 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       console.error('Error saving theme to localStorage', err);
     }
 
-    // Update URL query without reload
+    // Update URL query without reload or breaking the current hash page
     try {
       const url = new URL(window.location.href);
       url.searchParams.set('theme', newTheme);
+      if (url.hash && url.hash.includes('?')) {
+        const [hashPath, hashQuery] = url.hash.split('?');
+        const hashParams = new URLSearchParams(hashQuery);
+        if (hashParams.has('theme')) {
+          hashParams.set('theme', newTheme);
+          url.hash = `${hashPath}?${hashParams.toString()}`;
+        }
+      }
       window.history.replaceState({}, '', url.toString());
     } catch (err) {
       console.error('Error updating URL param', err);
@@ -72,6 +83,29 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   useEffect(() => {
     // Sync to html on mount and when theme changes
     document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const handleUrlChange = () => {
+      try {
+        let queryTheme = new URLSearchParams(window.location.search).get('theme') as ThemeId;
+        if (!queryTheme && window.location.hash.includes('?')) {
+          const hashQuery = window.location.hash.split('?')[1];
+          queryTheme = new URLSearchParams(hashQuery).get('theme') as ThemeId;
+        }
+        if (queryTheme && VALID_THEMES.includes(queryTheme) && queryTheme !== theme) {
+          setThemeState(queryTheme);
+        }
+      } catch {
+        // ignore
+      }
+    };
+    window.addEventListener('popstate', handleUrlChange);
+    window.addEventListener('hashchange', handleUrlChange);
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+      window.removeEventListener('hashchange', handleUrlChange);
+    };
   }, [theme]);
 
   useEffect(() => {

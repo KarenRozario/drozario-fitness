@@ -11,7 +11,7 @@ export const ModernPageHero: React.FC<PageHeroProps> = ({
   title,
   kicker,
   description,
-  image = "/images/hero-women-fitness.jpg",
+  image = `${import.meta.env.BASE_URL}images/hero-women-fitness.jpg`,
 }) => {
   return (
     <section className="bg-[#2E1A47] text-white py-16 sm:py-24 border-b-4 border-[#FF6B4A] relative overflow-hidden">

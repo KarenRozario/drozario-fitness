@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { BookingProvider } from './context/BookingContext';
 import { BookingModal } from './components/booking/BookingModal';
@@ -21,7 +21,7 @@ import { NotFound } from './pages/NotFound';
 
 export const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ThemeProvider>
         <BookingProvider>
           <Layout>
@@ -65,7 +65,7 @@ export const App: React.FC = () => {
           <BookingModal />
         </BookingProvider>
       </ThemeProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
