@@ -19,8 +19,8 @@ export const EditorialHero: React.FC = () => {
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
-        {/* Scrim: rgba(0,0,0,0.65) on text side to transparent */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/65 to-black/20" />
+        {/* Soft bottom gradient only where text overlays photo */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

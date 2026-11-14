@@ -123,9 +123,9 @@ const ThemeSwitcherBar: React.FC<SwitcherProps> = ({ currentTheme, onSelectTheme
     <aside
       ref={barRef}
       aria-label="Design preview switcher"
-      className="sticky top-0 z-[60] w-full bg-[#18181B] text-[#F4F4F5] border-b border-zinc-800 py-2 px-4 shadow-md transition-colors"
+      className="sticky top-0 z-[60] w-full bg-[#18181B] text-[#F4F4F5] border-b border-zinc-800 py-2.5 px-4 shadow-md transition-colors"
     >
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2.5">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
           <span className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-zinc-300 whitespace-nowrap">
@@ -133,8 +133,8 @@ const ThemeSwitcherBar: React.FC<SwitcherProps> = ({ currentTheme, onSelectTheme
           </span>
         </div>
 
-        {/* Buttons / Controls */}
-        <div className="flex items-center gap-1.5 sm:gap-2 w-full sm:w-auto justify-center whitespace-nowrap">
+        {/* Buttons / Controls Centered */}
+        <div className="flex items-center gap-2 w-full sm:w-auto justify-center whitespace-nowrap">
           {themes.map((t) => {
             const isActive = currentTheme === t.id;
             return (
@@ -142,10 +142,10 @@ const ThemeSwitcherBar: React.FC<SwitcherProps> = ({ currentTheme, onSelectTheme
                 key={t.id}
                 type="button"
                 onClick={() => onSelectTheme(t.id)}
-                className={`px-3 py-1 text-[11px] font-mono rounded transition-all flex items-center gap-1.5 focus:outline-none focus:ring-1 focus:ring-white whitespace-nowrap ${
+                className={`px-3.5 py-1.5 text-xs font-mono rounded transition-all flex items-center gap-1.5 focus:outline-none focus:ring-1 focus:ring-white whitespace-nowrap cursor-pointer ${
                   isActive
-                    ? 'bg-white text-zinc-950 font-semibold shadow'
-                    : 'bg-zinc-800/80 text-zinc-300 hover:bg-zinc-700 hover:text-white'
+                    ? 'bg-white text-zinc-950 font-bold shadow'
+                    : 'bg-zinc-800/90 text-zinc-300 hover:bg-zinc-700 hover:text-white'
                 }`}
                 title={t.desc}
               >

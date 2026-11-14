@@ -22,17 +22,17 @@ export const BookingModal: React.FC = () => {
 
   // Backdrop overlay styling per theme
   const backdropClass = isModern
-    ? 'fixed inset-0 z-[100] bg-[#2E1A47]/75 backdrop-blur-sm overflow-y-auto p-4 sm:p-6 lg:p-10 flex items-center justify-center animate-fadeIn'
+    ? 'fixed inset-0 z-[100] bg-[#2E1A47]/80 backdrop-blur-sm overflow-y-auto p-4 sm:p-6 lg:p-10 flex items-center justify-center animate-fadeIn'
     : isSoft
-    ? 'fixed inset-0 z-[100] bg-[#3B2F2A]/50 backdrop-blur-md overflow-y-auto p-4 sm:p-6 lg:p-10 flex items-center justify-center animate-fadeIn'
+    ? 'fixed inset-0 z-[100] bg-[#3B2F2A]/60 backdrop-blur-md overflow-y-auto p-4 sm:p-6 lg:p-10 flex items-center justify-center animate-fadeIn'
     : 'fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm overflow-y-auto p-4 sm:p-6 lg:p-10 flex items-center justify-center animate-fadeIn';
 
   // Floating Close Button styling per theme
   const closeButtonClass = isModern
-    ? 'w-10 h-10 bg-[#FF6B4A] hover:bg-[#2E1A47] text-white flex items-center justify-center rounded-none shadow-md transition-colors'
+    ? 'w-10 h-10 bg-[#FF6B4A] hover:bg-[#2E1A47] text-white flex items-center justify-center rounded-none shadow-md transition-colors cursor-pointer'
     : isSoft
-    ? 'w-10 h-10 rounded-full bg-white text-[#3B2F2A] hover:bg-[#8FA58A] hover:text-white flex items-center justify-center shadow-md transition-all'
-    : 'w-10 h-10 bg-[#1A1714] text-[#FAF7F2] hover:bg-[#B4532A] flex items-center justify-center rounded-none shadow-md transition-colors';
+    ? 'w-10 h-10 rounded-full bg-white text-[#3B2F2A] hover:bg-[#8FA58A] hover:text-white flex items-center justify-center shadow-md transition-all cursor-pointer'
+    : 'w-10 h-10 bg-[#1A1714] text-[#FAF7F2] hover:bg-[#B4532A] flex items-center justify-center rounded-none shadow-md transition-colors cursor-pointer';
 
   return (
     <div
