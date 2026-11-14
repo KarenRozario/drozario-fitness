@@ -27,6 +27,8 @@ export const ProgramDetail: React.FC = () => {
           <img
             src={program.image}
             alt={program.title}
+            width={1920}
+            height={1080}
             className="w-full h-full object-cover object-center"
             loading="eager"
           />

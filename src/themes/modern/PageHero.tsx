@@ -11,7 +11,7 @@ export const ModernPageHero: React.FC<PageHeroProps> = ({
   title,
   kicker,
   description,
-  image = `${import.meta.env.BASE_URL}images/hero-women-fitness.jpg`,
+  image = `${import.meta.env.BASE_URL}images/hero-women-fitness.webp`,
 }) => {
   return (
     <section className="bg-[#2E1A47] text-white py-16 sm:py-24 border-b-4 border-[#FF6B4A] relative overflow-hidden">
@@ -35,7 +35,7 @@ export const ModernPageHero: React.FC<PageHeroProps> = ({
 
       {/* Decorative semi-transparent background image watermark */}
       <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-20 pointer-events-none hidden md:block">
-        <img src={image} alt="" className="w-full h-full object-cover" />
+        <img src={image} alt="" width={640} height={400} className="w-full h-full object-cover" loading="eager" />
       </div>
     </section>
   );

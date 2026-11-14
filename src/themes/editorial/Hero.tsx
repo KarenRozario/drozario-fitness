@@ -16,6 +16,8 @@ export const EditorialHero: React.FC = () => {
         <img
           src={hero.heroImage}
           alt="Strong woman training with weights at D'Rozario Fitness"
+          width={1920}
+          height={1080}
           className="w-full h-full object-cover object-center"
           loading="eager"
         />

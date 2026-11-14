@@ -21,7 +21,7 @@ export const Book: React.FC = () => {
         title="Book a Session"
         kicker="DIRECT SCHEDULING · STONEY CREEK"
         description="1-on-1 private coaching and small group women's fitness with Rachel D'Rozario in Stoney Creek."
-        image={`${import.meta.env.BASE_URL}images/hero-women-fitness.jpg`}
+        image={`${import.meta.env.BASE_URL}images/hero-women-fitness.webp`}
       />
 
       {/* Form Container */}

@@ -19,7 +19,7 @@ export const FindYourProgramPage: React.FC = () => {
         title="Find Your Program"
         kicker="PERSONALISED GUIDANCE · STONEY CREEK"
         description="Select where you are in your journey today to discover the right coaching path for your body."
-        image={`${import.meta.env.BASE_URL}images/hero-women-fitness.jpg`}
+        image={`${import.meta.env.BASE_URL}images/hero-women-fitness.webp`}
       />
 
       {/* Interactive Selector */}

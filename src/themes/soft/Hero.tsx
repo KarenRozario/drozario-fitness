@@ -55,6 +55,8 @@ export const SoftHero: React.FC = () => {
               <img
                 src={hero.heroImage}
                 alt="Woman exercising in gentle, natural studio light"
+                width={512}
+                height={640}
                 className="w-full h-full object-cover object-center"
                 loading="eager"
               />

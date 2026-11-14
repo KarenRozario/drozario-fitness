@@ -39,6 +39,8 @@ export const EditorialLearnSection: React.FC = () => {
                 <img
                   src={post.image}
                   alt={post.title}
+                  width={600}
+                  height={400}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />

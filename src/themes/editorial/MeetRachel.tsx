@@ -16,6 +16,8 @@ export const EditorialMeetRachel: React.FC = () => {
               <img
                 src={rachelContent.image}
                 alt={rachelContent.name}
+                width={500}
+                height={667}
                 className="w-full h-full object-cover object-top"
                 loading="lazy"
               />

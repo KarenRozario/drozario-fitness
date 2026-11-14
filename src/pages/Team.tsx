@@ -21,7 +21,7 @@ export const Team: React.FC = () => {
         title="Meet Rachel D'Rozario"
         kicker="FOUNDER & HEAD COACH · STONEY CREEK"
         description="Empowering women through pregnancy, motherhood, and menopause with safe, progressive strength in Stoney Creek."
-        image={`${import.meta.env.BASE_URL}images/team-hero.jpg`}
+        image={`${import.meta.env.BASE_URL}images/team-hero.webp`}
       />
 
       {/* Philosophy Statement Between Hairline Rules */}
@@ -54,6 +54,8 @@ export const Team: React.FC = () => {
                 <img
                   src={rachel.image}
                   alt={rachel.name}
+                  width={500}
+                  height={625}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />

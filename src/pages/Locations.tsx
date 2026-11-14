@@ -19,7 +19,7 @@ export const Locations: React.FC = () => {
         title="Studio Location"
         kicker="FACILITY & HOURS · STONEY CREEK"
         description="Private women's fitness studio in Stoney Creek, Ontario. Welcoming, supportive, and baby-friendly."
-        image={`${import.meta.env.BASE_URL}images/studio-stoney-creek.jpg`}
+        image={`${import.meta.env.BASE_URL}images/studio-stoney-creek.webp`}
       />
 
       {/* Studio Info & Map */}

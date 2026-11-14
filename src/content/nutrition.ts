@@ -13,7 +13,7 @@ export const nutritionContent = {
   kicker: "NOURISHMENT · WELLNESS GUIDANCE",
   headline: "Nourish Every Stage",
   subhead: "Personalised women's nutrition coaching designed for pregnancy, postpartum recovery, and menopause in Stoney Creek.",
-  image: `${import.meta.env.BASE_URL}images/nutrition-hero.jpg`,
+  image: `${import.meta.env.BASE_URL}images/nutrition-hero.webp`,
   credentialsPlaceholder: "[Certification] in Women's Nutrition Coaching",
   disclaimer: "Nutrition coaching is general wellness guidance and is not a substitute for advice from your doctor, midwife or a registered dietitian.",
   whatItCovers: [

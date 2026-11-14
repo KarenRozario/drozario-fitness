@@ -20,7 +20,7 @@ export const Programs: React.FC = () => {
         title="Our Programs"
         kicker="LIFE-STAGE MOVEMENT · STONEY CREEK"
         description="Coaching designed for women through pregnancy, motherhood, perimenopause, menopause, and lifelong strength."
-        image={`${import.meta.env.BASE_URL}images/hero-women-fitness.jpg`}
+        image={`${import.meta.env.BASE_URL}images/hero-women-fitness.webp`}
       />
 
       {/* Programs List - Asymmetric 12-Column Magazine Spreads */}
@@ -41,6 +41,8 @@ export const Programs: React.FC = () => {
                     <img
                       src={program.image}
                       alt={program.title}
+                      width={500}
+                      height={625}
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                     />

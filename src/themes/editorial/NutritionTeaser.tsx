@@ -14,6 +14,8 @@ export const EditorialNutritionTeaser: React.FC = () => {
               <img
                 src={nutritionContent.image}
                 alt="Women's nutrition coaching consultation with fresh whole foods and tea"
+                width={500}
+                height={625}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />

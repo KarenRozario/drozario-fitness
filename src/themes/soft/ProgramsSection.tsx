@@ -69,6 +69,8 @@ export const SoftProgramsSection: React.FC = () => {
                 <img
                   src={program.image}
                   alt={program.title}
+                  width={360}
+                  height={360}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />

@@ -11,7 +11,7 @@ export const EditorialPageHero: React.FC<PageHeroProps> = ({
   title,
   kicker,
   description,
-  image = `${import.meta.env.BASE_URL}images/hero-women-fitness.jpg`,
+  image = `${import.meta.env.BASE_URL}images/hero-women-fitness.webp`,
 }) => {
   return (
     <section className="relative min-h-[60vh] flex items-end pb-16 sm:pb-20 bg-[#1A1714] overflow-hidden">
@@ -19,6 +19,8 @@ export const EditorialPageHero: React.FC<PageHeroProps> = ({
         <img
           src={image}
           alt={title}
+          width={1920}
+          height={1080}
           className="w-full h-full object-cover object-center"
           loading="eager"
         />

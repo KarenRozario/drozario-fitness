@@ -11,7 +11,7 @@ export const SoftPageHero: React.FC<PageHeroProps> = ({
   title,
   kicker,
   description,
-  image = `${import.meta.env.BASE_URL}images/hero-women-fitness.jpg`,
+  image = `${import.meta.env.BASE_URL}images/hero-women-fitness.webp`,
 }) => {
   return (
     <section className="bg-[#FFFBF8] py-14 sm:py-20 border-b border-[#F6E8E1]">
@@ -35,7 +35,7 @@ export const SoftPageHero: React.FC<PageHeroProps> = ({
 
           {/* Decorative soft arch photo preview */}
           <div className="hidden lg:block absolute -right-6 -bottom-10 w-72 h-80 rounded-t-full overflow-hidden border-4 border-white shadow-lg">
-            <img src={image} alt={title} className="w-full h-full object-cover" />
+            <img src={image} alt={title} width={288} height={320} className="w-full h-full object-cover" loading="eager" />
           </div>
         </div>
       </div>

@@ -58,6 +58,8 @@ export const BlogPostDetail: React.FC = () => {
           <img
             src={post.image}
             alt={post.title}
+            width={1200}
+            height={675}
             className="w-full h-full object-cover object-center"
             loading="eager"
           />

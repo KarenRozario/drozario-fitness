@@ -15,6 +15,8 @@ export const SoftMeetRachel: React.FC = () => {
             <img
               src={rachelContent.image}
               alt={rachelContent.name}
+              width={224}
+              height={224}
               className="w-full h-full object-cover object-top"
               loading="lazy"
             />

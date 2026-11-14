@@ -15,6 +15,8 @@ export const SoftCommunity: React.FC = () => {
             <img
               src={communityContent.images[0].src}
               alt={communityContent.images[0].alt}
+              width={400}
+              height={500}
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
             />
@@ -25,6 +27,8 @@ export const SoftCommunity: React.FC = () => {
             <img
               src={communityContent.images[1].src}
               alt={communityContent.images[1].alt}
+              width={400}
+              height={400}
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
             />
@@ -35,6 +39,8 @@ export const SoftCommunity: React.FC = () => {
             <img
               src={communityContent.images[2].src}
               alt={communityContent.images[2].alt}
+              width={400}
+              height={500}
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
             />

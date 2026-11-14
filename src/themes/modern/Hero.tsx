@@ -63,6 +63,8 @@ export const ModernHero: React.FC = () => {
             <img
               src={hero.heroImage}
               alt="Woman training with barbell at D'Rozario Fitness"
+              width={960}
+              height={1080}
               className="w-full h-full object-cover object-center absolute inset-0"
               loading="eager"
             />

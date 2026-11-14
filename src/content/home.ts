@@ -17,7 +17,7 @@ export const homeContent = {
       label: "Find Your Program",
       href: "/find-your-program",
     },
-    heroImage: `${import.meta.env.BASE_URL}images/hero-women-fitness.jpg`,
+    heroImage: `${import.meta.env.BASE_URL}images/hero-women-fitness.webp`,
     softFloatingCardText: "Prenatal · Postnatal · Menopause",
   },
 

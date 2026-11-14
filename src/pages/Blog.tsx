@@ -25,7 +25,7 @@ export const Blog: React.FC = () => {
         title="Learn Library"
         kicker="MOVEMENT ESSAYS & RESEARCH · STONEY CREEK"
         description="Evidence-based guides on pelvic floor coordination, maternal fitness, and midlife strength training."
-        image={`${import.meta.env.BASE_URL}images/blog-core-pelvic-floor.jpg`}
+        image={`${import.meta.env.BASE_URL}images/blog-core-pelvic-floor.webp`}
       />
 
       {/* Category Filter & Magazine Article Cards */}
@@ -69,6 +69,8 @@ export const Blog: React.FC = () => {
                     <img
                       src={post.image}
                       alt={post.title}
+                      width={600}
+                      height={400}
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                     />

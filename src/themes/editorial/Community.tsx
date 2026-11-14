@@ -41,6 +41,8 @@ export const EditorialCommunity: React.FC = () => {
               <img
                 src={communityContent.images[0].src}
                 alt={communityContent.images[0].alt}
+                width={640}
+                height={480}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
@@ -49,6 +51,8 @@ export const EditorialCommunity: React.FC = () => {
               <img
                 src={communityContent.images[1].src}
                 alt={communityContent.images[1].alt}
+                width={640}
+                height={480}
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
               />

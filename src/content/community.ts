@@ -6,15 +6,15 @@ export const communityContent = {
   description: "Rachel D'Rozario is passionate about building local connection. She partners with Stoney Creek mommy groups, community centres, and local parent networks to provide welcoming group workouts, stroller-friendly outdoor sessions, and educational workshops.",
   images: [
     {
-      src: `${import.meta.env.BASE_URL}images/community-moms.jpg`,
+      src: `${import.meta.env.BASE_URL}images/community-moms.webp`,
       alt: "Mothers exercising together in Stoney Creek community class",
     },
     {
-      src: `${import.meta.env.BASE_URL}images/studio-stoney-creek.jpg`,
+      src: `${import.meta.env.BASE_URL}images/studio-stoney-creek.webp`,
       alt: "Welcoming private studio space in Stoney Creek",
     },
     {
-      src: `${import.meta.env.BASE_URL}images/community-jump.jpg`,
+      src: `${import.meta.env.BASE_URL}images/community-jump.webp`,
       alt: "Women celebrating milestone fitness progress together",
     },
   ],

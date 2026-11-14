@@ -74,6 +74,8 @@ export const ModernProgramsSection: React.FC = () => {
               <img
                 src={prenatal.image}
                 alt={prenatal.title}
+                width={640}
+                height={360}
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />
@@ -124,6 +126,8 @@ export const ModernProgramsSection: React.FC = () => {
                 <img
                   src={postnatal.image}
                   alt={postnatal.title}
+                  width={640}
+                  height={274}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
@@ -159,6 +163,8 @@ export const ModernProgramsSection: React.FC = () => {
                 <img
                   src={menopause.image}
                   alt={menopause.title}
+                  width={640}
+                  height={274}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
@@ -194,6 +200,8 @@ export const ModernProgramsSection: React.FC = () => {
                 <img
                   src={strongAfter50.image}
                   alt={strongAfter50.title}
+                  width={640}
+                  height={274}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />

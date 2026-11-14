@@ -23,7 +23,7 @@ export const Stories: React.FC = () => {
         title="Client Stories"
         kicker="VERIFIED OUTCOMES · STONEY CREEK"
         description="Every day, Rachel helps our Stoney Creek women feel stronger, more confident, and energised through every season of life."
-        image={`${import.meta.env.BASE_URL}images/stories-hero.jpg`}
+        image={`${import.meta.env.BASE_URL}images/stories-hero.webp`}
       />
 
       {/* Transparency Banner Between Hairline Rules */}
@@ -105,8 +105,10 @@ export const Stories: React.FC = () => {
             <div className="lg:col-span-6 relative">
               <div className="aspect-[4/3] w-full overflow-hidden border border-[#1A1714]/15 bg-[#FAF7F2]">
                 <img
-                  src={`${import.meta.env.BASE_URL}images/community-jump.jpg`}
+                  src={`${import.meta.env.BASE_URL}images/community-jump.webp`}
                   alt="Women's fitness community"
+                  width={640}
+                  height={480}
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
                 />
