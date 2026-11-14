@@ -9,10 +9,26 @@ export const SoftHeader: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [programsOpen, setProgramsOpen] = useState(false);
   const [learnOpen, setLearnOpen] = useState(false);
+  const [programsAlignRight, setProgramsAlignRight] = useState(false);
+  const [learnAlignRight, setLearnAlignRight] = useState(true);
 
   const location = useLocation();
   const programsRef = useRef<HTMLDivElement>(null);
   const learnRef = useRef<HTMLDivElement>(null);
+
+  const checkProgramsPos = () => {
+    if (programsRef.current && typeof window !== 'undefined') {
+      const rect = programsRef.current.getBoundingClientRect();
+      setProgramsAlignRight(rect.left + 440 > window.innerWidth - 16);
+    }
+  };
+
+  const checkLearnPos = () => {
+    if (learnRef.current && typeof window !== 'undefined') {
+      const rect = learnRef.current.getBoundingClientRect();
+      setLearnAlignRight(rect.left + 440 > window.innerWidth - 16);
+    }
+  };
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -66,8 +82,14 @@ export const SoftHeader: React.FC = () => {
             <div className="relative" ref={programsRef}>
               <button
                 type="button"
-                onClick={() => setProgramsOpen(!programsOpen)}
-                onMouseEnter={() => setProgramsOpen(true)}
+                onClick={() => {
+                  checkProgramsPos();
+                  setProgramsOpen(!programsOpen);
+                }}
+                onMouseEnter={() => {
+                  checkProgramsPos();
+                  setProgramsOpen(true);
+                }}
                 className={`flex items-center gap-1.5 py-1.5 transition-colors whitespace-nowrap ${
                   location.pathname.startsWith('/programs') || location.pathname === '/nutrition'
                     ? 'text-[#8FA58A] font-semibold'
@@ -81,29 +103,59 @@ export const SoftHeader: React.FC = () => {
               {programsOpen && (
                 <div
                   onMouseLeave={() => setProgramsOpen(false)}
-                  className="absolute left-1/2 -translate-x-1/2 mt-2 w-72 bg-[#FFFBF8] border border-[#F6E8E1] rounded-2xl shadow-xl p-3 z-50"
+                  className={`absolute mt-2 w-max min-w-[320px] max-w-[min(440px,calc(100vw-32px))] bg-[#FFFBF8] border border-[#F6E8E1] rounded-2xl shadow-xl p-3.5 z-50 animate-fade-in ${
+                    programsAlignRight ? 'right-0' : 'left-0'
+                  }`}
                   role="menu"
                 >
-                  <div className="px-3 py-1.5 text-[11px] tracking-wider uppercase text-[#8FA58A] font-semibold border-b border-[#F6E8E1] mb-1">
+                  <div className="px-3 py-1.5 text-[11px] tracking-wider uppercase text-[#8FA58A] font-dm-sans font-semibold border-b border-[#F6E8E1] mb-2">
                     Life Stage Programs
                   </div>
-                  {siteConfig.programs.map((p) => (
-                    <Link
-                      key={p.slug}
-                      to={`/programs/${p.slug}`}
-                      className="block px-3 py-2 rounded-xl hover:bg-[#F6E8E1] transition-colors text-xs text-[#3B2F2A] font-medium"
-                      onClick={() => setProgramsOpen(false)}
-                    >
-                      {p.title}
-                    </Link>
-                  ))}
-                  <div className="pt-2 mt-1 border-t border-[#F6E8E1]">
+                  <div className="space-y-1">
+                    {siteConfig.programs.map((p) => (
+                      <Link
+                        key={p.slug}
+                        to={`/programs/${p.slug}`}
+                        role="menuitem"
+                        className="block px-3 py-2 rounded-xl hover:bg-[#F6E8E1] transition-colors group"
+                        onClick={() => setProgramsOpen(false)}
+                      >
+                        <div className="flex items-start gap-3">
+                          <span className="font-dm-sans text-xs text-[#8FA58A] font-bold w-6 shrink-0 pt-0.5 select-none">
+                            {p.number}
+                          </span>
+                          <div className="min-w-0 flex-1">
+                            <div className="text-xs font-dm-sans text-[#3B2F2A] group-hover:text-[#8FA58A] font-semibold transition-colors leading-snug break-words">
+                              {p.title}
+                            </div>
+                            <div className="text-[11px] text-[#3B2F2A]/70 normal-case tracking-normal line-clamp-2 mt-1 font-normal leading-relaxed break-words">
+                              {p.shortDescription}
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="pt-2 mt-2 border-t border-[#F6E8E1] space-y-1">
                     <Link
                       to="/nutrition"
-                      className="block px-3 py-2 rounded-xl hover:bg-[#F6E8E1] transition-colors text-xs text-[#3B2F2A] font-medium"
+                      role="menuitem"
+                      className="block px-3 py-2 rounded-xl hover:bg-[#F6E8E1] transition-colors group"
                       onClick={() => setProgramsOpen(false)}
                     >
-                      Nutrition Coaching
+                      <div className="flex items-start gap-3">
+                        <span className="font-dm-sans text-xs text-[#8FA58A] font-bold w-6 shrink-0 pt-0.5 select-none">
+                          05
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <div className="text-xs font-dm-sans text-[#3B2F2A] group-hover:text-[#8FA58A] font-semibold transition-colors leading-snug break-words">
+                            Nutrition Coaching
+                          </div>
+                          <div className="text-[11px] text-[#3B2F2A]/70 normal-case tracking-normal line-clamp-2 mt-1 font-normal leading-relaxed break-words">
+                            Nourishing guidance tailored to pregnancy, postpartum recovery, and menopause.
+                          </div>
+                        </div>
+                      </div>
                     </Link>
                     <Link
                       to="/programs"
@@ -148,8 +200,14 @@ export const SoftHeader: React.FC = () => {
             <div className="relative" ref={learnRef}>
               <button
                 type="button"
-                onClick={() => setLearnOpen(!learnOpen)}
-                onMouseEnter={() => setLearnOpen(true)}
+                onClick={() => {
+                  checkLearnPos();
+                  setLearnOpen(!learnOpen);
+                }}
+                onMouseEnter={() => {
+                  checkLearnPos();
+                  setLearnOpen(true);
+                }}
                 className={`flex items-center gap-1.5 py-1.5 transition-colors whitespace-nowrap ${
                   isActive('/blog') || isActive('/stories')
                     ? 'text-[#8FA58A] font-semibold'
@@ -163,23 +221,42 @@ export const SoftHeader: React.FC = () => {
               {learnOpen && (
                 <div
                   onMouseLeave={() => setLearnOpen(false)}
-                  className="absolute left-1/2 -translate-x-1/2 mt-2 w-52 bg-[#FFFBF8] border border-[#F6E8E1] rounded-2xl shadow-xl p-2 z-50"
+                  className={`absolute mt-2 w-max min-w-[320px] max-w-[min(440px,calc(100vw-32px))] bg-[#FFFBF8] border border-[#F6E8E1] rounded-2xl shadow-xl p-3.5 z-50 animate-fade-in ${
+                    learnAlignRight ? 'right-0' : 'left-0'
+                  }`}
                   role="menu"
                 >
-                  <Link
-                    to="/blog"
-                    className="block px-3 py-2 rounded-xl text-xs text-[#3B2F2A] hover:bg-[#F6E8E1] font-medium"
-                    onClick={() => setLearnOpen(false)}
-                  >
-                    Articles & Insights
-                  </Link>
-                  <Link
-                    to="/stories"
-                    className="block px-3 py-2 rounded-xl text-xs text-[#3B2F2A] hover:bg-[#F6E8E1] font-medium"
-                    onClick={() => setLearnOpen(false)}
-                  >
-                    Client Stories
-                  </Link>
+                  <div className="px-3 py-1.5 text-[11px] tracking-wider uppercase text-[#8FA58A] font-dm-sans font-semibold border-b border-[#F6E8E1] mb-2">
+                    Education & Stories
+                  </div>
+                  <div className="space-y-1">
+                    <Link
+                      to="/blog"
+                      role="menuitem"
+                      className="block px-3 py-2 rounded-xl hover:bg-[#F6E8E1] transition-colors group"
+                      onClick={() => setLearnOpen(false)}
+                    >
+                      <div className="text-xs font-dm-sans text-[#3B2F2A] group-hover:text-[#8FA58A] font-semibold transition-colors leading-snug break-words">
+                        Articles & Insights
+                      </div>
+                      <div className="text-[11px] text-[#3B2F2A]/70 normal-case tracking-normal line-clamp-2 mt-1 font-normal leading-relaxed break-words">
+                        Gentle, evidence-informed guides on core connection and pelvic floor wellness.
+                      </div>
+                    </Link>
+                    <Link
+                      to="/stories"
+                      role="menuitem"
+                      className="block px-3 py-2 rounded-xl hover:bg-[#F6E8E1] transition-colors group"
+                      onClick={() => setLearnOpen(false)}
+                    >
+                      <div className="text-xs font-dm-sans text-[#3B2F2A] group-hover:text-[#8FA58A] font-semibold transition-colors leading-snug break-words">
+                        Client Stories
+                      </div>
+                      <div className="text-[11px] text-[#3B2F2A]/70 normal-case tracking-normal line-clamp-2 mt-1 font-normal leading-relaxed break-words">
+                        Inspiring journeys of strength and confidence from local women.
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -247,22 +324,24 @@ export const SoftHeader: React.FC = () => {
               <span className="text-xs font-semibold text-[#8FA58A] uppercase tracking-wider block mb-2">
                 Programs
               </span>
-              <div className="pl-3 space-y-2">
+              <div className="pl-3 space-y-2.5">
                 {siteConfig.programs.map((p) => (
                   <Link
                     key={p.slug}
                     to={`/programs/${p.slug}`}
-                    className="block text-xs text-[#3B2F2A]"
+                    className="block text-xs text-[#3B2F2A] hover:text-[#8FA58A] leading-snug break-words"
                     onClick={() => setMobileMenuOpen(false)}
                   >
+                    <span className="text-[#8FA58A] font-semibold mr-2">{p.number}</span>
                     {p.title}
                   </Link>
                 ))}
                 <Link
                   to="/nutrition"
-                  className="block text-xs text-[#3B2F2A]"
+                  className="block text-xs text-[#3B2F2A] hover:text-[#8FA58A] leading-snug break-words"
                   onClick={() => setMobileMenuOpen(false)}
                 >
+                  <span className="text-[#8FA58A] font-semibold mr-2">05</span>
                   Nutrition Coaching
                 </Link>
               </div>

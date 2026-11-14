@@ -9,11 +9,27 @@ export const EditorialHeader: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [programsDropdownOpen, setProgramsDropdownOpen] = useState(false);
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
+  const [programsAlignRight, setProgramsAlignRight] = useState(false);
+  const [learnAlignRight, setLearnAlignRight] = useState(true);
   const [scrolled, setScrolled] = useState(false);
 
   const location = useLocation();
   const programsRef = useRef<HTMLDivElement>(null);
   const learnRef = useRef<HTMLDivElement>(null);
+
+  const checkProgramsPos = () => {
+    if (programsRef.current && typeof window !== 'undefined') {
+      const rect = programsRef.current.getBoundingClientRect();
+      setProgramsAlignRight(rect.left + 440 > window.innerWidth - 16);
+    }
+  };
+
+  const checkLearnPos = () => {
+    if (learnRef.current && typeof window !== 'undefined') {
+      const rect = learnRef.current.getBoundingClientRect();
+      setLearnAlignRight(rect.left + 440 > window.innerWidth - 16);
+    }
+  };
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -78,8 +94,14 @@ export const EditorialHeader: React.FC = () => {
             <div className="relative" ref={programsRef}>
               <button
                 type="button"
-                onClick={() => setProgramsDropdownOpen(!programsDropdownOpen)}
-                onMouseEnter={() => setProgramsDropdownOpen(true)}
+                onClick={() => {
+                  checkProgramsPos();
+                  setProgramsDropdownOpen(!programsDropdownOpen);
+                }}
+                onMouseEnter={() => {
+                  checkProgramsPos();
+                  setProgramsDropdownOpen(true);
+                }}
                 aria-expanded={programsDropdownOpen}
                 aria-haspopup="true"
                 className={`flex items-center gap-1.5 transition-colors py-2 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B4532A] ${
@@ -95,46 +117,63 @@ export const EditorialHeader: React.FC = () => {
               {programsDropdownOpen && (
                 <div
                   onMouseLeave={() => setProgramsDropdownOpen(false)}
-                  className="absolute left-0 mt-2 w-72 bg-[#FAF7F2] border border-[#1A1714]/15 shadow-xl p-3 z-50 animate-fade-in"
+                  className={`absolute mt-2 w-max min-w-[320px] max-w-[min(440px,calc(100vw-32px))] bg-[#FAF7F2] border border-[#1A1714]/15 shadow-xl p-3.5 z-50 animate-fade-in ${
+                    programsAlignRight ? 'right-0' : 'left-0'
+                  }`}
                   role="menu"
                 >
-                  <div className="px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase text-[#1A1714]/50 font-mono border-b border-[#1A1714]/10 mb-2 whitespace-nowrap">
+                  <div className="px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase text-[#1A1714]/50 font-mono border-b border-[#1A1714]/10 mb-2">
                     Life Stage Coaching
                   </div>
-                  {siteConfig.programs.map((prog) => (
-                    <Link
-                      key={prog.slug}
-                      to={`/programs/${prog.slug}`}
-                      role="menuitem"
-                      className="block px-3 py-2.5 hover:bg-[#F2ECE3] transition-colors group"
-                      onClick={() => setProgramsDropdownOpen(false)}
-                    >
-                      <div className="text-xs font-serif text-[#1A1714] group-hover:text-[#B4532A] transition-colors whitespace-nowrap">
-                        <span className="font-mono text-[10px] text-[#1A1714]/50 mr-2">{prog.number}</span>
-                        {prog.title}
-                      </div>
-                      <div className="text-[11px] text-[#1A1714]/60 normal-case tracking-normal line-clamp-1 mt-0.5 font-normal">
-                        {prog.shortDescription}
-                      </div>
-                    </Link>
-                  ))}
-                  <div className="pt-2 mt-1 border-t border-[#1A1714]/10 space-y-1">
+                  <div className="space-y-1">
+                    {siteConfig.programs.map((prog) => (
+                      <Link
+                        key={prog.slug}
+                        to={`/programs/${prog.slug}`}
+                        role="menuitem"
+                        className="block px-3 py-2.5 hover:bg-[#F2ECE3] transition-colors group rounded-sm"
+                        onClick={() => setProgramsDropdownOpen(false)}
+                      >
+                        <div className="flex items-start gap-3">
+                          <span className="font-mono text-[11px] text-[#1A1714]/50 w-6 shrink-0 pt-0.5 select-none font-medium">
+                            {prog.number}
+                          </span>
+                          <div className="min-w-0 flex-1">
+                            <div className="text-xs font-serif text-[#1A1714] group-hover:text-[#B4532A] transition-colors leading-snug break-words">
+                              {prog.title}
+                            </div>
+                            <div className="text-[11px] text-[#1A1714]/65 normal-case tracking-normal line-clamp-2 mt-1 font-normal leading-relaxed break-words">
+                              {prog.shortDescription}
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="pt-2 mt-2 border-t border-[#1A1714]/10 space-y-1">
                     <Link
                       to="/nutrition"
                       role="menuitem"
-                      className="block px-3 py-2 hover:bg-[#F2ECE3] transition-colors group"
+                      className="block px-3 py-2.5 hover:bg-[#F2ECE3] transition-colors group rounded-sm"
                       onClick={() => setProgramsDropdownOpen(false)}
                     >
-                      <div className="text-xs font-serif text-[#1A1714] group-hover:text-[#B4532A] transition-colors whitespace-nowrap">
-                        Nutrition Coaching
-                      </div>
-                      <div className="text-[11px] text-[#1A1714]/60 normal-case tracking-normal">
-                        Nourishing your body through every stage
+                      <div className="flex items-start gap-3">
+                        <span className="font-mono text-[11px] text-[#B4532A] w-6 shrink-0 pt-0.5 select-none font-medium">
+                          05
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <div className="text-xs font-serif text-[#1A1714] group-hover:text-[#B4532A] transition-colors leading-snug break-words">
+                            Nutrition Coaching
+                          </div>
+                          <div className="text-[11px] text-[#1A1714]/65 normal-case tracking-normal line-clamp-2 mt-1 font-normal leading-relaxed break-words">
+                            Nourishing your body through pregnancy, postpartum recovery, and menopause.
+                          </div>
+                        </div>
                       </div>
                     </Link>
                     <Link
                       to="/programs"
-                      className="block px-3 py-1.5 text-[11px] text-[#B4532A] hover:underline font-mono tracking-wider whitespace-nowrap"
+                      className="block px-3 py-2 text-[11px] text-[#B4532A] hover:underline font-mono tracking-wider"
                       onClick={() => setProgramsDropdownOpen(false)}
                     >
                       VIEW ALL PROGRAMS →
@@ -184,8 +223,14 @@ export const EditorialHeader: React.FC = () => {
             <div className="relative" ref={learnRef}>
               <button
                 type="button"
-                onClick={() => setLearnDropdownOpen(!learnDropdownOpen)}
-                onMouseEnter={() => setLearnDropdownOpen(true)}
+                onClick={() => {
+                  checkLearnPos();
+                  setLearnDropdownOpen(!learnDropdownOpen);
+                }}
+                onMouseEnter={() => {
+                  checkLearnPos();
+                  setLearnDropdownOpen(true);
+                }}
                 aria-expanded={learnDropdownOpen}
                 aria-haspopup="true"
                 className={`flex items-center gap-1.5 transition-colors py-2 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B4532A] ${
@@ -201,25 +246,42 @@ export const EditorialHeader: React.FC = () => {
               {learnDropdownOpen && (
                 <div
                   onMouseLeave={() => setLearnDropdownOpen(false)}
-                  className="absolute left-0 mt-2 w-56 bg-[#FAF7F2] border border-[#1A1714]/15 shadow-xl p-2 z-50 animate-fade-in"
+                  className={`absolute mt-2 w-max min-w-[320px] max-w-[min(440px,calc(100vw-32px))] bg-[#FAF7F2] border border-[#1A1714]/15 shadow-xl p-3.5 z-50 animate-fade-in ${
+                    learnAlignRight ? 'right-0' : 'left-0'
+                  }`}
                   role="menu"
                 >
-                  <Link
-                    to="/blog"
-                    role="menuitem"
-                    className="block px-3 py-2 text-xs font-serif text-[#1A1714] hover:bg-[#F2ECE3] hover:text-[#B4532A] transition-colors whitespace-nowrap"
-                    onClick={() => setLearnDropdownOpen(false)}
-                  >
-                    Articles & Insights
-                  </Link>
-                  <Link
-                    to="/stories"
-                    role="menuitem"
-                    className="block px-3 py-2 text-xs font-serif text-[#1A1714] hover:bg-[#F2ECE3] hover:text-[#B4532A] transition-colors whitespace-nowrap"
-                    onClick={() => setLearnDropdownOpen(false)}
-                  >
-                    Client Stories
-                  </Link>
+                  <div className="px-3 py-1.5 text-[10px] tracking-[0.2em] uppercase text-[#1A1714]/50 font-mono border-b border-[#1A1714]/10 mb-2">
+                    Movement Knowledge
+                  </div>
+                  <div className="space-y-1">
+                    <Link
+                      to="/blog"
+                      role="menuitem"
+                      className="block px-3 py-2.5 hover:bg-[#F2ECE3] transition-colors group rounded-sm"
+                      onClick={() => setLearnDropdownOpen(false)}
+                    >
+                      <div className="text-xs font-serif text-[#1A1714] group-hover:text-[#B4532A] transition-colors leading-snug break-words">
+                        Articles & Insights
+                      </div>
+                      <div className="text-[11px] text-[#1A1714]/65 normal-case tracking-normal line-clamp-2 mt-1 font-normal leading-relaxed break-words">
+                        Evidence-based guides on pelvic floor health and midlife strength training.
+                      </div>
+                    </Link>
+                    <Link
+                      to="/stories"
+                      role="menuitem"
+                      className="block px-3 py-2.5 hover:bg-[#F2ECE3] transition-colors group rounded-sm"
+                      onClick={() => setLearnDropdownOpen(false)}
+                    >
+                      <div className="text-xs font-serif text-[#1A1714] group-hover:text-[#B4532A] transition-colors leading-snug break-words">
+                        Client Stories
+                      </div>
+                      <div className="text-[11px] text-[#1A1714]/65 normal-case tracking-normal line-clamp-2 mt-1 font-normal leading-relaxed break-words">
+                        Real fitness and recovery outcomes from our Stoney Creek community.
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -282,27 +344,29 @@ export const EditorialHeader: React.FC = () => {
               <span className="text-[11px] text-[#1A1714]/50 uppercase tracking-widest block mb-2 font-mono">
                 Programs & Coaching
               </span>
-              <div className="pl-3 space-y-2 border-l-2 border-[#1A1714]/15">
+              <div className="pl-3 space-y-2.5 border-l-2 border-[#1A1714]/15">
                 {siteConfig.programs.map((p) => (
                   <Link
                     key={p.slug}
                     to={`/programs/${p.slug}`}
-                    className="block text-[#1A1714] hover:text-[#B4532A] text-xs font-serif"
+                    className="block text-[#1A1714] hover:text-[#B4532A] text-xs font-serif leading-snug break-words"
                     onClick={() => setMobileMenuOpen(false)}
                   >
+                    <span className="font-mono text-[10px] text-[#1A1714]/50 mr-2">{p.number}</span>
                     {p.title}
                   </Link>
                 ))}
                 <Link
                   to="/nutrition"
-                  className="block text-[#1A1714] hover:text-[#B4532A] text-xs font-serif"
+                  className="block text-[#1A1714] hover:text-[#B4532A] text-xs font-serif leading-snug break-words"
                   onClick={() => setMobileMenuOpen(false)}
                 >
+                  <span className="font-mono text-[10px] text-[#B4532A] mr-2">05</span>
                   Nutrition Coaching
                 </Link>
                 <Link
                   to="/programs"
-                  className="block text-[#B4532A] text-[11px] font-mono"
+                  className="block text-[#B4532A] text-[11px] font-mono pt-1"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   View All Programs →

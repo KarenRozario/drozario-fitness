@@ -9,10 +9,26 @@ export const ModernHeader: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [programsOpen, setProgramsOpen] = useState(false);
   const [learnOpen, setLearnOpen] = useState(false);
+  const [programsAlignRight, setProgramsAlignRight] = useState(false);
+  const [learnAlignRight, setLearnAlignRight] = useState(true);
 
   const location = useLocation();
   const programsRef = useRef<HTMLDivElement>(null);
   const learnRef = useRef<HTMLDivElement>(null);
+
+  const checkProgramsPos = () => {
+    if (programsRef.current && typeof window !== 'undefined') {
+      const rect = programsRef.current.getBoundingClientRect();
+      setProgramsAlignRight(rect.left + 440 > window.innerWidth - 16);
+    }
+  };
+
+  const checkLearnPos = () => {
+    if (learnRef.current && typeof window !== 'undefined') {
+      const rect = learnRef.current.getBoundingClientRect();
+      setLearnAlignRight(rect.left + 440 > window.innerWidth - 16);
+    }
+  };
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -62,8 +78,14 @@ export const ModernHeader: React.FC = () => {
             <div className="relative" ref={programsRef}>
               <button
                 type="button"
-                onClick={() => setProgramsOpen(!programsOpen)}
-                onMouseEnter={() => setProgramsOpen(true)}
+                onClick={() => {
+                  checkProgramsPos();
+                  setProgramsOpen(!programsOpen);
+                }}
+                onMouseEnter={() => {
+                  checkProgramsPos();
+                  setProgramsOpen(true);
+                }}
                 className={`flex items-center gap-1.5 py-2 transition-colors whitespace-nowrap ${
                   location.pathname.startsWith('/programs') || location.pathname === '/nutrition'
                     ? 'text-[#FF6B4A] font-extrabold'
@@ -77,30 +99,66 @@ export const ModernHeader: React.FC = () => {
               {programsOpen && (
                 <div
                   onMouseLeave={() => setProgramsOpen(false)}
-                  className="absolute right-0 mt-2 w-72 bg-[#2E1A47] border border-white/20 shadow-2xl p-3 z-50"
+                  className={`absolute mt-2 w-max min-w-[320px] max-w-[min(440px,calc(100vw-32px))] bg-[#2E1A47] border-2 border-white/20 shadow-2xl p-3.5 z-50 animate-fade-in ${
+                    programsAlignRight ? 'right-0' : 'left-0'
+                  }`}
                   role="menu"
                 >
                   <div className="px-3 py-1.5 text-[10px] tracking-widest uppercase text-[#FF6B4A] font-archivo font-black border-b border-white/10 mb-2">
                     PROGRAM TRACKS
                   </div>
-                  {siteConfig.programs.map((p) => (
-                    <Link
-                      key={p.slug}
-                      to={`/programs/${p.slug}`}
-                      className="block px-3 py-2 text-xs text-white/90 hover:bg-white/10 hover:text-[#FF6B4A] font-archivo font-bold uppercase transition-colors"
-                      onClick={() => setProgramsOpen(false)}
-                    >
-                      <span className="text-[#FF6B4A] mr-2">{p.number}</span>
-                      {p.title}
-                    </Link>
-                  ))}
-                  <div className="pt-2 mt-2 border-t border-white/10">
+                  <div className="space-y-1">
+                    {siteConfig.programs.map((p) => (
+                      <Link
+                        key={p.slug}
+                        to={`/programs/${p.slug}`}
+                        role="menuitem"
+                        className="block px-3 py-2.5 hover:bg-white/10 transition-colors group"
+                        onClick={() => setProgramsOpen(false)}
+                      >
+                        <div className="flex items-start gap-3">
+                          <span className="font-archivo font-black text-xs text-[#FF6B4A] w-6 shrink-0 pt-0.5 select-none">
+                            {p.number}
+                          </span>
+                          <div className="min-w-0 flex-1">
+                            <div className="text-xs text-white group-hover:text-[#FF6B4A] font-archivo font-black uppercase tracking-tight transition-colors leading-snug break-words">
+                              {p.title}
+                            </div>
+                            <div className="text-[11px] text-white/70 normal-case tracking-normal font-manrope line-clamp-2 mt-1 font-normal leading-relaxed break-words">
+                              {p.shortDescription}
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="pt-2 mt-2 border-t border-white/10 space-y-1">
                     <Link
                       to="/nutrition"
-                      className="block px-3 py-2 text-xs text-[#FF6B4A] hover:bg-white/10 font-archivo font-bold uppercase transition-colors"
+                      role="menuitem"
+                      className="block px-3 py-2.5 hover:bg-white/10 transition-colors group"
                       onClick={() => setProgramsOpen(false)}
                     >
-                      Nutrition Coaching →
+                      <div className="flex items-start gap-3">
+                        <span className="font-archivo font-black text-xs text-[#FF6B4A] w-6 shrink-0 pt-0.5 select-none">
+                          05
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <div className="text-xs text-[#FF6B4A] group-hover:text-white font-archivo font-black uppercase tracking-tight transition-colors leading-snug break-words">
+                            Nutrition Coaching
+                          </div>
+                          <div className="text-[11px] text-white/70 normal-case tracking-normal font-manrope line-clamp-2 mt-1 font-normal leading-relaxed break-words">
+                            Nourish every stage with realistic, evidence-informed guidance.
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                    <Link
+                      to="/programs"
+                      className="block px-3 py-2 text-xs text-[#FF6B4A] hover:underline font-archivo font-black uppercase tracking-wider"
+                      onClick={() => setProgramsOpen(false)}
+                    >
+                      VIEW ALL PROGRAMS →
                     </Link>
                   </div>
                 </div>
@@ -138,8 +196,14 @@ export const ModernHeader: React.FC = () => {
             <div className="relative" ref={learnRef}>
               <button
                 type="button"
-                onClick={() => setLearnOpen(!learnOpen)}
-                onMouseEnter={() => setLearnOpen(true)}
+                onClick={() => {
+                  checkLearnPos();
+                  setLearnOpen(!learnOpen);
+                }}
+                onMouseEnter={() => {
+                  checkLearnPos();
+                  setLearnOpen(true);
+                }}
                 className={`flex items-center gap-1.5 py-2 transition-colors whitespace-nowrap ${
                   isActive('/blog') || isActive('/stories') ? 'text-[#FF6B4A]' : 'hover:text-[#FF6B4A]'
                 }`}
@@ -151,23 +215,42 @@ export const ModernHeader: React.FC = () => {
               {learnOpen && (
                 <div
                   onMouseLeave={() => setLearnOpen(false)}
-                  className="absolute right-0 mt-2 w-56 bg-[#2E1A47] border border-white/20 shadow-2xl p-2 z-50"
+                  className={`absolute mt-2 w-max min-w-[320px] max-w-[min(440px,calc(100vw-32px))] bg-[#2E1A47] border-2 border-white/20 shadow-2xl p-3.5 z-50 animate-fade-in ${
+                    learnAlignRight ? 'right-0' : 'left-0'
+                  }`}
                   role="menu"
                 >
-                  <Link
-                    to="/blog"
-                    className="block px-3 py-2 text-xs text-white/90 hover:bg-white/10 hover:text-[#FF6B4A] font-archivo font-bold uppercase transition-colors"
-                    onClick={() => setLearnOpen(false)}
-                  >
-                    Articles & Insights
-                  </Link>
-                  <Link
-                    to="/stories"
-                    className="block px-3 py-2 text-xs text-white/90 hover:bg-white/10 hover:text-[#FF6B4A] font-archivo font-bold uppercase transition-colors"
-                    onClick={() => setLearnOpen(false)}
-                  >
-                    Client Stories
-                  </Link>
+                  <div className="px-3 py-1.5 text-[10px] tracking-widest uppercase text-[#FF6B4A] font-archivo font-black border-b border-white/10 mb-2">
+                    INSIGHTS & EVIDENCE
+                  </div>
+                  <div className="space-y-1">
+                    <Link
+                      to="/blog"
+                      role="menuitem"
+                      className="block px-3 py-2.5 hover:bg-white/10 transition-colors group"
+                      onClick={() => setLearnOpen(false)}
+                    >
+                      <div className="text-xs text-white group-hover:text-[#FF6B4A] font-archivo font-black uppercase tracking-tight transition-colors leading-snug break-words">
+                        Articles & Insights
+                      </div>
+                      <div className="text-[11px] text-white/70 normal-case tracking-normal font-manrope line-clamp-2 mt-1 font-normal leading-relaxed break-words">
+                        Research-backed articles on maternal core health and strength training.
+                      </div>
+                    </Link>
+                    <Link
+                      to="/stories"
+                      role="menuitem"
+                      className="block px-3 py-2.5 hover:bg-white/10 transition-colors group"
+                      onClick={() => setLearnOpen(false)}
+                    >
+                      <div className="text-xs text-white group-hover:text-[#FF6B4A] font-archivo font-black uppercase tracking-tight transition-colors leading-snug break-words">
+                        Client Stories
+                      </div>
+                      <div className="text-[11px] text-white/70 normal-case tracking-normal font-manrope line-clamp-2 mt-1 font-normal leading-relaxed break-words">
+                        Real outcomes and verified member journeys across Stoney Creek.
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -226,22 +309,24 @@ export const ModernHeader: React.FC = () => {
               <span className="text-[#FF6B4A] text-[11px] block mb-2 font-black tracking-widest">
                 PROGRAMS
               </span>
-              <div className="pl-3 space-y-2">
+              <div className="pl-3 space-y-2.5">
                 {siteConfig.programs.map((p) => (
                   <Link
                     key={p.slug}
                     to={`/programs/${p.slug}`}
-                    className="block text-white/90 hover:text-[#FF6B4A]"
+                    className="block text-white/90 hover:text-[#FF6B4A] leading-snug break-words"
                     onClick={() => setMobileMenuOpen(false)}
                   >
+                    <span className="text-[#FF6B4A] mr-2">{p.number}</span>
                     {p.title}
                   </Link>
                 ))}
                 <Link
                   to="/nutrition"
-                  className="block text-[#FF6B4A]"
+                  className="block text-[#FF6B4A] hover:text-white leading-snug break-words"
                   onClick={() => setMobileMenuOpen(false)}
                 >
+                  <span className="text-white/60 mr-2">05</span>
                   Nutrition Coaching →
                 </Link>
               </div>
